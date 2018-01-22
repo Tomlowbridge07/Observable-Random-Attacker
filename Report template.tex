@@ -118,7 +118,15 @@ So $\Omega= \{ (\bm{s},\bm{0}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i
 
 With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{o_{j}}=0$ for $i \neq j$. 
 
-Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \, \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \, \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+
+\section{Single node problem}
+Focusing on the problem of a single nodes and stripping off the index, $i$, for the nodes. This problem has a visiting cost, $\omega>0$ and we are looking to minimize the long run cost of the system.
+
+\subsection{Deterministic Attack time}
+Consider the case where $X=x$, where $x$ is a constant (So $B=x$). Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
+
+So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$
 
 %End of main part of document
 \bibliography{mybib}
@@ -159,8 +167,21 @@ W(k+1)-W(k)&= c \lambda ((k+1) \int_{k}^{k+1} P(X \leq t)dt - \int_{0}^{k} P(X \
 
 As $P(X \leq t)$ is non-decreasing.
 
-Second if $\omega \in []$
+Second if $\omega \in [W(k-1),W(k)]$ then we will show that $f(m)$ is non-increasing for $m \leq k$ and non-decreasing for $m \geq k$.
 
+For $m \leq k$
+\begin{align*}
+f(m)-f(m-1)&=\frac{1}{m(m-1)}(c \lambda (m-1) \int_{0}^{m-1} P(X \leq t) dt - c \lambda m \int_{0}^{m-2} P(X \leq t) dt - \omega) \\
+&=\frac{1}{m(m-1)}(W(m-1)-\omega) \leq \frac{1}{m(m-1)} (W(m-1)-W(k-1)) \leq 0
+\end{align*}
 
+Similarly for $m \geq k$
+\begin{align*}
+f(m+1)-f(m)&= \frac{1}{m(m+1)} (W(m)-\omega) \geq \frac{1}{m(m+1)} (W(m)-W(k)) \geq 0
+\end{align*}
+Hence choosing to visit every $k$ time units is optimal.
+
+Third and finally our upper limit of $c \lambda (1+E[X])$ (Which is $W(k)$ for $k \geq B+1$) means we are indifferent from picking $k$ and $k+1$ for $k \geq B+1$ so we will never visit. I.e
+$f(k+1) \leq f(k) \iff w \geq W(k)$ so not optimal if $f(k+1) \geq f(k) \, \forall k \iff w \geq \sup\limits_{k=1,2,...} W(k)=\lim\limits_{k \rightarrow \infty} W(k)=c \lambda (1+E[X])$
 \end{proof}
 \end{document}
