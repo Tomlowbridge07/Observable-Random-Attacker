@@ -1,0 +1,159 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{natbib}
+%\usepackage{float}
+\usepackage{appendix}
+\usepackage{subfig}
+\usepackage{enumitem}
+\usepackage{newfloat}
+\usepackage[utf8]{inputenc}
+\usepackage{floatrow}
+\usepackage{bm}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes.misc,calc, positioning, hobby, backgrounds}
+
+
+%\DeclarePairedDelimiter{\floor}{\lfloor}{\rightfloor}
+%\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\newcommand{\halflength}{\ensuremath{\floor{\frac{m}{2}}}}
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem*{note}{Note}
+
+\DeclareFloatingEnvironment[fileext=los,
+    listname={List of Example Figures},
+    name=Example Figure,
+    placement=tbhp,
+    within=section,]{examplefigure}
+
+\title{A graph Patrol Problem with a random attacker and an observable patroller}
+\date{\today}
+\author{Thomas Lowbridge \\ School of Mathematical Sciences \\ University of Nottingham}
+
+\bibliographystyle{plain}
+
+\begin{document}
+
+\pagestyle{empty}
+{
+  \renewcommand{\thispagestyle}[1]{}
+  \maketitle
+  \tableofcontents  
+}
+\clearpage
+\pagestyle{plain}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\newpage
+\pagenumbering{arabic}
+\section{Introduction to a random attacker patroller game with observation}
+The model has a graph, $Q=(N,E)$, with a set of nodes labeled $1$ to $n$, $N=\{1,...,n \}$, and a set of edges linking these nodes. The adjacency matrix $a=(a_{i,j})_{i,j \in N}$, has $a_{i,j}=1$ if $i$ and $j$ are adjacent and $a_{i,j}=0$ if they are not adjacent. By definition we will use $a_{i,i}=1 \quad \forall i \in N$.
+
+
+An attacker has some attack time for node $i$, called $X_{i}$ and chooses to attack node $i$ with some probability, $p_{i}$. The attackers arrive according to some Poisson process with rate $\Lambda$, so by Poisson thinning they arrive at node $i$ according to a Poisson process with rate $\lambda_{i}=\Lambda p_{i}$.
+
+The patroller, uses some walk (with possible waiting) to patrol the graph.We assume that a patrollers walk is able to capture all attacks that have already begun, but not completed. But unlike the `normal' setting the past unit time, the attackers do not start their attacks and instead will wait for the patroller to leave. Each missed attack at node $i$ inccures a cost of $c_{i}$ to the patroller.
+
+We can formulate the state space, as the delineation of separate nodes. $\Omega= \{ (\bm{s},\bm{o})= \quad | \quad s_{i}=1,2,... , o_{i}=0,1,2,... \quad \forall i \in N \}$. Where $\bm{s}=(s_{1},...,s_{n})$ has each $s_{i}$ represent the number of time periods since the last visit for that node $i$ and $\bm{o}=(o_{1},...,o_{n})$ has each $o_{i}$ represent the number of attackers present in the last time period when the node $i$ was last visited (i.e The number of attackers known to be beginning their attack $s_{i}$ time ago at node $i$).
+
+The $s_{i}$ increment by $1$ if the node is not visited upon each action, or if the node is visited reset to $s_{i}=1$. The $o_{i}$ do not change for nodes not visited, when a node is visited, the $0_{i}$ `reset' according to the Poisson distribution $Po(\lambda_{i} \times 1)=Po(\lambda)$. Due to $s_{i}=1$ if and only if the patroller is currently at this node, we will use $l(\bm{s})=\arg\min\limits_{i \in N} s_{i}$ to represent the current node.
+
+As the future of the process is independent of its past, the process can be formulated as a Markov decision process(MDP), where at the end of the period, the patroller chooses which adjacent node to visit. Thus the action space is $\mathcal{A}=\{ j \, | \, a_{l(\bm{s}),j}=1 \}$, with a deterministic, stationary policy, $\pi: \Omega \rightarrow \mathcal{A}$.
+
+The transitions of the MDP aren't entirely deterministic, $\bm{s}$ is purely deterministic, but $\bm{o}$ is partially probabilistic. In state $(\bm{s},\bm{o})$ with the decision to visit node $i \in \mathcal{A}$, then the state will transition to $(\widetilde{\bm{s}},\widetilde{\bm{o}})$ where $\widetilde{s}_{j}=s_{j}+1$ if $j \neq i$ and $\widetilde{s}_{j}=1$ if $j=i$ and $\widetilde{o}_{j}=o_{j}$ if $j \neq i$ and $o_{j} \sim Po(\lambda)$ if $j=i$.
+
+To write down the cost function, which is dependent on the state $(\bm{s},\bm{o})$ and the action to visit node $i$ chosen, we will look at the expected cost of incurred at all nodes and sum these costs for the next time period.
+
+\begin{align}
+C_{j}(\bm{s},\bm{o},i)&= \begin{cases}
+c_{j} \lambda_{j} \int_{0}^{s_{j}} P(t-1<X_{j} \leq t) dt +o_{j}P(0<X_{j} \leq s_{j})  \text{ for } i \neq j \\
+c_{j} \lambda_{j} \int_{0}^{s_{j}-1} P(t-1<X_{j} \leq t) dt +o_{j}P(0<X_{j} \leq s_{j})  \text{ for } i=j \\
+\end{cases}
+ \nonumber \\
+&= \begin{cases}
+c_{j} \lambda_{j} \int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt +o_{j}P(X_{j} \leq s_{j}) \text{ for } i \neq j \\
+c_{j} \lambda_{j} \int_{s_{j}-2}^{s_{j}-1} P(X_{j} \leq t) dt +o_{j}P(X_{j} \leq s_{j})   \text{ for } i=j \\
+\end{cases} 
+\end{align}
+   
+With $C(\bm{s},\bm{0},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{o},i)$ being the cost function for the MDP.
+
+We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that instead of using $Po(\lambda)$ for the observation transition and placing a bound on this Poisson distribution, named $b_{j}$, so we are now drawing from a truncated Poisson distribtion, henceforth called $TPo(\lambda,b_{j})$. Then we can immediately say that the $o_{j} \leq b_{j}$ state is finite and the state $s_{j}$ has the same cost function for $s_{j} \geq B_{j}+2$ and hence we will restrict our space to this. So our modified transition is $\widetilde{s_{j}}=\min(s_{j}+1,B_{j}+2)$ if $j \neq i$ and $\widetilde{s_{j}}=1$ if $i=j$. $\widetilde{o_{j}}=o_{j}$ if $i \neq j$ and $o_{j} \sim TPo(\lambda,b_{j})$ if $i=j$.
+
+Further reduction is possible as if $X_{j} \leq B_{j}$ then any observations $o_{j}$ which started $s_{j}$ time units ago is bound to have finished if $s_{j} \geq B_{j}+1$. So our new state space is further reduced to having only $(\floor{B_{j}}+1,0)$ when $s_{j}=\floor{B_{j}}+1$.
+
+So $\Omega= \{ (\bm{s},\bm{0}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i} \, \forall i \in N \} \cup \{(\floor{B_{j}}+2,0) \}$.
+
+With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{o_{j}}=0$ for $i \neq j$. 
+
+Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \, \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \, \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+
+%End of main part of document
+\bibliography{mybib}
+
+\appendix
+\pagenumbering{roman}
+\appendixpage
+\addappheadtotoc
+\section{Observations are always zero}
+\label{Observations are always zero}
+
+On a single node we are limited to the state space of $\Omega=\{ (1,0),...,(\floor{B}+2,0) \}$, then on this state space we can implement a policy which returns every $k$ time units, this will gives an average long run cost of
+
+\begin{equation}
+f(k)=\frac{c \lambda \int_{0}^{k-1} P(X \leq t) dt +\omega}{k}
+\end{equation}
+
+So to find out when the patroller would be indifferent from choosing to return every $k$ or every $k+1$, solve $f(k+1)-f(k)=0$ giving
+
+$$\frac{1}{k(k+1)}(c \lambda (k \int_{k-1}^{k} P(X \leq t) dt - \int_{0}^{k-1} P(X \leq t) dt ) -\omega)=0 $$
+
+Prompting an index of
+
+$$W(k)=c \lambda (k \int_{k-1}^{k} P(X \leq t) dt - \int_{0}^{k-1} P(X \leq t) dt )$$
+
+We note that $W(0)=0$ and for $k \geq B+1$ $W(k)=c \lambda (k - int_{0}^{k+1} P(X \leq t)dt=c \lambda (1+\int_{0}^{k-1} P(X > t)dt)=c \lambda (1+ E[X])$. We will now show that:
+\begin{itemize}
+\item $W(k)$ is non-decreasing
+\item The optimal policy when $\omega \in [W(k-1),W(k)]$ is to visit every k time units
+\item If $w \geq c \lambda (1+E[X])$ then it is optimal to never visit
+\end{itemize}
+
+\begin{proof}
+\begin{itemize}
+\item $W(k+1)-W(k)= c \lambda ((k+1) \int_{k}^{k+1} P(X \leq t)dt - \int_{0}^{k} P(X \leq t)dt -(k \int_{k-1}^{k} P(X \leq t)dt - \int_{0}^{k-1} P(X \leq t)dt))=$
+\end{itemize}
+\end{proof}
+\end{document}
