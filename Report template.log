@@ -1,12 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  22 JAN 2018 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  23 JAN 2018 17:33
 entering extended mode
-**"./Report template.tex"
-("Report template.tex"
-LaTeX2e <2017/01/01> patch level 1
-Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"Report template.tex"
+(./Report template.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,29 +23,34 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.c
+fg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.
+def
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr
+.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.s
+ty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.c
+fg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -58,40 +65,51 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/frontendlayer/ti
+kz.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgf.s
+ty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs
+.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfu
+til-common.tex
 \pgfutil@everybye=\toks14
 \pgfutil@tempdima=\dimen103
 \pgfutil@tempdimb=\dimen104
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.te
-x")) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfu
+til-common-lists.tex))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfu
+til-latex.def
 \pgfutil@abb=\box26
-("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfr
+cs.code.tex
 Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
 Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfco
+re.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.st
+y
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics/graphics.st
+y
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+ (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphic
+s.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
@@ -99,16 +117,19 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 \Gin@req@height=\dimen105
 \Gin@req@width=\dimen106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfs
+ys.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfk
+eys.code.tex
 \pgfkeys@pathtoks=\toks16
 \pgfkeys@temptoks=\toks17
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
-x"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfk
+eysfiltered.code.tex
 \pgfkeys@tmptoks=\toks18
 ))
 \pgf@x=\dimen107
@@ -128,33 +149,43 @@ x"
 \t@pgf@toka=\toks19
 \t@pgf@tokb=\toks20
 \t@pgf@tokc=\toks21
- ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+f.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys-pdftex.def
 File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
-"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys-common-pdf.def
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
-ex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
 \pgfsyssoftpath@smallbuffer@items=\count92
 \pgfsyssoftpath@bigbuffer@items=\count93
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
-ex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-)) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+core.code.tex
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
- ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.c
+ode.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathca
+lc.code.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathut
+il.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathpa
+rser.code.tex
 \pgfmath@dimen=\dimen115
 \pgfmath@count=\count94
 \pgfmath@box=\box27
@@ -162,28 +193,30 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 \pgfmath@stack@operand=\toks23
 \pgfmath@stack@operation=\toks24
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
-tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
-ic.code.tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
-.tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
-code.tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
-ex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
-tex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
-ex")
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
-hmetics.code.tex")))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.code.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.basic.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.trigonometric.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.random.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.comparison.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.base.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.round.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.misc.code.tex)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.integerarithmetics.code.tex)))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfl
+oat.code.tex
 \c@pgfmathroundto@lastzeros=\count95
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
-"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen116
 \pgf@picmaxx=\dimen117
@@ -200,113 +233,128 @@ File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@zx=\dimen128
 \pgf@zy=\dimen129
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
-ode.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 \pgf@path@lastx=\dimen130
 \pgf@path@lasty=\dimen131
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
-tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathusage.code.tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen132
 \pgf@shorten@start@additional=\dimen133
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
-"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corescopes.code.tex
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box28
 \pgf@hbox=\box29
 \pgf@layerbox@main=\box30
 \pgf@picture@serial@count=\count96
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
-de.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen134
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
-.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coretransformations.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 \pgf@pt@x=\dimen135
 \pgf@pt@y=\dimen136
 \pgf@pt@temp=\dimen137
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
-x"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreobjects.code.tex
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
-code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
-"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corearrows.code.tex
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 \pgfarrowsep=\dimen138
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen139
 \pgf@sys@shading@range@num=\count97
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
-x"
+)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
-ex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreexternal.code.tex
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box31
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
-"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corelayers.code.tex
 File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
-de.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coretransparency.code.tex
 File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
-ex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepatterns.code.tex
 File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmod
+uleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
 \pgfnodeparttextbox=\box32
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmod
+uleplot.code.tex
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
-sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pg
+fcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
 \pgf@nodesepstart=\dimen140
 \pgf@nodesepend=\dimen141
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
-sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pg
+fcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
-)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor
+.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkey
+s.sty
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfk
+eys.code.tex))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.c
+ode.tex))
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgff
+or.code.tex
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex")
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.c
+ode.tex)
 \pgffor@iter=\dimen142
 \pgffor@skip=\dimen143
 \pgffor@stack=\toks25
 \pgffor@toks=\toks26
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
-code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgfl
+ibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \pgf@plot@mark@count=\count98
 \pgfplotmarksize=\dimen144
@@ -326,7 +374,8 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikznumberofcurrentchild=\count101
 \tikz@fig@count=\count102
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmod
+ulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 \pgfmatrixcurrentrow=\count103
 \pgfmatrixcurrentcolumn=\count104
@@ -334,28 +383,27 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 )
 \tikz@expandcount=\count106
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-librarytopaths.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks27
 \ex@=\dimen151
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+)) (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.st
+y
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen152
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+) (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count107
@@ -396,17 +444,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.st
+y
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks32
 \thm@bodyfont=\toks33
@@ -418,10 +467,10 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip48
 \dth@everypar=\toks37
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.
+sty
 Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+ (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count119
 \calc@Bcount=\count120
@@ -434,7 +483,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count121
 \calc@Cskip=\skip51
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.st
+y
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
@@ -451,7 +501,7 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen167
 \l_MT_below_shortintertext_sep=\dimen168
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen169
 \WF@size=\dimen170
 \c@WF@wrappedlines=\count123
@@ -459,37 +509,37 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \WF@everypar=\toks38
 Package: wrapfig 2003/01/31  v 3.6
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/multirow/multirow.st
+y
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip53
 \multirow@cntb=\count124
 \multirow@dima=\skip54
 \bigstrutjot=\dimen171
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\comment\comment.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write4
 
 Excluding comment 'comment')
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip55
 \bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count125
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/appendix/appendix.st
+y
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count126
 \c@@ppsavesec=\count127
 \c@@ppsaveapp=\count128
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+) (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen172
@@ -517,7 +567,8 @@ Package caption Info: wrapfig package is loaded.
 \sf@top=\skip60
 \sf@bottom=\skip61
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.st
+y
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip62
 \enit@outerparindent=\dimen180
@@ -525,23 +576,22 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box40
 \enitdp@description=\count137
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\newfloat.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/caption/newfloat.sty
 Package: newfloat 2015/09/17 v1.1-109 Defining new floating environments (AR)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+) (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks40
 \inpenc@posthook=\toks41
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
-File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -753,6 +803,8 @@ File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
    defining Unicode char U+1E02 (decimal 7682)
    defining Unicode char U+1E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
@@ -773,12 +825,14 @@ File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
-File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -818,8 +872,8 @@ File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
-File: omsenc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -842,7 +896,8 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\floatrow\floatrow.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/floatrow/floatrow.st
+y
 Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
 \c@float@type=\count138
 \float@exts=\toks42
@@ -879,8 +934,7 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \LTleft=\skip75
 \LTright=\skip76
 \flrow@types=\toks44
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\bm.sty"
+) (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
 \symboldletters=\mathgroup7
@@ -888,46 +942,48 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-librarycalc.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-libraryfit.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.5)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-libraryshapes.misc.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibraryshapes.misc.code.tex
 File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
-.misc.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shap
+es/pgflibraryshapes.misc.code.tex
 File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-librarypositioning.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hobby\tikzlibraryhobby.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\latex\hobby\pgflibraryhobby.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\latex\hobby\hobby.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-Package: expl3 2017/05/29 L3 programming layer (loader) 
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/hobby/tikzlibraryhob
+by.code.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/hobby/pgflibraryhobb
+y.code.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/hobby/hobby.code.tex
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2017/05/13 L3 programming layer (loader) 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
-Package: expl3 2017/05/29 L3 programming layer (code)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3-code.
+tex
+Package: expl3 2017/05/13 L3 programming layer (code)
 \c_max_int=\count145
 \l_tmpa_int=\count146
 \l_tmpb_int=\count147
 \g_tmpa_int=\count148
 \g_tmpb_int=\count149
-\g__intarray_font_int=\count150
-\g__prg_map_int=\count151
-\c_log_iow=\count152
-\l_iow_line_count_int=\count153
-\l__iow_line_target_int=\count154
-\l__iow_one_indent_int=\count155
-\l__iow_indent_int=\count156
+\g__prg_map_int=\count150
+\c_log_iow=\count151
+\l_iow_line_count_int=\count152
+\l__iow_line_target_int=\count153
+\l__iow_one_indent_int=\count154
+\l__iow_indent_int=\count155
 \c_zero_dim=\dimen185
 \c_max_dim=\dimen186
 \l_tmpa_dim=\dimen187
@@ -946,76 +1002,30 @@ Package: expl3 2017/05/29 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count157
-\c__fp_leading_shift_int=\count158
-\c__fp_middle_shift_int=\count159
-\c__fp_trailing_shift_int=\count160
-\c__fp_big_leading_shift_int=\count161
-\c__fp_big_middle_shift_int=\count162
-\c__fp_big_trailing_shift_int=\count163
-\c__fp_Bigg_leading_shift_int=\count164
-\c__fp_Bigg_middle_shift_int=\count165
-\c__fp_Bigg_trailing_shift_int=\count166
-\c__fp_rand_size_int=\count167
-\c__fp_rand_four_int=\count168
-\c__fp_rand_eight_int=\count169
-\l__sort_length_int=\count170
-\l__sort_min_int=\count171
-\l__sort_top_int=\count172
-\l__sort_max_int=\count173
-\l__sort_true_max_int=\count174
-\l__sort_block_int=\count175
-\l__sort_begin_int=\count176
-\l__sort_end_int=\count177
-\l__sort_A_int=\count178
-\l__sort_B_int=\count179
-\l__sort_C_int=\count180
-\l__tl_build_start_index_int=\count181
-\l__tl_build_index_int=\count182
-\l__tl_analysis_normal_int=\count183
-\l__tl_analysis_index_int=\count184
-\l__tl_analysis_nesting_int=\count185
-\l__tl_analysis_type_int=\count186
-\l__regex_internal_a_int=\count187
-\l__regex_internal_b_int=\count188
-\l__regex_internal_c_int=\count189
-\l__regex_balance_int=\count190
-\l__regex_group_level_int=\count191
-\l__regex_mode_int=\count192
-\c__regex_cs_in_class_mode_int=\count193
-\c__regex_cs_mode_int=\count194
-\l__regex_catcodes_int=\count195
-\l__regex_default_catcodes_int=\count196
-\c__regex_catcode_D_int=\count197
-\c__regex_catcode_S_int=\count198
-\c__regex_catcode_L_int=\count266
-\c__regex_catcode_O_int=\count267
-\c__regex_catcode_A_int=\count268
-\c__regex_all_catcodes_int=\count269
-\l__regex_show_lines_int=\count270
-\l__regex_min_state_int=\count271
-\l__regex_max_state_int=\count272
-\l__regex_left_state_int=\count273
-\l__regex_right_state_int=\count274
-\l__regex_capturing_group_int=\count275
-\l__regex_min_pos_int=\count276
-\l__regex_max_pos_int=\count277
-\l__regex_current_pos_int=\count278
-\l__regex_start_pos_int=\count279
-\l__regex_success_pos_int=\count280
-\l__regex_current_char_int=\count281
-\l__regex_current_catcode_int=\count282
-\l__regex_last_char_int=\count283
-\l__regex_case_changed_char_int=\count284
-\l__regex_current_state_int=\count285
-\l__regex_step_int=\count286
-\l__regex_min_active_int=\count287
-\l__regex_max_active_int=\count288
-\l__regex_replacement_csnames_int=\count289
-\l__regex_match_count_int=\count290
-\l__regex_min_submatch_int=\count291
-\l__regex_submatch_int=\count292
-\l__regex_zeroth_submatch_int=\count293
+\l_keys_choice_int=\count156
+\c__fp_leading_shift_int=\count157
+\c__fp_middle_shift_int=\count158
+\c__fp_trailing_shift_int=\count159
+\c__fp_big_leading_shift_int=\count160
+\c__fp_big_middle_shift_int=\count161
+\c__fp_big_trailing_shift_int=\count162
+\c__fp_Bigg_leading_shift_int=\count163
+\c__fp_Bigg_middle_shift_int=\count164
+\c__fp_Bigg_trailing_shift_int=\count165
+\c__fp_rand_size_int=\count166
+\c__fp_rand_four_int=\count167
+\c__fp_rand_eight_int=\count168
+\l__sort_length_int=\count169
+\l__sort_min_int=\count170
+\l__sort_top_int=\count171
+\l__sort_max_int=\count172
+\l__sort_true_max_int=\count173
+\l__sort_block_int=\count174
+\l__sort_begin_int=\count175
+\l__sort_end_int=\count176
+\l__sort_A_int=\count177
+\l__sort_B_int=\count178
+\l__sort_C_int=\count179
 \c_empty_box=\box44
 \l_tmpa_box=\box45
 \l_tmpb_box=\box46
@@ -1057,24 +1067,26 @@ Package: expl3 2017/05/29 L3 programming layer (code)
 \l__coffin_scaled_total_height_dim=\dimen271
 \l__coffin_scaled_width_dim=\dimen272
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3kernel/l3pdfmode.d
+ef
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count294
+\l__driver_color_stack_int=\count180
 \l__driver_tmp_box=\box59
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
-Package: xparse 2017/05/29 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count295
-\g__xparse_grabber_int=\count296
-\l__xparse_m_args_int=\count297
-\l__xparse_mandatory_args_int=\count298
-\l__xparse_v_nesting_int=\count299
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3packages/xparse/xp
+arse.sty
+Package: xparse 2017/05/13 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count181
+\g__xparse_grabber_int=\count182
+\l__xparse_m_args_int=\count183
+\l__xparse_mandatory_args_int=\count184
+\l__xparse_v_nesting_int=\count185
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hobby\pml3array.sty"
-\l_array_base_int=\count300
-\l_array_top_int=\count301
-\l_array_tmp_int=\count302
-\g_array_base_int=\count303
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/hobby/pml3array.sty
+\l_array_base_int=\count186
+\l_array_top_int=\count187
+\l_array_tmp_int=\count188
+\g_array_base_int=\count189
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1091,8 +1103,8 @@ Package: xparse 2017/05/29 L3 Experimental document command parser
 . 
 . Defining command \HobbyDisableAux with sig. '' on line 59.
 .................................................
-\l_hobby_npoints_int=\count304
-\l_hobby_draw_int=\count305
+\l_hobby_npoints_int=\count190
+\l_hobby_draw_int=\count191
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1154,20 +1166,20 @@ Package: xparse 2017/05/29 L3 Experimental document command parser
 . Defining command \hobbyclearpath with sig. '' on line 770.
 .................................................
 )))
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
-librarybackgrounds.code.tex"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.3)
 \pgf@layerbox@background=\box60
 \pgf@layerboxsaved@background=\box61
 )
-\c@theorem=\count306
+\c@theorem=\count192
 Package newfloat Info: New float `examplefigure' with options `fileext=los, lis
 tname={List of Example Figures}, name=Example Figure, placement=tbhp, within=se
 ction,' on input line 56.
-\c@examplefigure=\count307
+\c@examplefigure=\count193
 Package newfloat Info: float type `examplefigure'=4 on input line 56.
-\c@losdepth=\count308
- ("Report template.aux")
+\c@losdepth=\count194
+ (./Report template.aux)
 \openout1 = `"Report template.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
@@ -1183,51 +1195,60 @@ LaTeX Font Info:    ... okay on input line 64.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf
+.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count309
+\scratchcounter=\count195
 \scratchdimen=\dimen273
 \scratchbox=\box62
-\nofMPsegments=\count310
-\nofMParguments=\count311
+\nofMPsegments=\count196
+\nofMParguments=\count197
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count312
+\MPscratchCnt=\count198
 \MPscratchDim=\dimen274
-\MPnumerator=\count313
-\makeMPintoPDFobject=\count314
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
 \everyMPtoPDFconversion=\toks46
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmd
+s.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.
+sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-ba
+se.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinek
+eys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.s
+ty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys
+.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.
+sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -1240,8 +1261,12 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-ABD: EveryShipout initializing macros
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf
+-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: floatrow package is loaded.
@@ -1249,73 +1274,87 @@ Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\floatrow\fr-subfig.sty"
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/floatrow/fr-subfig.s
+ty
 Package: fr-subfig 2007/12/24 v0.1g (beta) floatrow: additions for subfig
 \FBsc@max=\skip83
 \FBso@max=\skip84
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 69.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+ (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 69.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+ (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) ("Report template.toc")
+)
+(./Report template.toc)
 \tf@toc=\write5
 \openout5 = `"Report template.toc"'.
 
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1
+{/maths/linuxlocal/AMD64/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.
+map}] [1
 
 ] [2]
-No file "Report template".bbl.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 157.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 133.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
 
-Overfull \hbox (54.96243pt too wide) in paragraph at lines 166--166
+[3] [4] [5]
+Overfull \hbox (118.78181pt too wide) in paragraph at lines 273--273
 [] 
  []
 
+No file "Report template".bbl.
 [1]
-Overfull \hbox (52.6498pt too wide) in paragraph at lines 176--176
+Overfull \hbox (54.96243pt too wide) in paragraph at lines 313--313
 [] 
  []
 
-[2] ("Report template.aux") ) 
+
+Overfull \hbox (52.6498pt too wide) in paragraph at lines 323--323
+[] 
+ []
+
+[2] (./Report template.aux) ) 
 Here is how much of TeX's memory you used:
- 24778 strings out of 493333
- 488005 string characters out of 3139194
- 516886 words of memory out of 3000000
- 27922 multiletter control sequences out of 15000+200000
- 543998 words of font info for 72 fonts, out of 3000000 for 9000
+ 24180 strings out of 492995
+ 479206 string characters out of 6132690
+ 502776 words of memory out of 5000000
+ 27343 multiletter control sequences out of 15000+600000
+ 17366 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,103p,10470b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Report template.pdf" (5 pages, 185786 bytes).
+ 55i,16n,103p,10468b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+</maths/linuxlocal/AMD64/texlive/2017/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb></maths/linuxlocal/AMD64/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></maths/linuxlocal/AMD64/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></maths/linuxl
+ocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmib10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-di
+st/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></maths/linuxlocal/AMD64/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></maths/linuxlocal
+/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></maths
+/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.
+pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></maths/linuxlocal/AMD64/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Report template.pdf" (8 pages, 196585 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 98 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

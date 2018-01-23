@@ -118,7 +118,162 @@ So $\Omega= \{ (\bm{s},\bm{0}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i
 
 With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{o_{j}}=0$ for $i \neq j$. 
 
-Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \, \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \, \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+
+\section{Single node problem}
+Focusing on the problem of a single nodes and stripping off the index, $i$, for the nodes. This problem has a visiting cost, $\omega>0$ and we are looking to minimize the long run cost of the system.
+
+\subsection{Deterministic Attack time}
+Consider the case where $X=x$, where $x$ is a constant (So $B=x$). Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
+
+So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
+
+Suppose now we are in the state $(\floor{B}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
+\begin{itemize}
+\item Visit now
+\item Visit at the next time step
+\item Visit $k$ time steps later, $k \geq 2$
+\end{itemize}
+
+\begin{note}
+The logic of these is simply that the patroller can decide when to visit, but if they reach $(\floor{B}+2,0)$ and decide to wait for one time period, they will not transition and therefore the same decide will be made again.
+\end{note}
+
+Now we write down the long-run average costs of following such a strategy
+\begin{itemize}
+\item Visit now:
+\begin{equation}
+\label{Visit now}
+\frac{c \lambda \int_{0}^{\floor{B}} P(X \leq t)dt +\omega}{\floor{B}+1}
+=\frac{\omega}{\floor{B}+1}
+\end{equation}
+\item Visit at the next time step:
+\begin{equation}
+\label{Visit at the next time step}
+\frac{oc+ c \lambda \int_{0}^{\floor{B}+1} P(X \leq t)dt+ \omega}{\floor{B}+2}
+=\frac{oc + c \lambda (\floor{B}+1-B) + \omega}{\floor{B}+2}
+\end{equation}
+\item Visit $k$ time steps later, $k \geq 2$:
+\begin{equation}
+\label{Visit k time steps later}
+\frac{oc+ c \lambda \int_{0}^{\floor{B}+k} P(X \leq t)dt+ \omega}{\floor{B}+k+1}
+=\frac{oc + c \lambda (\floor{B}+k-B) + \omega}{\floor{B}+k+1}
+\end{equation}
+\end{itemize}
+
+Our first decision is if we should Visit now, this depends on if Equation \ref{Visit now} is less than equation \ref{Visit at the next time step} and \ref{Visit k time steps later}.
+
+Well for this to be true we get that $\omega < c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)$ and $\omega< c (\floor{B}+1)(\lambda (\frac{\floor{B}-B}{k}+1)+\frac{o}{k})$. Hence as the second inequality ($\forall k=2,3,...$) is guaranteed by the first inequality we get.
+
+Visit now if:
+\begin{equation}
+\omega < c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)
+\end{equation}
+
+Similarly for visiting at the next time step, we get $\omega > c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)$ and $\omega < c (\lambda (B+1) - \frac{o}{k-1})$ for all $k=2,...$ so $\omega < c (\lambda (B+1) -o)$.
+
+Visit next time step if:
+\begin{equation}
+c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)< \omega < c (\lambda (B+1) -o)
+\end{equation}
+
+\begin{note}
+The question is whether it is possible to get an empty region here. Well if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) > c (\lambda (B+1) -o)$ is empty it will enforce the never visit decision immediately
+\end{note}
+
+We will never visit, if we at a point were we will choose $k+1$ over $k$ for all $k=2,..$.
+
+This happens when $\omega > c(\lambda (B+1) -o)$.
+
+Never visit if:
+\begin{equation}
+\omega > c(\lambda (B+1) -o)
+\end{equation}
+
+So to conclude, we either end up with $3$ or $2$ regions
+\begin{itemize}
+\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) \leq c (\lambda (B+1) - o)$
+ \begin{itemize}
+ \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)$
+ \item Visit next time step if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) \leq \omega \leq c (\lambda (B+1) - o)$
+ \item Never Visit if $\omega \geq c(\lambda (B+1) -o)$
+ \end{itemize}
+\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) > c (\lambda (B+1) - o)$
+ \begin{itemize}
+ \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)$
+ \item Never visit if $\omega \geq c (\floor{B}+1) (\lambda (\floor{B}-B+1)$
+ \end{itemize}
+\end{itemize}
+
+\begin{note}
+If $o=0$ then we never fall into the second region as $(\floor{B}+1)(\floor{B}-B+1)=(\floor{B}+1)(1-R) \leq \floor{B}+1 \leq B+1$ where the remainder upon flooring is defined by $R=B-\floor{B}$ and $0 \leq R < 1$.
+\end{note}
+
+Also of interest is if $X=B$ has $B$ very close to an interger, eg.$B=3.01$ then the condition to fall into the second region is that $o < \frac{\lambda}{100}$, requiring a very high rate to fall into the category of never deciding to wait one time step.
+
+\subsection{Bernoulli Attack time}
+Consider the case where $X=\begin{cases}
+x_{1} \text{ with probability } p \\
+x_{2} \text{ with probability } 1-p \\
+\end{cases}$ then we apply the same logic to attempt to get a decision dependent on the visiting cost. We will assume without loss of generality that $x_{2} > x_{1}$, then $B=x_{2}$. We will get some reduction of the state space as before, but it will not be as drastic, by applying the same logic there may be a gap between some states we will never choose to visit.
+
+We will limit the state space with non-zero observed attackers to have either $s_{j}=\floor{x_{1}}+1$ or $s_{j}=\floor{x_{2}}+1$, due to the first one catching all the attacks caught for any $s_{j}<\floor{x_{1}}+1$ and the second one catching all attacks caught for any $\floor{x_{1}}<s_{j}<\floor{x_{2}}+1$.
+
+So in the Bernoulli case $\Omega \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{x_{1}}+2,o) \}$.
+
+We will be assuming that $\floor{x_{1}} \neq \floor{x_{2}}$ as otherwise it follows that only one $s_{j}$ survives.
+
+Suppose we are in the state $(\floor{x_{1}}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
+\begin{itemize}
+\item Visit now
+\item Wait till we are in state $(\floor{x_{2}}+1,o)$ and then visit
+\item Wait till we are in state $(\floor{x_{2}}+2,o)$ and then visit
+\item Wait till we are in state $(\floor{x_{2}}+2,o)$ and wait
+\end{itemize}
+
+Now we write down the long-run average costs of following such a strategy
+\begin{itemize}
+\item Visit now:
+\begin{equation}
+\frac{c \lambda \int_{0}^{\floor{x_{1}}} P(X \leq t)dt +\omega}{\floor{x_{1}}+1}
+=\frac{\omega}{\floor{x_{1}}+1}
+\end{equation}
+\item Wait till state $(\floor{x_{2}}+1,o)$ and then visit:
+\begin{align}
+&\frac{c \lambda \int_{0}^{\floor{x_{2}}} P(X \leq t)dt + coP(X \leq \floor{x_{2})})+\omega}{\floor{x_{2}}+1} \nonumber \\&=\frac{c \lambda (\floor{x_{2}}-x_{1})p +cop + \omega}{\floor{x_{2}}+1}
+\end{align}
+
+
+\item Wait till state $(\floor{x_{2}}+2,0)$ and then visit:
+\begin{align}
+&\frac{c \lambda \int_{0}^{\floor{x_{2}}+1} P(X \leq t)dt +coP(X \leq \floor{x_{2}}+1)+\omega}{\floor{x_{2}+2}} \nonumber \\ &=\frac{c \lambda ((x_{2}-x_{1})p + (\floor{x_{2}}+1-x_{2}))+co+\omega}{\floor{x_{2}}+2}
+\end{align}
+
+\item In state $(\floor{x_{2}}+2,0)$ waiting $k \geq 1$ then visiting:
+\begin{align}
+&\frac{c \lambda \int_{0}^{\floor{x_{2}}+1+k} P(X \leq t)dt +coP(X \leq \floor{x_{2}}+1+k)+\omega}{\floor{x_{2}+2+k}} \nonumber \\ &=\frac{c \lambda ((x_{2}-x_{1})p + (\floor{x_{2}}+1+k-x_{2}))+co+\omega}{\floor{x_{2}}+2+k}
+\end{align}
+
+\end{itemize}
+
+
+Very similar to before we will look at when certain costs are better. Starting with Visit now beating all others if $ \omega < \frac{cp(\floor{x_{1}}+1)(\lambda (\floor{x_{2}}-x_{1})+o)}{\floor{x_{2}}-\floor{x_{1}}}$ and $\omega < \frac{c(\floor{x_{1}}+1)(\lambda (x_{2}-x_{1})p + (\floor{x_{2}}-x_{2}+1)+o)}{\floor{x_{2}}-\floor{x_{1}}+1}$ and $\omega < \frac{c(\floor{x_{1}}+1)(\lambda (x_{2}-x_{1})p + (\floor{x_{2}}-x_{2}+1+k)+o)}{\floor{x_{2}}-\floor{x_{1}}+1+k}$ for all $k \geq 1$. The first inequality guarantees the other two so we get
+
+Visit now if:
+\begin{equation}
+\omega < \frac{cp(\floor{x_{1}}+1)(\lambda (\floor{x_{2}}-x_{1})+o)}{\floor{x_{2}}-\floor{x_{1}}}
+\end{equation}
+
+We can similarly find the visit in state $(\floor{x_{2}}+1,o)$ by requiring that $ \omega > \frac{cp(\floor{x_{1}}+1)(\lambda (\floor{x_{2}}-x_{1})+o)}{\floor{x_{2}}-\floor{x_{1}}}$ and $\omega < c (\lambda ( p( (x_{2}-x_{1})(\floor{x_{2}}+1)-(\floor{x_{2}}-x_{1})(\floor{x_{2}}+2)) + (\floor{x_{2}}-x_{2}+1)(\floor{x_{2}}+1)+o((1-p)(\floor{x_{2}}+1)-p))$ and $\omega < \frac{c}{k+1} (\lambda ( p( (x_{2}-x_{1})(\floor{x_{2}}+1)-(\floor{x_{2}}-x_{1})(\floor{x_{2}}+2+k)) + (\floor{x_{2}}-x_{2}+k+1)(\floor{x_{2}}+1)+o((1-p)(\floor{x_{2}}+1)-p(k+1)))$. Note the second inequality implies the third one, so
+
+Visit in state $(\floor{x_{2}}+1,o)$ if:
+\begin{align}
+&\frac{cp(\floor{x_{1}}+1)(\lambda (\floor{x_{2}}-x_{1})+o)}{\floor{x_{2}}-\floor{x_{1}}} < \omega < \nonumber \\ &c (\lambda ( p( (x_{2}-x_{1})(\floor{x_{2}}+1)-(\floor{x_{2}}-x_{1})(\floor{x_{2}}+2)) + (\floor{x_{2}}-x_{2}+1)(\floor{x_{2}}+1)+o((1-p)(\floor{x_{2}}+1)-p)) \nonumber \\
+&=c (\lambda (1-p)((\floor{x_{2}}-x_{2})(\floor{x_{2}}+1) + \floor{x_{2}}) + 1 +px_{1} +o((1-p)(\floor{x_{2}}+1)-p))
+\end{align}
+
+Again we could possible not have this region if the left hand side overlaps the right. I.e $$
+
 
 %End of main part of document
 \bibliography{mybib}
@@ -152,8 +307,28 @@ We note that $W(0)=0$ and for $k \geq B+1$ $W(k)=c \lambda (k - int_{0}^{k+1} P(
 \end{itemize}
 
 \begin{proof}
-\begin{itemize}
-\item $W(k+1)-W(k)= c \lambda ((k+1) \int_{k}^{k+1} P(X \leq t)dt - \int_{0}^{k} P(X \leq t)dt -(k \int_{k-1}^{k} P(X \leq t)dt - \int_{0}^{k-1} P(X \leq t)dt))=$
-\end{itemize}
+First
+\begin{align*}
+W(k+1)-W(k)&= c \lambda ((k+1) \int_{k}^{k+1} P(X \leq t)dt - \int_{0}^{k} P(X \leq t)dt \\ & \quad \quad \quad -(k \int_{k-1}^{k} P(X \leq t)dt - \int_{0}^{k-1} P(X \leq t)dt)) \\ &=c \lambda ((k+1) \int_{k}^{k+1} P(X \leq t)dt -k \int_{k-1}^{k} P(X \leq t)dt - \int_{k}^{k-1} P(X \leq t)dt)\\ &=c \lambda (k+1) (\int_{k}^{k+1} P(X \leq t)dt - \int_{k-1}^{k} P(X \leq t)dt) \geq 0
+\end{align*}
+
+As $P(X \leq t)$ is non-decreasing.
+
+Second if $\omega \in [W(k-1),W(k)]$ then we will show that $f(m)$ is non-increasing for $m \leq k$ and non-decreasing for $m \geq k$.
+
+For $m \leq k$
+\begin{align*}
+f(m)-f(m-1)&=\frac{1}{m(m-1)}(c \lambda (m-1) \int_{0}^{m-1} P(X \leq t) dt - c \lambda m \int_{0}^{m-2} P(X \leq t) dt - \omega) \\
+&=\frac{1}{m(m-1)}(W(m-1)-\omega) \leq \frac{1}{m(m-1)} (W(m-1)-W(k-1)) \leq 0
+\end{align*}
+
+Similarly for $m \geq k$
+\begin{align*}
+f(m+1)-f(m)&= \frac{1}{m(m+1)} (W(m)-\omega) \geq \frac{1}{m(m+1)} (W(m)-W(k)) \geq 0
+\end{align*}
+Hence choosing to visit every $k$ time units is optimal.
+
+Third and finally our upper limit of $c \lambda (1+E[X])$ (Which is $W(k)$ for $k \geq B+1$) means we are indifferent from picking $k$ and $k+1$ for $k \geq B+1$ so we will never visit. I.e
+$f(k+1) \leq f(k) \iff w \geq W(k)$ so not optimal if $f(k+1) \geq f(k) \, \forall k \iff w \geq \sup\limits_{k=1,2,...} W(k)=\lim\limits_{k \rightarrow \infty} W(k)=c \lambda (1+E[X])$
 \end{proof}
 \end{document}
