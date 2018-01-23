@@ -55,6 +55,12 @@
     placement=tbhp,
     within=section,]{examplefigure}
 
+\DeclareFloatingEnvironment[fileext=los,
+    listname={List of myFigures},
+    name=Figure,
+    placement=tbhp,
+    within=section,]{myfigure}      
+
 \title{A graph Patrol Problem with a random attacker and an observable patroller}
 \date{\today}
 \author{Thomas Lowbridge \\ School of Mathematical Sciences \\ University of Nottingham}
@@ -87,6 +93,36 @@ An attacker has some attack time for node $i$, called $X_{i}$ and chooses to att
 The patroller, uses some walk (with possible waiting) to patrol the graph.We assume that a patrollers walk is able to capture all attacks that have already begun, but not completed. But unlike the `normal' setting the past unit time, the attackers do not start their attacks and instead will wait for the patroller to leave. Each missed attack at node $i$ inccures a cost of $c_{i}$ to the patroller.
 
 We can formulate the state space, as the delineation of separate nodes. $\Omega= \{ (\bm{s},\bm{o})= \quad | \quad s_{i}=1,2,... , o_{i}=0,1,2,... \quad \forall i \in N \}$. Where $\bm{s}=(s_{1},...,s_{n})$ has each $s_{i}$ represent the number of time periods since the last visit for that node $i$ and $\bm{o}=(o_{1},...,o_{n})$ has each $o_{i}$ represent the number of attackers present in the last time period when the node $i$ was last visited (i.e The number of attackers known to be beginning their attack $s_{i}$ time ago at node $i$).
+
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,7}
+    \foreach \y in {0,...,5} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{5-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (05) {};
+\node (XaxisRight) [shift={(1,1)}] at (75) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (00) {};
+\node (YaxisTop) [shift={(-1,1)}] at (05) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (02) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},o_{j})$};
+
+\end{tikzpicture}
+\end{center}
+\caption{State space diagram}
+\end{myfigure}
 
 The $s_{i}$ increment by $1$ if the node is not visited upon each action, or if the node is visited reset to $s_{i}=1$. The $o_{i}$ do not change for nodes not visited, when a node is visited, the $0_{i}$ `reset' according to the Poisson distribution $Po(\lambda_{i} \times 1)=Po(\lambda)$. Due to $s_{i}=1$ if and only if the patroller is currently at this node, we will use $l(\bm{s})=\arg\min\limits_{i \in N} s_{i}$ to represent the current node.
 
@@ -272,8 +308,23 @@ Visit in state $(\floor{x_{2}}+1,o)$ if:
 &=c (\lambda (1-p)((\floor{x_{2}}-x_{2})(\floor{x_{2}}+1) + \floor{x_{2}}) + 1 +px_{1} +o((1-p)(\floor{x_{2}}+1)-p))
 \end{align}
 
-Again we could possible not have this region if the left hand side overlaps the right.
+Again we could possible not have this region if the left hand side overlaps the right (but for now we will ignore it).
 
+Again we can similarly find the visit in state $(\floor{x_{2}}+2,0)$ by requiring that
+$ \omega > \frac{cp(\floor{x_{1}}+1)(\lambda (\floor{x_{2}}-x_{1})+o)}{\floor{x_{2}}-\floor{x_{1}}}$ and $\omega > c (\lambda ( p( (x_{2}-x_{1})(\floor{x_{2}}+1)-(\floor{x_{2}}-x_{1})(\floor{x_{2}}+2)) + (\floor{x_{2}}-x_{2}+1)(\floor{x_{2}}+1)+o((1-p)(\floor{x_{2}}+1)-p))$ and $\omega < c (\lambda (1+E[X])-o)$. Now the second inequality implies the first one (???? double check this ????), so
+
+Visit in state $(\floor{x_{2}}+2,0)$ immediately if:
+\begin{align}
+&c (\lambda (1-p)((\floor{x_{2}}-x_{2})(\floor{x_{2}}+1) + \floor{x_{2}}) + 1 +px_{1} +o((1-p)(\floor{x_{2}}+1)-p)) \nonumber \\
+&< \omega < c(\lambda (1+E[X])-o)
+\end{align}
+
+Again there is a possibility of overlap (but for now we will ignore it)
+
+Finally we will never visit if:
+\begin{equation}
+\omega > c(\lambda (1+E[X])-o)
+\end{equation}
 
 %End of main part of document
 \bibliography{mybib}
