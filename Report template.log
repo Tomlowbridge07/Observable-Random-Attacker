@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  24 JAN 2018 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  24 JAN 2018 13:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1347,18 +1347,23 @@ Overfull \hbox (118.78181pt too wide) in paragraph at lines 512--512
 [] 
  []
 
+[10]
 No file "Report template".bbl.
+
+Overfull \hbox (54.96243pt too wide) in paragraph at lines 575--575
+[] 
+ []
+
 [1]
-Overfull \hbox (54.96243pt too wide) in paragraph at lines 567--567
+Overfull \hbox (52.6498pt too wide) in paragraph at lines 585--585
 [] 
  []
 
-[2]
-Overfull \hbox (52.6498pt too wide) in paragraph at lines 577--577
-[] 
- []
+[2] (./Report template.aux)
 
-[3] (./Report template.aux) ) 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  25411 strings out of 492995
  509020 string characters out of 6132690
@@ -1367,30 +1372,29 @@ Here is how much of TeX's memory you used:
  17978 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,103p,10487b,883s stack positions out of 5000i,500n,10000p,200000b,80000s
-</maths/linuxlocal/AMD64/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmbx10.pfb></maths/linuxlocal/AMD64/texlive/2017/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></maths/linuxlocal/AMD64/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></maths/linuxl
-ocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></maths/linuxlocal/AMD64/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></maths/linuxlocal/AMD6
-4/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></math
-s/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+</maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmex10.pfb></maths/linuxlocal/AMD64/texlive/2017/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></maths/linuxlocal/AMD64/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></maths/linuxloca
+l/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></math
+s/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
 .pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr17.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb></maths/linuxlocal/AMD64/texlive/2017/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></maths/linuxlocal/A
-MD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/
-linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb>
-Output written on "Report template.pdf" (13 pages, 251448 bytes).
+ts/cm/cmmi8.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmib10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib7.pfb></maths/linuxlocal/AMD64/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></maths/linuxlocal/AMD
+64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></maths/lin
+uxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmss12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/AMD64/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></maths/linuxlocal/AMD64
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Report template.pdf" (13 pages, 252171 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
