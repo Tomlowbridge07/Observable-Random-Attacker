@@ -23,8 +23,10 @@
 
 \usetikzlibrary{calc}
 \usetikzlibrary{fit}
-\usetikzlibrary{shapes.misc,calc, positioning, hobby, backgrounds}
+\usetikzlibrary{decorations.shapes,shapes.misc,calc, positioning, hobby, backgrounds}
 
+\tikzset{decorate sep/.style 2 args=
+{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
 
 %\DeclarePairedDelimiter{\floor}{\lfloor}{\rightfloor}
 %\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -102,7 +104,7 @@ We can formulate the state space, as the delineation of separate nodes. $\Omega=
     \foreach \y in {0,...,5} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
         \pgfmathtruncatemacro{\o}{\x}
-        \pgfmathtruncatemacro{\s}{5-\y}
+        \pgfmathtruncatemacro{\s}{6-\y}
        \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
 
 \node (XaxisLeft) [shift={(-0.5,1)}] at (05) {};
@@ -115,10 +117,20 @@ We can formulate the state space, as the delineation of separate nodes. $\Omega=
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
 \node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $o_{j}$};
-\node[font=\sffamily\large] (SLabel) [shift={(-3.5,0.5)}] at (02) {Time since last visit, $s_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (02) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
 \node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},o_{j})$};
 
+\foreach \y in {0,...,5}
+{\node (DottedStart\y) [shift={(0.5,0)}] at (7\y) {};
+ \node (DottedEnd\y) [shift={(1.5,0)}] at (7\y) {};
+ \draw[decorate sep={1mm}{2mm},fill] (DottedStart\y)--(DottedEnd\y);}
+ 
+\foreach \x in {0,...,7}
+{\node (\x DottedStart) [shift={(0,-0.5)}] at (\x0) {};
+ \node (\x DottedEnd) [shift={(0,-1.5)}] at (\x0) {};
+ \draw[decorate sep={1mm}{2mm},fill] (\x DottedStart)--(\x DottedEnd);
+} 
 \end{tikzpicture}
 \end{center}
 \caption{State space diagram}
@@ -148,9 +160,92 @@ With $C(\bm{s},\bm{0},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{o},i)$ being the
 
 We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that instead of using $Po(\lambda)$ for the observation transition and placing a bound on this Poisson distribution, named $b_{j}$, so we are now drawing from a truncated Poisson distribtion, henceforth called $TPo(\lambda,b_{j})$. Then we can immediately say that the $o_{j} \leq b_{j}$ state is finite and the state $s_{j}$ has the same cost function for $s_{j} \geq B_{j}+2$ and hence we will restrict our space to this. So our modified transition is $\widetilde{s_{j}}=\min(s_{j}+1,B_{j}+2)$ if $j \neq i$ and $\widetilde{s_{j}}=1$ if $i=j$. $\widetilde{o_{j}}=o_{j}$ if $i \neq j$ and $o_{j} \sim TPo(\lambda,b_{j})$ if $i=j$.
 
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,7}
+    \foreach \y in {0,...,5} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{6-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (05) {};
+\node (XaxisRight) [shift={(1,1)}] at (75) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (00) {};
+\node (YaxisTop) [shift={(-1,1)}] at (05) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (02) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},o_{j})$};
+
+\foreach \y in {0,...,5}
+{\node (DottedStart\y) [shift={(0.5,0)}] at (7\y) {};
+ \node (DottedEnd\y) [shift={(1.5,0)}] at (7\y) {};
+ \draw[decorate sep={1mm}{2mm},fill] (DottedStart\y)--(DottedEnd\y);}
+ 
+\foreach \x in {0,...,7}
+{\node (\x DottedStart) [shift={(0,-0.5)}] at (\x0) {};
+ \node (\x DottedEnd) [shift={(0,-1.5)}] at (\x0) {};
+ \draw[decorate sep={1mm}{2mm},fill] (\x DottedStart)--(\x DottedEnd);
+}
+
+\node (Box1) [draw,thick,fit=(65) (60) (DottedEnd5) (DottedEnd0) (6DottedEnd) (7DottedEnd),fill,blue,opacity=0.2] {};
+
+\node (Box2) [draw,thick,fit=(00) (70)(DottedEnd0) (0DottedEnd) (7DottedEnd),fill,red,opacity=0.2] {};
+
+\node[font=\sffamily\large,color=blue] (Box1Text) [shift={(2.5,0)}] at (Box1) {\rotatebox{270}{Removed}};
+
+\node[font=\sffamily\large,color=red] (Box2Text) [shift={(0,-1.5)}] at (Box2) {Removed};           
+
+\end{tikzpicture}
+\end{center}
+\caption{State space diagram, with \textcolor{blue}{$b_{j}=5$} and \textcolor{red}{$B_{j}=4$}}
+\end{myfigure}
+
 Further reduction is possible as if $X_{j} \leq B_{j}$ then any observations $o_{j}$ which started $s_{j}$ time units ago is bound to have finished if $s_{j} \geq B_{j}+1$. So our new state space is further reduced to having only $(\floor{B_{j}}+1,0)$ when $s_{j}=\floor{B_{j}}+1$.
 
-So $\Omega= \{ (\bm{s},\bm{0}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i} \, \forall i \in N \} \cup \{(\floor{B_{j}}+2,0) \}$.
+So $\Omega= \{ (\bm{s},\bm{o}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i} \, \forall i \in N \} \cup \{(\floor{B_{j}}+2,0) \}$.
+
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,5}
+    \foreach \y in {0,...,3} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{4-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (03) {};
+\node (XaxisRight) [shift={(1,1)}] at (53) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (00) {};
+\node (YaxisTop) [shift={(-1,1)}] at (03) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (23) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (01) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (03) {$(s_{j},o_{j})$};
+
+\node (Box1) [draw,thick,fit=(10) (50),fill,blue,opacity=0.2] {};        
+
+\node[font=\sffamily\large,color=blue] (Box1Text) [shift={(0,-0.9)}] at (Box1) {Removed};
+
+\end{tikzpicture}
+\end{center}
+\caption{State space diagram, with $b_{j}=5$ and $B_{j}=4$ and further reduction}
+\end{myfigure}
 
 With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{o_{j}}=0$ for $i \neq j$. 
 
@@ -163,6 +258,74 @@ Focusing on the problem of a single nodes and stripping off the index, $i$, for 
 Consider the case where $X=x$, where $x$ is a constant (So $B=x$). Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
 
 So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
+
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,5}
+    \foreach \y in {0,...,2} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{3-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};}
+       
+\node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (02) {};
+\node (XaxisRight) [shift={(1,1)}] at (52) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (0,-1.5) {};
+\node (YaxisTop) [shift={(-1,1)}] at (02) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (22) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (02) {$(s_{j},o_{j})$};
+
+\node (Box1) [draw,thick,fit=(01) (51) (02) (52),fill,blue,opacity=0.2] {};        
+
+\node[font=\sffamily\large,color=blue] (Box1Text) [shift={(4.7,0)}] at (Box1) {\rotatebox{270}{Removed}};
+\end{tikzpicture}
+\end{center}
+\caption{Deterministic state space diagram, with $b_{j}=5$ and $B_{j}=4$}
+\end{myfigure}
+
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,5}
+    \foreach \y in {0,...,0} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{3-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};}
+       
+\node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (01) {};
+\node (XaxisRight) [shift={(1,1)}] at (51) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (0,-1.5) {};
+\node (YaxisTop) [shift={(-1,1)}] at (01) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (21) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-2.4,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (01) {$(s_{j},o_{j})$};
+
+\end{tikzpicture}
+\end{center}
+\caption{Final deterministic, with $b_{j}=5$ and $B_{j}=4$}
+\end{myfigure}
+
 
 Suppose now we are in the state $(\floor{B}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
 \begin{itemize}
@@ -243,9 +406,15 @@ So to conclude, we either end up with $3$ or $2$ regions
 
 \begin{note}
 If $o=0$ then we never fall into the second region as $(\floor{B}+1)(\floor{B}-B+1)=(\floor{B}+1)(1-R) \leq \floor{B}+1 \leq B+1$ where the remainder upon flooring is defined by $R=B-\floor{B}$ and $0 \leq R < 1$.
+
+Moreover the region condition is reduced to $o \leq \lambda R$.
 \end{note}
 
 Also of interest is if $X=B$ has $B$ very close to an interger, eg.$B=3.01$ then the condition to fall into the second region is that $o < \frac{\lambda}{100}$, requiring a very high rate to fall into the category of never deciding to wait one time step.
+
+\begin{remark}
+We remark that $\omega > c (\lambda(B+1)-o )=\omega' + c(\lambda -o)$. Where $\omega'$ is the old never visiting cost (under the non-observable attackers), so as $o < R \lambda$ ($0 \leq R < 1$) we know that $\lambda > o$ , so the visiting cost must be higher than before to consider not visiting. This is as we would expect.
+\end{remark}
 
 \subsection{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
@@ -257,7 +426,39 @@ We will limit the state space with non-zero observed attackers to have either $s
 
 So in the Bernoulli case $\Omega \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{x_{1}}+2,o) \}$.
 
-We will be assuming that $\floor{x_{1}} \neq \floor{x_{2}}$ as otherwise it follows that only one $s_{j}$ survives.
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,5}
+    \foreach \y in {0,2} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\s}{3-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};}
+       
+\node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (02) {};
+\node (XaxisRight) [shift={(1,1)}] at (52) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (0,-1.5) {};
+\node (YaxisTop) [shift={(-1,1)}] at (02) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (22) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (SLabel) [shift={(-2.4,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s_{j}$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (02) {$(s_{j},o_{j})$};
+
+\end{tikzpicture}
+\end{center}
+\caption{Bernoulli with $b_{j}=5$, $x_{1,j}=3.1$ and $x_{2,j}=1.1$}
+\end{myfigure}
+
+We will be assuming that $\floor{x_{1}} \neq \floor{x_{2}}$ as otherwise it follows that only one $s_{j}$ survives and we fall into the deterministic category (bar some changes to the values).
 
 Suppose we are in the state $(\floor{x_{1}}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
 \begin{itemize}
