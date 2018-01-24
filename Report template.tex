@@ -251,6 +251,10 @@ With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetil
 
 Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
 
+\begin{note}
+There may be a problem with having a non-deterministic attack time, as this may cause the observable attacker behaviour to no longer take the form of $(\bm{s},\bm{o})$ but the patroller may have other information such as visiting early may mean if they caught less than expected then some in the observed section exist, so a full history could be recorded. However we will not deal with this and assume once a node is visited its last observation is lost and the system is rest???
+\end{note}
+
 \section{Single node problem}
 Focusing on the problem of a single nodes and stripping off the index, $i$, for the nodes. This problem has a visiting cost, $\omega>0$ and we are looking to minimize the long run cost of the system.
 
@@ -460,7 +464,7 @@ So in the Bernoulli case $\Omega \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \c
 \caption{Bernoulli with $b_{j}=5$, $x_{1,j}=3.1$ and $x_{2,j}=1.1$}
 \end{myfigure}
 
-We will be assuming that $\floor{x_{1}} \neq \floor{x_{2}}$ as otherwise it follows that only one $s_{j}$ survives and we fall into the deterministic category (bar some changes to the values).
+We will be assuming that $\floor{x_{1}} \neq \floor{x_{2}}$ as otherwise it follows that only one $s_{j}$ survives and we fall into the deterministic category (bar some changes to the values) see Apendix \ref{Bernoulli Attack time with equal floors}.
 
 Suppose we are in the state $(\floor{x_{1}}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
 \begin{itemize}
@@ -593,4 +597,58 @@ Hence choosing to visit every $k$ time units is optimal.
 Third and finally our upper limit of $c \lambda (1+E[X])$ (Which is $W(k)$ for $k \geq B+1$) means we are indifferent from picking $k$ and $k+1$ for $k \geq B+1$ so we will never visit. I.e
 $f(k+1) \leq f(k) \iff w \geq W(k)$ so not optimal if $f(k+1) \geq f(k) \, \forall k \iff w \geq \sup\limits_{k=1,2,...} W(k)=\lim\limits_{k \rightarrow \infty} W(k)=c \lambda (1+E[X])$
 \end{proof}
+
+\section{Bernoulli Attack time with equal floors}
+\label{Bernoulli Attack time with equal floors}
+
+If we have $\floor{x_{1}}=\floor{x_{2}}$ then $\Omega= \{(\floor{x_{1}}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{x_{1}}+2,o) \}$
+
+Suppose we are in the state $(\floor{x_{1}}+1,o)$ for some $o=1,2,...,b$ then our decision process is the same as the deterministic case
+\begin{itemize}
+\item Visit now
+\item Wait till we are in state $(\floor{x_{1}}+2,0)$ and wait for $k$ time units before visiting, $k \geq 0$
+\end{itemize}
+
+We again write down long-run average costs of following such a strategy
+\begin{itemize}
+\item Visit now:
+\begin{equation}
+\frac{c \lambda \int_{0}^{\floor{x_{1}}} P(X \leq t) dt + \omega}{\floor{x_{1}}+1}=\frac{\omega}{\floor{x_{1}}+1}
+\end{equation}
+\item Wait till state $(\floor{x_{1}}+2,0)$ then wait $k \geq 0$ time units before visiting:
+\begin{align}
+&\frac{c \lambda \int_{0}^{\floor{x_{1}}+1+k} P(X \leq t) dt + coP(X \leq \floor{x_{1}}+1+k) +\omega }{\floor{x_{1}}+2+k} \nonumber \\ &=\frac{c \lambda (p(x_{2}-x_{1})+(\floor{x_{1}}+1+k-x_{2})) + co + \omega}{\floor{x_{1}}+2+k}
+\end{align}
+\end{itemize}
+
+Now to visit now we will only do so if $\omega < c (\floor{x_{1}}+1) (\lambda (p\frac{x_{2}-x_{1}}{k+1}+ (\frac{\floor{x_{1}}-x_{2}}{k+1} +1))+\frac{o}{k+1})$ for all $k \geq 0$, We need to know if $\lambda (\floor{x_{1}}-px_{1}+px_{2}-x_{2})+o \begin{cases}
+ >0 \\
+ <0
+\end{cases}$. 
+In the first case we get to visit if:
+\begin{equation}
+\omega < c(\floor{x_{1}}+1)(\lambda (\floor{x_{1}}-px_{1}+px_{2}-x_{2}+1)+ o)
+\end{equation}
+In the second case we get to visit if:
+\begin{equation}
+\omega < c \lambda (\floor{x_{1}}+1)
+\end{equation}
+
+
+
+If we do no visit initially then we will visit once transitioned and waited $k+1$ over $k$ if $\omega > c (\lambda (1+E[X])-o)$.
+
+For in between values (dependent on which case) we will get that we will transition and visit immediately.
+I.e if
+First case
+\begin{equation}
+c(\floor{x_{1}}+1)(\lambda (\floor{x_{1}}-px_{1}+px_{2}-x_{2}+1)+ o) < \omega < c (\lambda (1+E[X])-o) 
+\end{equation}
+Second case
+\begin{equation}
+c \lambda (\floor{x_{1}}+1) < \omega < c (\lambda (1+E[X])-o)
+\end{equation}
+
+Again these regions may or may not exist dependent on their conditions.
+
 \end{document}
