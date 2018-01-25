@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}Introduction to a random attacker patroller game with observation}{1}
 \contentsline {section}{\numberline {2}Single node problem}{3}
 \contentsline {subsection}{\numberline {2.1}Deterministic Attack time}{5}
-\contentsline {subsection}{\numberline {2.2}Bernoulli Attack time}{8}
+\contentsline {subsection}{\numberline {2.2}Bernoulli Attack time}{9}
 \contentsline {section}{\numberline {3}Ideas for future}{i}
 \contentsline {section}{Appendices}{i}
 \contentsline {section}{\numberline {A}Observations are always zero}{i}

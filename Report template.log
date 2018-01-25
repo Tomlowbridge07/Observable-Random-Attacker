@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  24 JAN 2018 15:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  25 JAN 2018 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1343,19 +1343,19 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 336.
 
 [5] [6] [7] [8] [9]
-Overfull \hbox (118.78181pt too wide) in paragraph at lines 516--516
+Overfull \hbox (118.78181pt too wide) in paragraph at lines 537--537
 [] 
  []
 
-[10]
+[10] [11]
 No file "Report template".bbl.
 
-Overfull \hbox (54.96243pt too wide) in paragraph at lines 579--579
+Overfull \hbox (54.96243pt too wide) in paragraph at lines 617--617
 [] 
  []
 
 [1]
-Overfull \hbox (52.6498pt too wide) in paragraph at lines 589--589
+Overfull \hbox (52.6498pt too wide) in paragraph at lines 627--627
 [] 
  []
 
@@ -1391,10 +1391,10 @@ al/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></ma
 ths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmti10.pfb>
-Output written on "Report template.pdf" (14 pages, 256934 bytes).
+Output written on "Report template.pdf" (15 pages, 261072 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
