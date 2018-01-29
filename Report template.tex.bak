@@ -94,7 +94,7 @@ An attacker has some attack time for node $i$, called $X_{i}$ and chooses to att
 
 The patroller, uses some walk (with possible waiting) to patrol the graph.We assume that a patrollers walk is able to capture all attacks that have already begun, but not completed. But unlike the `normal' setting the past unit time, the attackers do not start their attacks and instead will wait for the patroller to leave. Each missed attack at node $i$ inccures a cost of $c_{i}$ to the patroller.
 
-We can formulate the state space, as the delineation of separate nodes. $\Omega= \{ (\bm{s},\bm{o})= \quad | \quad s_{i}=1,2,... , o_{i}=0,1,2,... \quad \forall i \in N \}$. Where $\bm{s}=(s_{1},...,s_{n})$ has each $s_{i}$ represent the number of time periods since the last visit for that node $i$ and $\bm{o}=(o_{1},...,o_{n})$ has each $o_{i}$ represent the number of attackers present in the last time period when the node $i$ was last visited (i.e The number of attackers known to be beginning their attack $s_{i}$ time ago at node $i$).
+We can formulate the state space, as the delineation of separate nodes. $\Omega= \{ (\bm{s},\bm{v})= \quad | \quad s_{i}=1,2,... , v_{i}=0,1,2,... \quad \forall i \in N \}$. Where $\bm{s}=(s_{1},...,s_{n})$ has each $s_{i}$ represent the number of time periods since the last visit for that node $i$ and $\bm{v}=(v_{1},...,v_{n})$ has each $v_{i}$ represent the number of attackers present in the last time period when the node $i$ was last visited (i.e The number of attackers known to be beginning their attack $s_{i}$ time ago at node $i$).
 
 \begin{myfigure}
 \begin{center}
@@ -103,9 +103,9 @@ We can formulate the state space, as the delineation of separate nodes. $\Omega=
  \foreach \x in {0,...,7}
     \foreach \y in {0,...,5} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
-        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\v}{\x}
         \pgfmathtruncatemacro{\s}{6-\y}
-       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};} 
 
 \node (XaxisLeft) [shift={(-0.5,1)}] at (05) {};
 \node (XaxisRight) [shift={(1,1)}] at (75) {};
@@ -116,10 +116,10 @@ We can formulate the state space, as the delineation of separate nodes. $\Omega=
 \draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
-\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $v_{j}$};
 \node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (02) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
-\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},o_{j})$};
+\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},v_{j})$};
 
 \foreach \y in {0,...,5}
 {\node (DottedStart\y) [shift={(0.5,0)}] at (7\y) {};
@@ -136,29 +136,29 @@ We can formulate the state space, as the delineation of separate nodes. $\Omega=
 \caption{State space diagram}
 \end{myfigure}
 
-The $s_{i}$ increment by $1$ if the node is not visited upon each action, or if the node is visited reset to $s_{i}=1$. The $o_{i}$ do not change for nodes not visited, when a node is visited, the $0_{i}$ `reset' according to the Poisson distribution $Po(\lambda_{i} \times 1)=Po(\lambda)$. Due to $s_{i}=1$ if and only if the patroller is currently at this node, we will use $l(\bm{s})=\arg\min\limits_{i \in N} s_{i}$ to represent the current node.
+The $s_{i}$ increment by $1$ if the node is not visited upon each action, or if the node is visited reset to $s_{i}=1$. The $v_{i}$ do not change for nodes not visited, when a node is visited, the $v_{i}$ `reset' according to the Poisson distribution $Po(\lambda_{i} \times 1)=Po(\lambda)$. Due to $s_{i}=1$ if and only if the patroller is currently at this node, we will use $l(\bm{s})=\arg\min\limits_{i \in N} s_{i}$ to represent the current node.
 
 As the future of the process is independent of its past, the process can be formulated as a Markov decision process(MDP), where at the end of the period, the patroller chooses which adjacent node to visit. Thus the action space is $\mathcal{A}=\{ j \, | \, a_{l(\bm{s}),j}=1 \}$, with a deterministic, stationary policy, $\pi: \Omega \rightarrow \mathcal{A}$.
 
-The transitions of the MDP aren't entirely deterministic, $\bm{s}$ is purely deterministic, but $\bm{o}$ is partially probabilistic. In state $(\bm{s},\bm{o})$ with the decision to visit node $i \in \mathcal{A}$, then the state will transition to $(\widetilde{\bm{s}},\widetilde{\bm{o}})$ where $\widetilde{s}_{j}=s_{j}+1$ if $j \neq i$ and $\widetilde{s}_{j}=1$ if $j=i$ and $\widetilde{o}_{j}=o_{j}$ if $j \neq i$ and $o_{j} \sim Po(\lambda)$ if $j=i$.
+The transitions of the MDP aren't entirely deterministic, $\bm{s}$ is purely deterministic, but $\bm{v}$ is partially probabilistic. In state $(\bm{s},\bm{v})$ with the decision to visit node $i \in \mathcal{A}$, then the state will transition to $(\widetilde{\bm{s}},\widetilde{\bm{v}})$ where $\widetilde{s}_{j}=s_{j}+1$ if $j \neq i$ and $\widetilde{s}_{j}=1$ if $j=i$ and $\widetilde{v}_{j}=o_{j}$ if $j \neq i$ and $v_{j} \sim Po(\lambda)$ if $j=i$.
 
-To write down the cost function, which is dependent on the state $(\bm{s},\bm{o})$ and the action to visit node $i$ chosen, we will look at the expected cost of incurred at all nodes and sum these costs for the next time period.
+To write down the cost function, which is dependent on the state $(\bm{s},\bm{v})$ and the action to visit node $i$ chosen, we will look at the expected cost of incurred at all nodes and sum these costs for the next time period.
 
 \begin{align}
-C_{j}(\bm{s},\bm{o},i)&= \begin{cases}
-c_{j} \lambda_{j} \int_{0}^{s_{j}} P(t-1<X_{j} \leq t) dt +o_{j}P(0<X_{j} \leq s_{j})  \text{ for } i \neq j \\
-c_{j} \lambda_{j} \int_{0}^{s_{j}-1} P(t-1<X_{j} \leq t) dt +o_{j}P(0<X_{j} \leq s_{j})  \text{ for } i=j \\
+C_{j}(\bm{s},\bm{v},i)&= \begin{cases}
+c_{j} \lambda_{j} \int_{0}^{s_{j}} P(t-1<X_{j} \leq t) dt +v_{j}P(0<X_{j} \leq s_{j})  \text{ for } i \neq j \\
+c_{j} \lambda_{j} \int_{0}^{s_{j}-1} P(t-1<X_{j} \leq t) dt +v_{j}P(0<X_{j} \leq s_{j})  \text{ for } i=j \\
 \end{cases}
  \nonumber \\
 &= \begin{cases}
-c_{j} \lambda_{j} \int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt +o_{j}P(X_{j} \leq s_{j}) \text{ for } i \neq j \\
-c_{j} \lambda_{j} \int_{s_{j}-2}^{s_{j}-1} P(X_{j} \leq t) dt +o_{j}P(X_{j} \leq s_{j})   \text{ for } i=j \\
+c_{j} \lambda_{j} \int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt +v_{j}P(X_{j} \leq s_{j}) \text{ for } i \neq j \\
+c_{j} \lambda_{j} \int_{s_{j}-2}^{s_{j}-1} P(X_{j} \leq t) dt +v_{j}P(X_{j} \leq s_{j})   \text{ for } i=j \\
 \end{cases} 
 \end{align}
    
-With $C(\bm{s},\bm{0},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{o},i)$ being the cost function for the MDP.
+With $C(\bm{s},\bm{v},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{v},i)$ being the cost function for the MDP.
 
-We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that instead of using $Po(\lambda)$ for the observation transition and placing a bound on this Poisson distribution, named $b_{j}$, so we are now drawing from a truncated Poisson distribtion, henceforth called $TPo(\lambda,b_{j})$. Then we can immediately say that the $o_{j} \leq b_{j}$ state is finite and the state $s_{j}$ has the same cost function for $s_{j} \geq B_{j}+2$ and hence we will restrict our space to this. So our modified transition is $\widetilde{s_{j}}=\min(s_{j}+1,B_{j}+2)$ if $j \neq i$ and $\widetilde{s_{j}}=1$ if $i=j$. $\widetilde{o_{j}}=o_{j}$ if $i \neq j$ and $o_{j} \sim TPo(\lambda,b_{j})$ if $i=j$.
+We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that instead of using $Po(\lambda)$ for the observation transition and placing a bound on this Poisson distribution, named $b_{j}$, so we are now drawing from a truncated Poisson distribtion, henceforth called $TPo(\lambda,b_{j})$. Then we can immediately say that the $o_{j} \leq b_{j}$ state is finite and the state $s_{j}$ has the same cost function for $s_{j} \geq B_{j}+2$ and hence we will restrict our space to this. So our modified transition is $\widetilde{s_{j}}=\min(s_{j}+1,B_{j}+2)$ if $j \neq i$ and $\widetilde{s_{j}}=1$ if $i=j$. $\widetilde{v_{j}}=v_{j}$ if $i \neq j$ and $v_{j} \sim TPo(\lambda,b_{j})$ if $i=j$.
 
 \begin{myfigure}
 \begin{center}
@@ -167,9 +167,9 @@ We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that ins
  \foreach \x in {0,...,7}
     \foreach \y in {0,...,5} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
-        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\v}{\x}
         \pgfmathtruncatemacro{\s}{6-\y}
-       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};} 
 
 \node (XaxisLeft) [shift={(-0.5,1)}] at (05) {};
 \node (XaxisRight) [shift={(1,1)}] at (75) {};
@@ -180,10 +180,10 @@ We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that ins
 \draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
-\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (35) {Observation, $v_{j}$};
 \node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (02) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
-\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},o_{j})$};
+\node[main node] (Example) [shift={(-1,1)}] at (05) {$(s_{j},v_{j})$};
 
 \foreach \y in {0,...,5}
 {\node (DottedStart\y) [shift={(0.5,0)}] at (7\y) {};
@@ -209,9 +209,9 @@ We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that ins
 \caption{State space diagram, with \textcolor{blue}{$b_{j}=5$} and \textcolor{red}{$B_{j}=4$}}
 \end{myfigure}
 
-Further reduction is possible as if $X_{j} \leq B_{j}$ then any observations $o_{j}$ which started $s_{j}$ time units ago is bound to have finished if $s_{j} \geq B_{j}+1$. So our new state space is further reduced to having only $(\floor{B_{j}}+1,0)$ when $s_{j}=\floor{B_{j}}+1$.
+Further reduction is possible as if $X_{j} \leq B_{j}$ then any observations $v_{j}$ which started $s_{j}$ time units ago is bound to have finished if $s_{j} \geq B_{j}+1$. So our new state space is further reduced to having only $(\floor{B_{j}}+1,0)$ when $s_{j}=\floor{B_{j}}+1$.
 
-So $\Omega= \{ (\bm{s},\bm{o}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i} \, \forall i \in N \} \cup \{(\floor{B_{j}}+2,0) \}$.
+So $\Omega= \{ (\bm{s},\bm{v}) | s_{i}=1,2,..,\floor{B_{i}}+1 , v_{i}=1,...,b_{i} \, \forall i \in N \} \cup \{(\floor{B_{j}}+2,0) \}$.
 
 \begin{myfigure}
 \begin{center}
@@ -220,9 +220,9 @@ So $\Omega= \{ (\bm{s},\bm{o}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i
  \foreach \x in {0,...,5}
     \foreach \y in {0,...,3} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
-        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\v}{\x}
         \pgfmathtruncatemacro{\s}{4-\y}
-       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};} 
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};} 
 
 \node (XaxisLeft) [shift={(-0.5,1)}] at (03) {};
 \node (XaxisRight) [shift={(1,1)}] at (53) {};
@@ -233,10 +233,10 @@ So $\Omega= \{ (\bm{s},\bm{o}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i
 \draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
-\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (23) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (23) {Observation, $v_{j}$};
 \node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (01) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
-\node[main node] (Example) [shift={(-1,1)}] at (03) {$(s_{j},o_{j})$};
+\node[main node] (Example) [shift={(-1,1)}] at (03) {$(s_{j},v_{j})$};
 
 \node (Box1) [draw,thick,fit=(10) (50),fill,blue,opacity=0.2] {};        
 
@@ -247,12 +247,12 @@ So $\Omega= \{ (\bm{s},\bm{o}) | s_{i}=1,2,..,\floor{B_{i}}+1 , o_{i}=1,...,b_{i
 \caption{State space diagram, with $b_{j}=5$ and $B_{j}=4$ and further reduction}
 \end{myfigure}
 
-With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{o_{j}}=0$ for $i \neq j$. 
+With further modified transitions that if $s_{j}=\floor{B_{j}}+1$ then $\widetilde{v_{j}}=0$ for $i \neq j$. 
 
-Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $o_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{o}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $o_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $v_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
 
 \begin{note}
-There may be a problem with having a non-deterministic attack time, as this may cause the observable attacker behaviour to no longer take the form of $(\bm{s},\bm{o})$ but the patroller may have other information such as visiting early may mean if they caught less than expected then some in the observed section exist, so a full history could be recorded. However we will not deal with this and assume once a node is visited its last observation is lost and the system is rest???
+There may be a problem with having a non-deterministic attack time, as this may cause the observable attacker behaviour to no longer take the form of $(\bm{s},\bm{v})$ but the patroller may have other information such as visiting early may mean if they caught less than expected then some in the observed section exist, so a full history could be recorded. However we will not deal with this and assume once a node is visited its last observation is lost and the system is rest???
 \end{note}
 
 \section{Single node problem}
@@ -261,7 +261,7 @@ Focusing on the problem of a single nodes and stripping off the index, $i$, for 
 \subsection{Deterministic Attack time}
 Consider the case where $X=x$, where $x$ is a constant (So $B=x$). Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
 
-So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
+So in the deterministic case $\Omega= \{(\floor{B}+1,v) \, | \, v=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
 
 \begin{myfigure}
 \begin{center}
@@ -270,9 +270,9 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \
  \foreach \x in {0,...,5}
     \foreach \y in {0,...,2} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
-        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\v}{\x}
         \pgfmathtruncatemacro{\s}{3-\y}
-       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};}
        
 \node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
 
@@ -285,10 +285,10 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \
 \draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
-\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (22) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (22) {Observation, $v_{j}$};
 \node[font=\sffamily\large] (SLabel) [shift={(-1.5,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
-\node[main node] (Example) [shift={(-1,1)}] at (02) {$(s_{j},o_{j})$};
+\node[main node] (Example) [shift={(-1,1)}] at (02) {$(s_{j},v_{j})$};
 
 \node (Box1) [draw,thick,fit=(01) (51) (02) (52),fill,blue,opacity=0.2] {};        
 
@@ -305,9 +305,9 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \
  \foreach \x in {0,...,5}
     \foreach \y in {0,...,0} 
        {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
-        \pgfmathtruncatemacro{\o}{\x}
+        \pgfmathtruncatemacro{\v}{\x}
         \pgfmathtruncatemacro{\s}{3-\y}
-       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\o};}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};}
        
 \node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
 
@@ -320,10 +320,10 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \
 \draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
 \draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
 
-\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (21) {Observation, $o_{j}$};
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (21) {Observation, $v_{j}$};
 \node[font=\sffamily\large] (SLabel) [shift={(-2.4,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s_{j}$}};
 
-\node[main node] (Example) [shift={(-1,1)}] at (01) {$(s_{j},o_{j})$};
+\node[main node] (Example) [shift={(-1,1)}] at (01) {$(s_{j},v_{j})$};
 
 \end{tikzpicture}
 \end{center}
@@ -331,7 +331,7 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,o) \, | \, o=0,1,...,b \} \
 \end{myfigure}
 
 
-Suppose now we are in the state $(\floor{B}+1,o)$ for some $o=1,2,...,b$ then our decision is either to
+Suppose now we are in the state $(\floor{B}+1,v)$ for some $v=1,2,...,b$ then our decision is either to
 \begin{itemize}
 \item Visit now
 \item Visit at the next time step
@@ -353,86 +353,86 @@ Now we write down the long-run average costs of following such a strategy
 \item Visit at the next time step:
 \begin{equation}
 \label{Visit at the next time step}
-\frac{oc+ c \lambda \int_{0}^{\floor{B}+1} P(X \leq t)dt+ \omega}{\floor{B}+2}
-=\frac{oc + c \lambda (\floor{B}+1-B) + \omega}{\floor{B}+2}
+\frac{vc+ c \lambda \int_{0}^{\floor{B}+1} P(X \leq t)dt+ \omega}{\floor{B}+2}
+=\frac{vc + c \lambda (\floor{B}+1-B) + \omega}{\floor{B}+2}
 \end{equation}
 \item Visit $k$ time steps later, $k \geq 2$:
 \begin{equation}
 \label{Visit k time steps later}
-\frac{oc+ c \lambda \int_{0}^{\floor{B}+k} P(X \leq t)dt+ \omega}{\floor{B}+k+1}
-=\frac{oc + c \lambda (\floor{B}+k-B) + \omega}{\floor{B}+k+1}
+\frac{vc+ c \lambda \int_{0}^{\floor{B}+k} P(X \leq t)dt+ \omega}{\floor{B}+k+1}
+=\frac{vc + c \lambda (\floor{B}+k-B) + \omega}{\floor{B}+k+1}
 \end{equation}
 \end{itemize}
 
 Our first decision is if we should Visit now, this depends on if Equation \ref{Visit now} is less than equation \ref{Visit at the next time step} and \ref{Visit k time steps later}.
 
-Well for this to be true we get that $\omega < c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)$ and $\omega< c (\floor{B}+1)(\lambda (\frac{\floor{B}-B}{k}+1)+\frac{o}{k})$. Hence as the second inequality ($\forall k=2,3,...$) is guaranteed by the first inequality we get.
+Well for this to be true we get that $\omega < c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v)$ and $\omega< c (\floor{B}+1)(\lambda (\frac{\floor{B}-B}{k}+1)+\frac{v}{k})$. Hence as the second inequality ($\forall k=2,3,...$) is guaranteed by the first inequality we get.
 
 Visit now if:
 \begin{equation}
-\omega < c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)
+\omega < c (\floor{B}+1) (\lambda (\floor{B}-B+1) +v)
 \end{equation}
 
-Similarly for visiting at the next time step, we get $\omega > c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)$ and $\omega < c (\lambda (B+1) - \frac{o}{k-1})$ for all $k=2,...$ so $\omega < c (\lambda (B+1) -o)$.
+Similarly for visiting at the next time step, we get $\omega > c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v)$ and $\omega < c (\lambda (B+1) - \frac{v}{k-1})$ for all $k=2,...$ so $\omega < c (\lambda (B+1) -v)$.
 
 Visit next time step if:
 \begin{equation}
-c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o)< \omega < c (\lambda (B+1) -o)
+c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v)< \omega < c (\lambda (B+1) -v)
 \end{equation}
 
 \begin{note}
-The question is whether it is possible to get an empty region here. Well if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) > c (\lambda (B+1) -o)$ is empty it will enforce the never visit decision immediately
+The question is whether it is possible to get an empty region here. Well if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v) > c (\lambda (B+1) -v)$ is empty it will enforce the never visit decision immediately
 \end{note}
 
 We will never visit, if we at a point were we will choose $k+1$ over $k$ for all $k=2,..$.
 
-This happens when $\omega > c(\lambda (B+1) -o)$.
+This happens when $\omega > c(\lambda (B+1) -v)$.
 
 Never visit if:
 \begin{equation}
-\omega > c(\lambda (B+1) -o)
+\omega > c(\lambda (B+1) -v)
 \end{equation}
 
 So to conclude, we either end up with $3$ or $2$ regions
 \begin{itemize}
-\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) \leq c (\lambda (B+1) - o)$
+\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v) \leq c (\lambda (B+1) - v)$
  \begin{itemize}
- \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)$
- \item Visit next time step if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) \leq \omega \leq c (\lambda (B+1) - o)$
- \item Never Visit if $\omega \geq c(\lambda (B+1) -o)$
+ \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +v)$
+ \item Visit next time step if $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v) \leq \omega \leq c (\lambda (B+1) - v)$
+ \item Never Visit if $\omega \geq c(\lambda (B+1) -v)$
  \end{itemize}
-\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +o) > c (\lambda (B+1) - o)$
+\item If $c(\floor{B}+1)(\lambda (\floor{B}-B+1) +v) > c (\lambda (B+1) - v)$
  \begin{itemize}
- \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +o)$
- \item Never visit if $\omega \geq c (\floor{B}+1) (\lambda (\floor{B}-B+1)$
+ \item Visit immediately if $\omega \leq c (\floor{B}+1) (\lambda (\floor{B}-B+1) +v)$
+ \item Never visit if $\omega \geq c (\floor{B}+1) (\lambda (\floor{B}-B+1+v)$
  \end{itemize}
 \end{itemize}
 
 \begin{note}
-If $o=0$ then we never fall into the second region as $(\floor{B}+1)(\floor{B}-B+1)=(\floor{B}+1)(1-R) \leq \floor{B}+1 \leq B+1$ where the remainder upon flooring is defined by $R=B-\floor{B}$ and $0 \leq R < 1$.
+If $v=0$ then we never fall into the second region as $(\floor{B}+1)(\floor{B}-B+1)=(\floor{B}+1)(1-R) \leq \floor{B}+1 \leq B+1$ where the remainder upon flooring is defined by $R=B-\floor{B}$ and $0 \leq R < 1$.
 
-Moreover the region condition is reduced to $o \leq \lambda R$ or $o > \lambda R$.
+Moreover the region condition is reduced to $v \leq \lambda R$ or $v > \lambda R$.
 \end{note}
 
-Also of interest is if $X=B$ has $B$ very close to an interger, eg.$B=3.01$ then the condition to fall into the second region is that $o < \frac{\lambda}{100}$, requiring a very high rate to fall into the category of never deciding to wait one time step.
+Also of interest is if $X=B$ has $B$ very close to an interger, eg.$B=3.01$ then the condition to fall into the second region is that $v < \frac{\lambda}{100}$, requiring a very high rate to fall into the category of never deciding to wait one time step.
 
 \begin{remark}
-We remark that $\omega > c (\lambda(B+1)-o )=\omega' + c(\lambda -o)$. Where $\omega'$ is the old never visiting cost (under the non-observable attackers), so as $o \leq R \lambda$ ($0 \leq R < 1$) we know that $\lambda > o$ , so the visiting cost must be higher than before to consider not visiting. This is as we would expect.
+We remark that $\omega > c (\lambda(B+1)-v )=\omega' + c(\lambda -v)$. Where $\omega'$ is the old never visiting cost (under the non-observable attackers), so as $o \leq R \lambda$ ($0 \leq R < 1$) we know that $\lambda > v$ , so the visiting cost must be higher than before to consider not visiting. This is as we would expect.
 
-If $o > \lambda$ then in the second we still get a higher critical visiting cost to never visit (as $c \lambda (\floor{B}+1)(R+1) > c \lambda B$).
+If $v > \lambda$ then in the second we still get a higher critical visiting cost to never visit (as $c \lambda (\floor{B}+1)(R+1) > c \lambda B$).
 \end{remark}
 
 \begin{example}
-Suppose $X=2.1$ and $b=5$, then our state space is reduced to $\Omega= \{ (3,o) \, | o=0,1,...,5 \} \cup \{(4,0) \}$ and we make the decision at state $(3,o)$ first based on the calculation of $c(2+1)(\lambda(2-2.1+1)+o)=c(2.7\lambda+3o)$ versus $c(\lambda (2.1+1)-o)=c(3.1\lambda -o)$ so depends if $0.1 \lambda \geq o$ or $0.1 \lambda > o $.
+Suppose $X=2.1$ and $b=5$, then our state space is reduced to $\Omega= \{ (3,v) \, | v=0,1,...,5 \} \cup \{(4,0) \}$ and we make the decision at state $(3,v)$ first based on the calculation of $c(2+1)(\lambda(2-2.1+1)+v)=c(2.7\lambda+3v)$ versus $c(\lambda (2.1+1)-o)=c(3.1\lambda -o)$ so depends if $0.1 \lambda \geq v$ or $0.1 \lambda > v $.
 
-Suppose now that we have $o=1$ and $\lambda=20$ then we fall into the first case and we will make the decision based on the cost, $\omega$:
+Suppose now that we have $v=1$ and $\lambda=20$ then we fall into the first case and we will make the decision based on the cost, $\omega$:
 \begin{itemize}
 \item Visit immediately if $\omega \leq c(2.7 \times 20 + 3 \times 1)=57c$
 \item Wait then Visit if $57c < \omega < c(3.1 \times 20 -1)=61c $
 \item Never Visit if $\omega \geq 61c$
 \end{itemize}
 
-However if instead $o=4$ while $\lambda=20$ then we fall into the first case and will make the decision based on the cost, $\omega$:
+However if instead $v=4$ while $\lambda=20$ then we fall into the first case and will make the decision based on the cost, $\omega$:
 \begin{itemize}
 \item Visit immediately if $\omega \leq c(2.7 \times 20 +3 \times 4)=66c$
 \item Never Visit if $\omega \geq 66c$
@@ -442,6 +442,27 @@ However if instead $o=4$ while $\lambda=20$ then we fall into the first case and
 $69c > c(3.1 \times 20 -4)=56c$ so we are never going to wait then visit (and in fact we are more incentivised to visit earlier)
 \end{note} 
 \end{example}
+
+\subsection{Correction to approach for Deterministic}
+We will first suppose we are in the state $(\floor{B}+2,0)$, then we will make the decision to wait for a period of time. Suppose that the long-run cost from time $t$ onwards is $g^{\pi}(t)$, then in this state we can wait $k \geq 0$ time periods for a long cost of $c \lambda \int_{0}^{\floor{B}+1+k} P(X \leq t) dt + \omega +g^{\pi}(k+1)= c \lambda (\floor{B}+k-B) + \omega +g^{\pi}(k+1)$
+
+Now we will pick $k+1$ over $k$ if
+
+\begin{align*}
+&\lambda (\floor{B}+k-B) + \omega +g^{\pi}(k+1) > c \lambda (\floor{B}+k+1-B) + \omega +g^{\pi}(k+2) \\
+& \iff g^{\pi}(k+1)-g^{\pi}(k+2) > c \lambda \iff g > c \lambda 
+\end{align*} 
+
+So depending on the average-per-unit-time equilibrium cost $g$ we decide if $(\floor{B}+2,0)$ is a visit immediately (if $g \leq c \lambda$) or a never visit (if $g \geq c \lambda$).
+
+Let us split in cases, with case 1 being that we will never visit if we ever reach this state, then we note that $(\floor{B}+2,0)$ is an absorbing state. The question is will it ever be reached. Considering being in $(\floor{B}+1,v)$ then our decision is to visit now or never visit(by progressing to the absorbing state).
+
+We will pick to be absorbed over visiting if
+\begin{align*}
+& c \lambda \int_{0}^{\floor{B}} P(X \leq t)dt + \omega + g^{\pi}(0) > vc + c \lambda \int_{0}^{\floor{B}+1} P(X \leq t)dt + g^{\pi}(1) \\
+& \iff g > vc + c \lambda(\floor{B}+1-B) - \omega \\
+&  
+\end{align*}
 
 \subsection{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
@@ -558,9 +579,18 @@ Finally we will never visit if:
 \begin{example}
 Suppose $x_{1}=0.1$,$x_{2}=2.1$ with $p=0.2$ and $b=5$, then our state space is reduced to $\Omega= \{ (1,o) \, | o=0,1,...,5 \} \cup \{ (1,o) \, | o=0,1,...,5 \} \cup \{ (4,0) \}$ and we make the decision at state $(1,o)$. We start by calculating the various critical regions, for which we will use $\lambda=20$ and $o=1$.
 
-First critical value(Equation 12): $\frac{c(0+1)(20 \times (2-0.1)+1)}{2-0}=\frac{39c}{2}$
+First critical value(Equation 12): $\frac{c(0+1)(20 \times (2-0.1)+1)}{2-0}=\frac{39c}{2}=19.5c$
 
-Second critical value(Equation 13): $c(20 \times (1-0.2)((2-2.1)(2+1)+1)+1+0.2 \times 0.1 + 1 \times ((1-0.2)()))$
+Second critical value(Equation 13): $c(20 \times (1-0.2)((2-2.1)(2+1)+1)+1+0.2 \times 0.1 + 1 \times ((1-0.2)(2+1)-0.2))=14.42c$
+
+Third critical value(Equation 14): $c(20 \times (1+ 0.2 \times 0.1+0.8 \times 2.1)-1)=53c$.
+
+So in this case the decision will be based on the cost, $\omega$:
+\begin{itemize}
+\item Visit immediately if $\omega \leq 19.5c$
+\item Wait till $(4,0)$ (three time periods) and visit immediately if $19.5c <\omega < 53c$
+\item Never visit if $\omega \geq 53c$
+\end{itemize}
 \end{example}
 
 \section{Ideas for future}
