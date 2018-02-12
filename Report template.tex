@@ -444,25 +444,45 @@ $69c > c(3.1 \times 20 -4)=56c$ so we are never going to wait then visit (and in
 \end{example}
 
 \subsection{Correction to approach for Deterministic}
-We will first suppose we are in the state $(\floor{B}+2,0)$, then we will make the decision to wait for a period of time. Suppose that the long-run cost from time $t$ onwards is $g^{\pi}(t)$, then in this state we can wait $k \geq 0$ time periods for a long cost of $c \lambda \int_{0}^{\floor{B}+1+k} P(X \leq t) dt + \omega +g^{\pi}(k+1)= c \lambda (\floor{B}+k-B) + \omega +g^{\pi}(k+1)$
+We will first have a concrete argument as to why the decision is always to wait when in a state $(s,v)$ with $s < \floor{B}+1$. From this position consider the policy $\pi_{k}$ which waits $k$ time periods and then renews and follows the optimal policy, $\sigma$, with $k=0,...,\floor{B}+1-s$.
 
-Now we will pick $k+1$ over $k$ if
+Using such a policy will get us that
+\begin{equation}
+V_{n}^{\pi_{k}}(x,v)=\omega + E[V_{n-k-1}^{\sigma}(\theta)]
+\end{equation}
+
+where $\theta$ is the state upon renewal (i.e it is the state $(1,V) \sim (1,TPo(\lambda))$.
+
+Now we will pick policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
 
 \begin{align*}
-&\lambda (\floor{B}+k-B) + \omega +g^{\pi}(k+1) > c \lambda (\floor{B}+k+1-B) + \omega +g^{\pi}(k+2) \\
-& \iff g^{\pi}(k+1)-g^{\pi}(k+2) > c \lambda \iff g > c \lambda 
-\end{align*} 
-
-So depending on the average-per-unit-time equilibrium cost $g$ we decide if $(\floor{B}+2,0)$ is a visit immediately (if $g \leq c \lambda$) or a never visit (if $g \geq c \lambda$).
-
-Let us split in cases, with case 1 being that we will never visit if we ever reach this state, then we note that $(\floor{B}+2,0)$ is an absorbing state. The question is will it ever be reached. Considering being in $(\floor{B}+1,v)$ then our decision is to visit now or never visit(by progressing to the absorbing state).
-
-We will pick to be absorbed over visiting if
-\begin{align*}
-& c \lambda \int_{0}^{\floor{B}} P(X \leq t)dt + \omega + g^{\pi}(0) > vc + c \lambda \int_{0}^{\floor{B}+1} P(X \leq t)dt + g^{\pi}(1) \\
-& \iff g > vc + c \lambda(\floor{B}+1-B) - \omega \\
-&  
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{k}} (x,v) - V_{n}^{\pi_{k+1}}(x,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} E[V_{n-k}^{\sigma}(\theta) - V_{n-k-1}^{\sigma} (\theta)] \geq 0 \\
+& \iff g \geq 0
 \end{align*}
+
+Where $g$ is the average long-run costs of the system, coming from $V_{n}(x,v)=ng + \phi(x,v)$ for large $n$, and $\phi(x,v)$ is some initial bias for not starting in equilibrium from the initial state $(x,v)$.
+
+Now as the Dynamic Programming only has positive costs, it is impossible for $g < 0$. So we have that $g \geq 0$, so it is better to pick policy $\pi_{k+1}$ over $\pi_{k}$, as this argument holds for all $k=0,...,\floor{B}+1-s$ (and all $v$) it is best to wait till $(\floor{B}+1,v)$ before making a decision.
+
+This formally shows the removal of the prior states.
+
+Now we will skip to the state $(\floor{B}+2,0)$ and suggest again a policy $\pi_{k}$ which waits $k$ time periods before renewing and then follows some optimal policy, $\sigma$.
+
+Using such a policy will get us
+\begin{equation}
+V_{n}^{\pi_{k}}(x,v)= \omega +c \lambda (\floor{B}-B+1+k) + E[V_{n-k-1}^{\sigma}(\theta)]
+\end{equation}
+
+And again we will pick a policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
+
+\begin{align*}
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{k}} (\floor{B}+2,0) - V_{n}^{\pi_{k+1}}(\floor{B}+2,0) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} -c \lambda E[V_{n-k}^{\sigma}(\theta) - V_{n-k-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff g \geq c \lambda
+\end{align*}
+
+So hence if $g \geq c \lambda$ we will wait forever, as this has no dependence on $k$.
 
 \subsection{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
