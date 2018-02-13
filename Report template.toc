@@ -2,8 +2,8 @@
 \contentsline {section}{\numberline {2}Single node problem}{3}
 \contentsline {subsection}{\numberline {2.1}Deterministic Attack time}{5}
 \contentsline {subsection}{\numberline {2.2}Correction to approach for Deterministic}{9}
-\contentsline {subsection}{\numberline {2.3}Bernoulli Attack time}{10}
+\contentsline {subsection}{\numberline {2.3}Bernoulli Attack time}{11}
 \contentsline {section}{\numberline {3}Ideas for future}{i}
-\contentsline {section}{Appendices}{i}
-\contentsline {section}{\numberline {A}Observations are always zero}{i}
-\contentsline {section}{\numberline {B}Bernoulli Attack time with equal floors}{ii}
+\contentsline {section}{Appendices}{ii}
+\contentsline {section}{\numberline {A}Observations are always zero}{ii}
+\contentsline {section}{\numberline {B}Bernoulli Attack time with equal floors}{iii}

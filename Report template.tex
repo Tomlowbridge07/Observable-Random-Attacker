@@ -484,6 +484,70 @@ And again we will pick a policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) i
 
 So hence if $g \geq c \lambda$ we will wait forever, as this has no dependence on $k$.
 
+We will now argue that $g_{max}=c \lambda$, that is at worst the  long-run average cost is $c \lambda$. This can be seen by the strategy $\pi_{neg}$, a strategy which never renews no matter what state we are in. I.e the patroller neglects the node. We will have that, for large n
+
+\begin{align*}
+V_{n}^{\pi_{neg}}(x,v)=n c \lambda + \phi(x,v)
+\end{align*}
+
+We can observe this by looking at the actual decay of the process, under a policy that never renews
+
+\begin{align*}
+V_{n}^{\pi_{neg}}(x,v)=& V_{n-(\floor{B}+2-x)}^{\pi_{neg}} + \phi(x,v)
+&=(n-(\floor{B}+2-x)) c \lambda + phi(x,v)
+\end{align*}
+
+Where $\phi(x,v)= \underbrace{v c \lambda}_{\text{Observed finishing}} + \underbrace{(1-R) c \lambda}_{\text{arrivals that finish}}$ ($R=B-\floor{B}$) is the `transfer'/bias of moving from the initial state to $(\floor{B}=2,1)$.
+
+Hence for any service cost, $\omega$ we can achieve a $g= c \lambda$. So we will always be in the case of $g \leq c \lambda$ and hence we will renew if we hit the state $(\floor{B}+2,0)$ and hence for a state $(\floor{B}+1,v)$ we have two types of policy, $\pi_{0}$ a policy which renews now and then follows some optimal policy $\sigma$ or policy, $\pi_{1}$ which waits one period until $(\floor{B}+2,0)$ and then renews and follows some optimal policy $\sigma$.
+
+So we will choice to renew now over waiting if
+
+\begin{align*}
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{1}} (\floor{B}+1,v) - V_{n}^{\pi_{0}}(\floor{B}+1,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c \lambda + E[V_{n-1}^{\sigma}(\floor{B+2},0)] - (\omega + E[V_{n-1}^{\sigma}(\theta)]) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c \lambda + E[ \omega + V_{n-2}^{\sigma}(\theta)] - \omega - E[V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1+v) c \lambda + E[V_{n-2}^{\sigma}(\theta) - V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff (1-R+v)c \lambda - g \geq 0 \\
+& \iff g \leq (1-R+v) c \lambda
+\end{align*}
+
+So we renew now if $g \leq (1-R+v) c \lambda$, as we are guarentted that $g \leq c \lambda$ we are clearly in this region unless $R-v \geq 0 \iff R \geq v$ but as $0 \leq R < 1$ we may only have this problem if we are in a node with zero observations and only if $R=0$, i.e if $R=0$, then we will wait to renew.
+
+So for $R \neq 0$ we will always renew in the state $(\floor{B}+1,v)$ and hence we will get that
+
+\begin{align*}
+g(\omega)=\frac{\omega}{\floor{B}+1}
+\end{align*}
+And as we want $g \leq c \lambda$ we will need that $\omega \leq c \lambda (\floor{B}+1)$.
+
+If $R=0$ we will always renew in the state $(\floor{B}+1,v)$ for $v \neq 0$ and for $(\floor{B}+1,0)$ we will wait and then renew. Hence we will get that
+
+\begin{align*}
+g(\omega)=&\frac{(1-R) c \lambda + \omega}{\floor{B}+2} \times P(TPo(\lambda)=0) + \frac{\omega}{\floor{B}+1} \times P(TPo(\lambda) \neq 0) \\
+&=\frac{(1-R) c \lambda + \omega}{\floor{B}+2} \times P(Po(\lambda)=0) + \frac{\omega}{\floor{B}+1} \times P(Po(\lambda) \neq 0) \\
+&=\frac{e^{-\lambda}((1-R) c \lambda + \omega)}{\floor{B}+2} + \frac{\omega(1-e^{-\lambda})}{\floor{B}+1} \\
+&=\frac{(\floor{B}+1)(1-R) c \lambda e^{-\lambda} + \omega(\floor{B}+2-e^{-\lambda})}{(\floor{B}+1)(\floor{B}+2)}
+\end{align*}
+
+and as we want $g \leq c \lambda$ we will need that $\omega \leq (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$.
+
+So our optimal strategy depends on if $R=0$ or not. Then our service cost informs of which strategy to follow
+
+\begin{itemize}
+\item $R \neq 0$ then if
+\begin{itemize}
+\item $\omega \leq (\floor{B}+1) c \lambda$ then renew in state $(\floor{B+1},v)$ for any $v$
+\item $\omega > (\floor{B}+1) c \lambda$ then never renew
+\end{itemize}
+
+\item $R=0$ then if
+\begin{itemize}
+\item $\omega \leq (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$ then renew in state $(\floor{B}+1,v)$ for $v \neq 0$ and wait in state $(\floor{B}+1,0)$ until $(\floor{B}+2,0)$ then renew
+\item  $\omega > (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$ then never renew
+\end{itemize}
+\end{itemize}
+
 \subsection{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
 x_{1} \text{ with probability } p \\
