@@ -258,7 +258,7 @@ There may be a problem with having a non-deterministic attack time, as this may 
 \section{Single node problem}
 Focusing on the problem of a single nodes and stripping off the index, $i$, for the nodes. This problem has a visiting cost, $\omega>0$ and we are looking to minimize the long run cost of the system.
 
-\subsection{Deterministic Attack time}
+\section{Deterministic Attack time}
 Consider the case where $X=x$, where $x$ is a constant (So $B=x$). Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
 
 So in the deterministic case $\Omega= \{(\floor{B}+1,v) \, | \, v=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
@@ -471,14 +471,14 @@ Now we will skip to the state $(\floor{B}+2,0)$ and suggest again a policy $\pi_
 
 Using such a policy will get us
 \begin{equation}
-V_{n}^{\pi_{k}}(x,v)= \omega +c \lambda (\floor{B}-B+1+k) + E[V_{n-k-1}^{\sigma}(\theta)]
+V_{n}^{\pi_{k}}(x,v)= \omega +c \lambda k + E[V_{n-k-1}^{\sigma}(\theta)]
 \end{equation}
 
 And again we will pick a policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
 
 \begin{align*}
 &\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{k}} (\floor{B}+2,0) - V_{n}^{\pi_{k+1}}(\floor{B}+2,0) \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} -c \lambda E[V_{n-k}^{\sigma}(\theta) - V_{n-k-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} -c \lambda + E[V_{n-k}^{\sigma}(\theta) - V_{n-k-1}^{\sigma}(\theta)] \geq 0 \\
 & \iff g \geq c \lambda
 \end{align*}
 
@@ -505,54 +505,145 @@ So we will choice to renew now over waiting if
 
 \begin{align*}
 &\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{1}} (\floor{B}+1,v) - V_{n}^{\pi_{0}}(\floor{B}+1,v) \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c \lambda + E[V_{n-1}^{\sigma}(\floor{B+2},0)] - (\omega + E[V_{n-1}^{\sigma}(\theta)]) \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c \lambda + E[ \omega + V_{n-2}^{\sigma}(\theta)] - \omega - E[V_{n-1}^{\sigma}(\theta)] \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1+v) c \lambda + E[V_{n-2}^{\sigma}(\theta) - V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c + E[V_{n-1}^{\sigma}(\floor{B+2},0)] - (\omega + E[V_{n-1}^{\sigma}(\theta)]) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c  + E[ \omega + V_{n-2}^{\sigma}(\theta)] - \omega - E[V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} (\lambda(\floor{B}-B+1)+v) c + E[V_{n-2}^{\sigma}(\theta) - V_{n-1}^{\sigma}(\theta)] \geq 0 \\
 & \iff (1-R+v)c \lambda - g \geq 0 \\
-& \iff g \leq (1-R+v) c \lambda
+& \iff g \leq c (\lambda(1-R)+v) 
 \end{align*}
 
-So we renew now if $g \leq (1-R+v) c \lambda$, as we are guarentted that $g \leq c \lambda$ we are clearly in this region unless $R-v \geq 0 \iff R \geq v$ but as $0 \leq R < 1$ we may only have this problem if we are in a node with zero observations and only if $R=0$, i.e if $R=0$, then we will wait to renew.
+So we renew now if $g \leq (\lambda(1-R)+v)c$, as we are guaranteed that $g \leq c \lambda$ we are clearly in this region unless $\lambda R-v \geq 0 \iff v \leq \lambda R $, so if we will renew in $v$ we definitely renew in $v+1,v+2,...,b$. Their is some critical value, $v_{\text{crit}}=\ceil{\frac{g}{c}+ \lambda (R-1)}$ such that for $v \geq v_{\text{crit}}$ we renew immediately and for $v < v_{\text{crit}}$ we wait one time period and renew.
 
-So for $R \neq 0$ we will always renew in the state $(\floor{B}+1,v)$ and hence we will get that
+We have two special cases for $g$, that is when we always renew immediately or always wait then renew, these are $g \leq  c \lambda(1-R)$ (i.e we renew for all $v$ if we renew for $v=0$) and $g \geq c (\lambda(1-R)+b)$ (i.e we always wait then renew for all $v$ if we wait for $v=b$)
+
+However between these regions, we have a divide of the nodes into a set we renew immediately and a set we wait then renew.
+
+\begin{myfigure}
+\begin{center}
+\begin{tikzpicture}[-,auto,node distance=1cm,
+                    thick,main node/.style={circle,fill=white,draw,font=\sffamily\large,minimum size=0.5cm}]
+ \foreach \x in {0,...,5}
+    \foreach \y in {0,...,0} 
+       {\pgfmathtruncatemacro{\label}{\x - 5 *  \y +21}
+        \pgfmathtruncatemacro{\v}{\x}
+        \pgfmathtruncatemacro{\s}{3-\y}
+       \node [main node]  (\x\y) at (1.5*\x,1.5*\y) {\s,\v};}
+       
+\node[main node] (SpecialState) at (3.75,-1.5) {4,0};       
+
+\node (XaxisLeft) [shift={(-0.5,1)}] at (01) {};
+\node (XaxisRight) [shift={(1,1)}] at (51) {};
+
+\node (YaxisBottom) [shift={(-1,-0.5)}] at (0,-1.5) {};
+\node (YaxisTop) [shift={(-1,1)}] at (01) {};
+
+\draw[->,line width=1mm] (XaxisLeft)--(XaxisRight);
+\draw[->,line width=1mm] (YaxisTop)--(YaxisBottom);
+
+\node[font=\sffamily\large] (OLabel) [shift={(0.5,1.5)}] at (21) {Observation, $v$};
+\node[font=\sffamily\large] (SLabel) [shift={(-2.4,0.5)}] at (00) {\rotatebox{90}{Time since last visit, $s$}};
+
+\node[main node] (Example) [shift={(-1,1)}] at (01) {$(s,v)$};
+
+\node (Topbarrier) [shift={(0.8,1)}] at (10) {};
+\node (Bottombarrier) [shift={(0.8,-1)}] at (10) {};
+
+\draw (Topbarrier)--(Bottombarrier);
+
+\node (Barrierlabel) [shift={(0,0.2)}] at (Topbarrier) {$g=2.8$};
+
+\node (Box1) [draw,thick,fit=(00) (10),fill,blue,opacity=0.2] {};
+
+\node[blue] (Box1Label) [shift={(0,-1)}] at (Box1) {Wait then renew};
+
+\node (Box2) [draw,thick,fit=(20) (50),fill,red,opacity=0.2] {};
+
+\node[red] (Box2Label) [shift={(0,-1)}] at (Box2) {Renew now};
+
+\end{tikzpicture}
+\end{center}
+\caption{With $c=\lambda=1$, $B=4.4 \implies R=0.4$ so $v_{\text{crit}}=2$ when $2.6 \leq g < 3.6$ (e.g $g=2.8$)}
+\label{Figure: example of region splitting}
+\end{myfigure}
+
+However we are assuming we are in the case of $g \leq c \lambda$ for so the example \ref{Figure: example of region splitting} we cannot have a situation as $g_{\text{max}}=1$. Really in this case we would just follow the neglecting strategy, $\pi_{\text{neg}}$.
+
+This brings about a reasoning to introduce $\max\limits_{0 \leq g \leq c \lambda} v_{\text{crit}}=\ceil{\frac{c \lambda}{c}+\lambda(R-1)}=\ceil{R}$. Now as  $0 \leq R < 1$ we will get the furtherest $v_{crit}$ is $0$ or $1$ (if $R=0$ or $R \neq 0$ respectively).
+
+\begin{note}
+These are only the extreme cases where $g= c \lambda$, it is possible that we do not get a $v_{crit}$ at all, i.e we will always renew.
+\end{note} 
+
+\textbf{Case 1: $R=0$}
+
+When $R=0$ then at worst under this non-neglecting case we will never wait for any $v=0$ (as the max crit is $v_{\text{crit}}=0$). So this will generate an average cost of
 
 \begin{align*}
 g(\omega)=\frac{\omega}{\floor{B}+1}
 \end{align*}
-And as we want $g \leq c \lambda$ we will need that $\omega \leq c \lambda (\floor{B}+1)$.
 
-If $R=0$ we will always renew in the state $(\floor{B}+1,v)$ for $v \neq 0$ and for $(\floor{B}+1,0)$ we will wait and then renew. Hence we will get that
+So as we will need to be in the case with $g \leq c \lambda$ for this to take effect we will need $\omega \leq c \lambda (\floor{B}+1)$.
+
+\textbf{Case 2: $R \neq 0$}
+
+Then we have the possibility to wait in state $v=0$ and renew one step later, however this will only occur in the region where $v_{crit}=1$ that is that  $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$ (if we have $g \leq c \lambda (1-R)$ then we will still get $v_{crit}=0$)
+
+\textbf{Subcase 1: $g \leq c \lambda (1-R)$}
+
+If we fall into here, $v_{crit}=0$ so we still get that the average cost is
+$g(\omega)=\frac{\omega}{\floor{B}+1}$ and so we need $g \leq c \lambda (1-R)$ meaning $\omega \leq c \lambda (1-R)(\floor{B}+1)$
+
+We notice that $g \leq c \lambda (1-R) < c \lambda$ so we have no worries with being in this case.
+
+\textbf{Subcase 2: $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$}
+
+If we fall into here, $v_{crit}=1$ so we will get a slightly different average cost
 
 \begin{align*}
-g(\omega)=&\frac{(1-R) c \lambda + \omega}{\floor{B}+2} \times P(TPo(\lambda)=0) + \frac{\omega}{\floor{B}+1} \times P(TPo(\lambda) \neq 0) \\
-&=\frac{(1-R) c \lambda + \omega}{\floor{B}+2} \times P(Po(\lambda)=0) + \frac{\omega}{\floor{B}+1} \times P(Po(\lambda) \neq 0) \\
-&=\frac{e^{-\lambda}((1-R) c \lambda + \omega)}{\floor{B}+2} + \frac{\omega(1-e^{-\lambda})}{\floor{B}+1} \\
-&=\frac{(\floor{B}+1)(1-R) c \lambda e^{-\lambda} + \omega(\floor{B}+2-e^{-\lambda})}{(\floor{B}+1)(\floor{B}+2)}
+g(\omega)&=\frac{\omega+c\lambda(1-R)}{\floor{B}+2} P(TPo(\lambda)=0) + \frac{\omega}{\floor{B}+1} P(TPo(\lambda) \neq 0) \\
+&=\frac{\omega+c\lambda(1-R)}{\floor{B}+2} e^{-\lambda} + \frac{\omega}{\floor{B}+1} (1-e^{-\lambda}) \\
+&=\frac{(\floor{B}+1)(\omega+c(\lambda(1-R))e^{-\lambda} + (\floor{B}+2)(\omega) (1-e^{-\lambda})}{(\floor{B}+2)(\floor{B}+1)} \\
+&=\frac{(\floor{B}+1)(c(\lambda(1-R))e^{-\lambda} + (\floor{B}+2-e^{-\lambda})\omega}{(\floor{B}+2)(\floor{B}+1)}
 \end{align*}
 
-and as we want $g \leq c \lambda$ we will need that $\omega \leq (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$.
+and we need that $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$ so we need that $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R) $
 
-So our optimal strategy depends on if $R=0$ or not. Then our service cost informs of which strategy to follow
+We will still require that $g \leq c \lambda$, so we will need to limit ourselves to $\lambda R \geq 1$ otherwise the upper limit on $g$ becomes $c \lambda$ (translating to $\frac{c \lambda (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda})}{\floor{B}+2-e^{-\lambda}} $ in the $\omega$ limit)
+
+\subsection{Conclusion on deterministic attack time}
+We conclude our results on determinsitic attack time by a case, by case basis:
 
 \begin{itemize}
-\item $R \neq 0$ then if
+\item if $R=0$ then:
 \begin{itemize}
-\item $\omega \leq (\floor{B}+1) c \lambda$ then renew in state $(\floor{B+1},v)$ for any $v$
-\item $\omega > (\floor{B}+1) c \lambda$ then never renew
+\item if $\omega \leq c \lambda (\floor{B}+1)=c \lambda (B+1)= c \lambda
+(E[X]+1))$ then we renew immediately in all states
+\item if $\omega > c \lambda (E[X]+1)$ then we never renew
+\end{itemize}
+\item if $R \neq 0$ then:
+\begin{itemize}
+\item if $\omega \leq c \lambda (1-R)(\floor{B}+1)$ then we renew immediately in all states
+\item if $\lambda R \geq 1$ then:
+\begin{itemize}
+\item if $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R)$ then we renew immediately in all states with $v \geq 1$ but we wait one period before renewing in the state $(\floor{B}+1,0)$
+\item if $\omega > \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R)$ then we never renew
+\end{itemize}
+\item if $\lambda R < 1$ then:
+\begin{itemize}
+\item if $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c \lambda (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda})}{\floor{B}+2-e^{-\lambda}} $ then we renew immediately in all states with $v \geq 1$ but we wait one period before renewing in the state $(\floor{B}+1,0)$
+\item if $\omega > (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda}){\floor{B}+2-e^{-\lambda}} $ then we never renew
+\end{itemize}
+\end{itemize}
 \end{itemize}
 
-\item $R=0$ then if
-\begin{itemize}
-\item $\omega \leq (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$ then renew in state $(\floor{B}+1,v)$ for $v \neq 0$ and wait in state $(\floor{B}+1,0)$ until $(\floor{B}+2,0)$ then renew
-\item  $\omega > (\floor{B}+1) c \lambda + \frac{Re^{-\lambda}(\floor{B}+1)}{\floor{B}+2-e^{-\lambda}}$ then never renew
-\end{itemize}
-\end{itemize}
+For a given scenario (i.e a known $R$ and $\lambda$) we can determine our case and hence our index. We also note that these decision costs are $non-decreasing$.
 
-\subsection{Bernoulli Attack time}
+\section{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
 x_{1} \text{ with probability } p \\
 x_{2} \text{ with probability } 1-p \\
 \end{cases}$ then we apply the same logic to attempt to get a decision dependent on the visiting cost. We will assume without loss of generality that $x_{2} > x_{1}$, then $B=x_{2}$. We will get some reduction of the state space as before, but it will not be as drastic, by applying the same logic there may be a gap between some states we will never choose to visit.
+We will formally show this reduction in the appendix \ref{Appendix: Formal proof of removing states for bernoulli attack times}
 
 We will limit the state space with non-zero observed attackers to have either $s_{j}=\floor{x_{1}}+1$ or $s_{j}=\floor{x_{2}}+1$, due to the first one catching all the attacks caught for any $s_{j}<\floor{x_{1}}+1$ and the second one catching all attacks caught for any $\floor{x_{1}}<s_{j}<\floor{x_{2}}+1$.
 
@@ -676,6 +767,132 @@ So in this case the decision will be based on the cost, $\omega$:
 \item Never visit if $\omega \geq 53c$
 \end{itemize}
 \end{example}
+
+\subsection{Correction to approach for bernoulli}
+We will first have a concrete argument as to why we can renew all states, $(s,v)$ with $s < \floor{x_{1}}+1$. From this position consider the policy which waits $k$ time periods and then renews and follows the optimally policy, $\sigma$, with $k=0,...,\floor{x_{1}}+1-s$.
+
+Using such a policy will get us that
+\begin{equation}
+V_{n}^{\pi_{k}}(s,v)=\omega+E[V_{n-k-1}^{\sigma}(\theta)]
+\end{equation}
+Where $\theta$ is the state upon renewal (i.e the state $(1,V) \sim (1,TPo(\lambda)$)
+
+Now we will pick policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
+
+\begin{align*}
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{k}} (s,v) - V_{n}^{\pi_{k+1}}(s,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} E[V_{n-k-1}^{\sigma}(\theta) - V_{n-k-2}^{\sigma} (\theta)] \geq 0 \\
+& \iff g \geq 0
+\end{align*}
+
+Where $g$ is the average long-run costs of the system, coming from $V_{n}=ng+\phi(s,v)$ for large n, where $\phi(s,v)$ is some initial bias for not starting in the equilibrium but from the initial state $(s,v)$.
+
+Now as the Dynamic Programming only have positive costs, it is impossible for $g < 0$. So we have $g \geq 0 $, so it is better to pick policy $\pi_{k+1}$ over $\pi_{k}$ , as the argument holds for all $k=0,...,\floor{x_{1}}+1-s$ (and all $v$) it is best to wait till $(\floor{x_{1}}+1,v)$ before making a decision, i.e if we are too renew we might as well renew at $(\floor{x_{1}}+1,v)$ (though we might not renew here).
+
+This formally shows the removal of the initial section of states (i.e those at the top).
+
+Now we will skip to the state $(\floor{x_{2}}+2,0)$ and again suggest a policy, $\pi_{k}$ which waits $k$ time periods before renewing and then follows some optimal policy, $\sigma$.
+
+Using such as policy will get us
+\begin{align*}
+V_{n}^{\pi_{k}}(s,v)&=\omega + c \lambda p  k + c \lambda (1-p) k + E[V_{n-k-1}^{\sigma}(\theta)] \\
+&=\omega + c \lambda k + E[V_{n-k-1}^{\sigma}(\theta)] 
+\end{align*}
+
+so we will pick policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
+
+\begin{align*}
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{k}}(s,v) - V_{n}^{\pi_{k+1}}(s,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} -c \lambda + E[V_{n-k-1}^{\sigma}(\theta) - V_{n-k-2}^{\sigma} (\theta)] \\
+& \iff -c \lambda + g \geq 0 \\
+& \iff f \geq c \lambda
+\end{align*}
+
+So hence if $g \geq c \lambda$ we will wait forever, as this has no dependence on $k$.
+
+We will now argue that $g_{\text{max}}= c \lambda$, that is the worst long-run average cost is $c \lambda$. This can be be seen by the strategy, $\pi_{\text{neg}}$, a strategy which never renews no matter what state we are in. I.e the patroller neglects the node. We will have that, for large $n$
+
+\begin{align*}
+V_{n}^{\pi_{\text{neg}}}(s,v)= n c \lambda + \phi(s,v)
+\end{align*}
+We can observe this by looking at the actual decay of the process under a policy that never renews
+
+\begin{align*}
+V_{n}^{\pi_{\text{neg}}}(s,v)&= \begin{cases}
+n c \lambda \text{ If } s \geq \floor{x_{2}}+2 \\
+V_{n-(\floor{x_{2}}+2-s)} + \phi(s,v) \text{ If }  s \leq \floor{x_{2}}+1
+\end{cases} \\
+&= \begin{cases}
+n c \lambda \text{ If } s \geq \floor{x_{2}}+2 \\
+(n-(\floor{x_{2}}+2-s)) c \lambda + \phi(s,v) \text{ If }  s \leq \floor{x_{2}}+1
+\end{cases} \\
+\end{align*}
+
+where
+
+\begin{align*}
+\phi(s,v)=&\begin{cases}
+\underbrace{v c }_{\text{Observed finishing}} + \underbrace{c \lambda p (\floor{x_{2}}-x_{1}+1)}_{ x_{1} \text{ type attackers finishing}} + \underbrace{c \lambda (1-p) (\floor{x_{1}}-x_{1}+1)}_{ x_{2} \text{ type attackers finishing}} \text{ If } s \leq \floor{x_{1}}+1  \\
+\underbrace{v c (1-p)}_{\text{Observed } x_{2} \text{ types finishing}} + \underbrace{c \lambda p (\floor{x_{2}}-x_{1}+1-s)}_{ x_{1} \text{ type attackers finishing}} + \underbrace{c \lambda (1-p) (\floor{x_{1}}-x_{1}+1)}_{ x_{2} \text{ type attackers finishing}} \text{ If } \floor{x_{1}}+2 \leq s \leq \floor{x_{2}}+1 \\
+0 \text{ If } s \geq \floor{x_{2}}+2 
+\end{cases} \\
+&=\begin{cases}
+v c + c \lambda (\floor{x_{2}}-x_{2}+1) + c \lambda p (x_{2}-x_{1}) \text{ If } s \leq \floor{x_{1}}+1  \\
+v c p + c \lambda (\floor{x_{2}}-x_{2}+1) + c \lambda p (x_{2}-x_{1}-s) \text{ If } \floor{x_{1}}+2 \leq s \leq \floor{x_{2}}+1 \\
+0 \text{ If } s \geq \floor{x_{2}}+2 
+\end{cases}
+\end{align*}
+
+is the `transfer'/bias from the initial state to $(\floor{x_{2}}+2,0)$.
+
+Hence for any service cost, $\omega$ we can achieve a $g= c \lambda$. So we will always be in the case of $g \leq c \lambda$ and hence will renew if we hit the state $(\floor{x_{2}}+2,0)$.
+
+Now in this cases of $g \leq c \lambda$ (where we will not just follow neglection) we need to make a decision about what to do at states $(s,v)$ for $\floor{x_{1}}+1 \leq s \leq \floor{x_{2}}+1$, $0 \leq v \leq b$.
+
+The real question again is how long we wait, before renewal. Let us suppose we are in one of these states $(s,v)$ then we notice that we will have slightly different costs depending which region we are in and how long we wait. We again use $\pi_{k}$ be the policy to wait $k$ ($k=0,1,...,\floor{x_{2}}-\floor{x_{2}}+1$) time units before renewing and then following some optimal policy, $\sigma$.
+
+If we are in $(\floor{x_{1}}+1,v)$ then we will get
+
+\begin{align*}
+V_{n}^{\pi_{k}}(\floor{x_{1}}+1,v)&= \begin{cases}
+\omega + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k=0 \\
+\omega + v c p + c \lambda p (\floor{x_{1}}-x_{1}+1+(k-1)) + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } 1 \leq k \leq \floor{x_{2}}-\floor{x_{1}} \\
+\omega+ vc + c \lambda p (\floor{x_{1}}-x_{1}+1+\floor{x_{2}}-\floor{x_{1}}) + c \lambda (1-p) (\floor{x_{2}}-x_{2}+1) + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k= \floor{x_{2}}-\floor{x_{1}}+1
+\end{cases} \\
+&=\begin{cases}
+\omega + E[V_{n-1}^{\sigma}(\theta)] \text{ If } k=0 \\
+\omega + v c p + c \lambda p (\floor{x_{1}}-x_{1}+1+(k-1)) E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } 1 \leq k \leq \floor{x_{2}}-\floor{x_{1}} \\
+\omega+ vc + c \lambda p (x_{2}-x_{1}) + c \lambda (\floor{x_{2}}-x_{2}+1) \text{ If } k= \floor{x_{2}}-\floor{x_{1}}+1
+\end{cases}
+\end{align*}
+
+If we are in $(s,v)$ for $1 \leq s \leq \floor{x_{2}}$
+
+\begin{align*}
+V_{n}^{\pi_{k}}(\floor{x_{1}}+1,v)&= \begin{cases}
+\omega + c \lambda p k + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } 0 \leq k \leq \floor{x_{2}}-\floor{x_{1}}-s \\
+\omega+ vc(1-p) + c \lambda p (\floor{x_{2}}-\floor{x_{1}}-s+1) + c \lambda (1-p) (\floor{x_{2}}-x_{2}+1) + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k= \floor{x_{2}}-\floor{x_{1}}+1-s+1
+\end{cases} \\
+&=\begin{cases}
+\omega + c \lambda p k E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } 0 \leq k \leq \floor{x_{2}}-\floor{x_{1}}-s \\
+\omega+ vc(1-p) + c \lambda p (x_{2}-\floor{x_{1}}-s) + c \lambda (\floor{x_{2}}-x_{2}+1) \text{ If } k= \floor{x_{2}}-\floor{x_{1}}-s+1
+\end{cases}
+\end{align*}
+
+If we are in $(\floor{x_{2}}+1,v)$ 
+
+\begin{align*}
+V_{n}^{\pi_{k}}(\floor{x_{2}}+1,v)&= \begin{cases}
+\omega + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k=0 \\
+\omega+ vc(1-p) + c \lambda p + c \lambda (1-p) (\floor{x_{2}}-x_{2}+1) + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k= 1
+\end{cases} \\
+&=\begin{cases}
+\omega + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k=0 \\
+\omega+ vc(1-p) + c \lambda p (x_{2}-\floor{x_{2}}) + c \lambda (\floor{x_{2}}-x_{2}+1) + E[V_{n-k-1}^{\sigma}(\theta)] \text{ If } k= 1
+\end{cases}
+\end{align*}
+
+
 
 \section{Ideas for future}
 \begin{itemize}
