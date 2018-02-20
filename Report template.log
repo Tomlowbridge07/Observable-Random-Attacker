@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  14 FEB 2018 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  20 FEB 2018 17:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -942,6 +942,35 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/geometry/geometry.st
+y
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.st
+y
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.st
+y
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count145
+\Gm@cntv=\count146
+\c@Gm@tempcnt=\count147
+\Gm@bindingoffset=\dimen185
+\Gm@wd@mp=\dimen186
+\Gm@odd@mp=\dimen187
+\Gm@even@mp=\dimen188
+\Gm@layoutwidth=\dimen189
+\Gm@layoutheight=\dimen190
+\Gm@layouthoffset=\dimen191
+\Gm@layoutvoffset=\dimen192
+\Gm@dimlist=\toks45
+)
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/
 tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
@@ -956,14 +985,14 @@ tikz/libraries/tikzlibrarydecorations.shapes.code.tex
 tikz/libraries/tikzlibrarydecorations.code.tex
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmod
 uledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen185
-\pgfdecoratedremainingdistance=\dimen186
-\pgfdecoratedinputsegmentcompleteddistance=\dimen187
-\pgfdecoratedinputsegmentremainingdistance=\dimen188
-\pgf@decorate@distancetomove=\dimen189
-\pgf@decorate@repeatstate=\count145
-\pgfdecorationsegmentamplitude=\dimen190
-\pgfdecorationsegmentlength=\dimen191
+\pgfdecoratedcompleteddistance=\dimen193
+\pgfdecoratedremainingdistance=\dimen194
+\pgfdecoratedinputsegmentcompleteddistance=\dimen195
+\pgfdecoratedinputsegmentremainingdistance=\dimen196
+\pgf@decorate@distancetomove=\dimen197
+\pgf@decorate@repeatstate=\count148
+\pgfdecorationsegmentamplitude=\dimen198
+\pgfdecorationsegmentlength=\dimen256
 )
 \tikz@lib@dec@box=\box44
 )
@@ -992,23 +1021,23 @@ Package: expl3 2017/05/13 L3 programming layer (loader)
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3-code.
 tex
 Package: expl3 2017/05/13 L3 programming layer (code)
-\c_max_int=\count146
-\l_tmpa_int=\count147
-\l_tmpb_int=\count148
-\g_tmpa_int=\count149
-\g_tmpb_int=\count150
-\g__prg_map_int=\count151
-\c_log_iow=\count152
-\l_iow_line_count_int=\count153
-\l__iow_line_target_int=\count154
-\l__iow_one_indent_int=\count155
-\l__iow_indent_int=\count156
-\c_zero_dim=\dimen192
-\c_max_dim=\dimen193
-\l_tmpa_dim=\dimen194
-\l_tmpb_dim=\dimen195
-\g_tmpa_dim=\dimen196
-\g_tmpb_dim=\dimen197
+\c_max_int=\count149
+\l_tmpa_int=\count150
+\l_tmpb_int=\count151
+\g_tmpa_int=\count152
+\g_tmpb_int=\count153
+\g__prg_map_int=\count154
+\c_log_iow=\count155
+\l_iow_line_count_int=\count156
+\l__iow_line_target_int=\count157
+\l__iow_one_indent_int=\count158
+\l__iow_indent_int=\count159
+\c_zero_dim=\dimen257
+\c_max_dim=\dimen258
+\l_tmpa_dim=\dimen259
+\l_tmpb_dim=\dimen260
+\g_tmpa_dim=\dimen261
+\g_tmpb_dim=\dimen262
 \c_zero_skip=\skip77
 \c_max_skip=\skip78
 \l_tmpa_skip=\skip79
@@ -1021,52 +1050,52 @@ Package: expl3 2017/05/13 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count157
-\c__fp_leading_shift_int=\count158
-\c__fp_middle_shift_int=\count159
-\c__fp_trailing_shift_int=\count160
-\c__fp_big_leading_shift_int=\count161
-\c__fp_big_middle_shift_int=\count162
-\c__fp_big_trailing_shift_int=\count163
-\c__fp_Bigg_leading_shift_int=\count164
-\c__fp_Bigg_middle_shift_int=\count165
-\c__fp_Bigg_trailing_shift_int=\count166
-\c__fp_rand_size_int=\count167
-\c__fp_rand_four_int=\count168
-\c__fp_rand_eight_int=\count169
-\l__sort_length_int=\count170
-\l__sort_min_int=\count171
-\l__sort_top_int=\count172
-\l__sort_max_int=\count173
-\l__sort_true_max_int=\count174
-\l__sort_block_int=\count175
-\l__sort_begin_int=\count176
-\l__sort_end_int=\count177
-\l__sort_A_int=\count178
-\l__sort_B_int=\count179
-\l__sort_C_int=\count180
+\l_keys_choice_int=\count160
+\c__fp_leading_shift_int=\count161
+\c__fp_middle_shift_int=\count162
+\c__fp_trailing_shift_int=\count163
+\c__fp_big_leading_shift_int=\count164
+\c__fp_big_middle_shift_int=\count165
+\c__fp_big_trailing_shift_int=\count166
+\c__fp_Bigg_leading_shift_int=\count167
+\c__fp_Bigg_middle_shift_int=\count168
+\c__fp_Bigg_trailing_shift_int=\count169
+\c__fp_rand_size_int=\count170
+\c__fp_rand_four_int=\count171
+\c__fp_rand_eight_int=\count172
+\l__sort_length_int=\count173
+\l__sort_min_int=\count174
+\l__sort_top_int=\count175
+\l__sort_max_int=\count176
+\l__sort_true_max_int=\count177
+\l__sort_block_int=\count178
+\l__sort_begin_int=\count179
+\l__sort_end_int=\count180
+\l__sort_A_int=\count181
+\l__sort_B_int=\count182
+\l__sort_C_int=\count183
 \c_empty_box=\box45
 \l_tmpa_box=\box46
 \l_tmpb_box=\box47
 \g_tmpa_box=\box48
 \g_tmpb_box=\box49
-\l__box_top_dim=\dimen198
-\l__box_bottom_dim=\dimen256
-\l__box_left_dim=\dimen257
-\l__box_right_dim=\dimen258
-\l__box_top_new_dim=\dimen259
-\l__box_bottom_new_dim=\dimen260
-\l__box_left_new_dim=\dimen261
-\l__box_right_new_dim=\dimen262
+\l__box_top_dim=\dimen263
+\l__box_bottom_dim=\dimen264
+\l__box_left_dim=\dimen265
+\l__box_right_dim=\dimen266
+\l__box_top_new_dim=\dimen267
+\l__box_bottom_new_dim=\dimen268
+\l__box_left_new_dim=\dimen269
+\l__box_right_new_dim=\dimen270
 \l__box_internal_box=\box50
 \l__coffin_internal_box=\box51
-\l__coffin_internal_dim=\dimen263
-\l__coffin_offset_x_dim=\dimen264
-\l__coffin_offset_y_dim=\dimen265
-\l__coffin_x_dim=\dimen266
-\l__coffin_y_dim=\dimen267
-\l__coffin_x_prime_dim=\dimen268
-\l__coffin_y_prime_dim=\dimen269
+\l__coffin_internal_dim=\dimen271
+\l__coffin_offset_x_dim=\dimen272
+\l__coffin_offset_y_dim=\dimen273
+\l__coffin_x_dim=\dimen274
+\l__coffin_y_dim=\dimen275
+\l__coffin_x_prime_dim=\dimen276
+\l__coffin_y_prime_dim=\dimen277
 \c_empty_coffin=\box52
 \l__coffin_aligned_coffin=\box53
 \l__coffin_aligned_internal_coffin=\box54
@@ -1075,37 +1104,37 @@ Package: expl3 2017/05/13 L3 programming layer (code)
 \l__coffin_display_coffin=\box57
 \l__coffin_display_coord_coffin=\box58
 \l__coffin_display_pole_coffin=\box59
-\l__coffin_display_offset_dim=\dimen270
-\l__coffin_display_x_dim=\dimen271
-\l__coffin_display_y_dim=\dimen272
-\l__coffin_bounding_shift_dim=\dimen273
-\l__coffin_left_corner_dim=\dimen274
-\l__coffin_right_corner_dim=\dimen275
-\l__coffin_bottom_corner_dim=\dimen276
-\l__coffin_top_corner_dim=\dimen277
-\l__coffin_scaled_total_height_dim=\dimen278
-\l__coffin_scaled_width_dim=\dimen279
+\l__coffin_display_offset_dim=\dimen278
+\l__coffin_display_x_dim=\dimen279
+\l__coffin_display_y_dim=\dimen280
+\l__coffin_bounding_shift_dim=\dimen281
+\l__coffin_left_corner_dim=\dimen282
+\l__coffin_right_corner_dim=\dimen283
+\l__coffin_bottom_corner_dim=\dimen284
+\l__coffin_top_corner_dim=\dimen285
+\l__coffin_scaled_total_height_dim=\dimen286
+\l__coffin_scaled_width_dim=\dimen287
 )
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3kernel/l3pdfmode.d
 ef
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count181
+\l__driver_color_stack_int=\count184
 \l__driver_tmp_box=\box60
 ))
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/l3packages/xparse/xp
 arse.sty
 Package: xparse 2017/05/13 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count182
-\g__xparse_grabber_int=\count183
-\l__xparse_m_args_int=\count184
-\l__xparse_mandatory_args_int=\count185
-\l__xparse_v_nesting_int=\count186
+\l__xparse_current_arg_int=\count185
+\g__xparse_grabber_int=\count186
+\l__xparse_m_args_int=\count187
+\l__xparse_mandatory_args_int=\count188
+\l__xparse_v_nesting_int=\count189
 )
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/hobby/pml3array.sty
-\l_array_base_int=\count187
-\l_array_top_int=\count188
-\l_array_tmp_int=\count189
-\g_array_base_int=\count190
+\l_array_base_int=\count190
+\l_array_top_int=\count191
+\l_array_tmp_int=\count192
+\g_array_base_int=\count193
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1122,8 +1151,8 @@ Package: xparse 2017/05/13 L3 Experimental document command parser
 . 
 . Defining command \HobbyDisableAux with sig. '' on line 59.
 .................................................
-\l_hobby_npoints_int=\count191
-\l_hobby_draw_int=\count192
+\l_hobby_npoints_int=\count194
+\l_hobby_draw_int=\count195
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1191,49 +1220,49 @@ File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.3)
 \pgf@layerbox@background=\box61
 \pgf@layerboxsaved@background=\box62
 )
-\c@theorem=\count193
+\c@theorem=\count196
 Package newfloat Info: New float `examplefigure' with options `fileext=los, lis
 tname={List of Example Figures}, name=Example Figure, placement=tbhp, within=se
-ction,' on input line 58.
-\c@examplefigure=\count194
-Package newfloat Info: float type `examplefigure'=4 on input line 58.
-\c@losdepth=\count195
+ction,' on input line 61.
+\c@examplefigure=\count197
+Package newfloat Info: float type `examplefigure'=4 on input line 61.
+\c@losdepth=\count198
 Package newfloat Info: New float `myfigure' with options `fileext=los, listname
 ={List of myFigures}, name=Figure, placement=tbhp, within=section,' on input li
-ne 64.
-\c@myfigure=\count196
-Package newfloat Info: float type `myfigure'=8 on input line 64.
-Package newfloat Info: \newfloat@ext@los is already defined on input line 64.
+ne 67.
+\c@myfigure=\count266
+Package newfloat Info: float type `myfigure'=8 on input line 67.
+Package newfloat Info: \newfloat@ext@los is already defined on input line 67.
  (./Report template.aux)
 \openout1 = `"Report template.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf
 .mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen280
+\scratchcounter=\count267
+\scratchdimen=\dimen288
 \scratchbox=\box63
-\nofMPsegments=\count198
-\nofMParguments=\count266
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count267
-\MPscratchDim=\dimen281
-\MPnumerator=\count268
-\makeMPintoPDFobject=\count269
-\everyMPtoPDFconversion=\toks46
+\nofMPsegments=\count268
+\nofMParguments=\count269
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count270
+\MPscratchDim=\dimen289
+\MPnumerator=\count271
+\makeMPintoPDFobject=\count272
+\everyMPtoPDFconversion=\toks47
 )
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmd
 s.sty
@@ -1244,9 +1273,6 @@ Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -1305,12 +1331,47 @@ Package: fr-subfig 2007/12/24 v0.1g (beta) floatrow: additions for subfig
 \FBsc@max=\skip83
 \FBso@max=\skip84
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 77.
- (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=540.60239pt
+* \textheight=591.5302pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 80.
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 77.
- (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 80.
+
+(/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (./Report template.toc)
@@ -1320,96 +1381,49 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/maths/linuxlocal/AMD64/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.
-map}]
-Overfull \hbox (51.62239pt too wide) in paragraph at lines 134--135
- [] 
- []
+map}] [1
 
-[1
-
-] [2]
-Overfull \hbox (79.2054pt too wide) in paragraph at lines 207--208
- [] 
- []
-
-
-LaTeX Warning: Reference `Observations are always zero' on page 3 undefined on 
-input line 252.
-
-[3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 336.
+] [2] [3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 345.
 
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 336.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 345.
 
-[5] [6] [7] [8] [9]
-Overfull \hbox (4.78415pt too wide) in paragraph at lines 513--513
+[4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (17.51045pt too wide) in paragraph at lines 626--626
 [] 
  []
 
-[10] [11] [12]
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 13 undefined on input line 646.
+li attack times' on page 11 undefined on input line 636.
 
-
-LaTeX Warning: Reference `Bernoulli Attack time with equal floors' on page 13 u
-ndefined on input line 684.
-
-[13] [14]
-Overfull \hbox (118.78181pt too wide) in paragraph at lines 733--733
-[] 
- []
-
-[15] [16]
-Overfull \hbox (160.38432pt too wide) in paragraph at lines 844--844
-[] 
- []
-
-[17]
-Overfull \hbox (234.06754pt too wide) in paragraph at lines 867--867
+[11] [12] [13] [14] [15]
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 857--857
 [] 
  []
 
 
-Overfull \hbox (260.57089pt too wide) in paragraph at lines 880--880
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 870--870
 [] 
  []
 
-
-Overfull \hbox (90.76237pt too wide) in paragraph at lines 893--893
-[] 
- []
-
-[18]
+[16]
 No file "Report template".bbl.
-
-Overfull \hbox (54.96243pt too wide) in paragraph at lines 939--939
-[] 
- []
-
-[1]
-Overfull \hbox (52.6498pt too wide) in paragraph at lines 949--949
-[] 
- []
-
-[2] [3] (./Report template.aux)
+[1] [2] [3] (./Report template.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 25448 strings out of 492995
- 509863 string characters out of 6132690
- 577230 words of memory out of 5000000
- 28596 multiletter control sequences out of 15000+600000
+ 25920 strings out of 492995
+ 516945 string characters out of 6132690
+ 593801 words of memory out of 5000000
+ 29058 multiletter control sequences out of 15000+600000
  17978 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,103p,10487b,883s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1433,13 +1447,12 @@ uxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 msfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmss12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/AMD64/texlive/20
-17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></maths/linuxlocal/AMD64
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></maths/linux
-local/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Report template.pdf" (22 pages, 300336 bytes).
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></maths/linuxlocal/AMD64
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Report template.pdf" (20 pages, 295320 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 149 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

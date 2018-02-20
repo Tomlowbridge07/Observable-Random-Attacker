@@ -20,6 +20,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{floatrow}
 \usepackage{bm}
+\usepackage{geometry}
+
+\geometry{a4paper,left=10mm,right=10mm}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{fit}
@@ -159,6 +162,12 @@ c_{j} \lambda_{j} \int_{s_{j}-2}^{s_{j}-1} P(X_{j} \leq t) dt +v_{j}P(X_{j} \leq
 With $C(\bm{s},\bm{v},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{v},i)$ being the cost function for the MDP.
 
 We will now make the assumptions that $X_{j}$ is bounded by $B_{j}$ and that instead of using $Po(\lambda)$ for the observation transition and placing a bound on this Poisson distribution, named $b_{j}$, so we are now drawing from a truncated Poisson distribtion, henceforth called $TPo(\lambda,b_{j})$. Then we can immediately say that the $o_{j} \leq b_{j}$ state is finite and the state $s_{j}$ has the same cost function for $s_{j} \geq B_{j}+2$ and hence we will restrict our space to this. So our modified transition is $\widetilde{s_{j}}=\min(s_{j}+1,B_{j}+2)$ if $j \neq i$ and $\widetilde{s_{j}}=1$ if $i=j$. $\widetilde{v_{j}}=v_{j}$ if $i \neq j$ and $v_{j} \sim TPo(\lambda,b_{j})$ if $i=j$.
+
+The truncated Poisson distribution, $TPo(\lambda,b)$ acts like normal Poisson for any value not equal to $b$, with the tails probability stored at $b$. That is $P(TPo(\lambda,b)=i)=\begin{cases}
+P(Po(\lambda)=i) \text{ If } i \neq b \\
+P(Po(\lambda) \geq b) \text{ If } i=b \\
+0 \text{ Otherwise}
+\end{cases}$
 
 \begin{myfigure}
 \begin{center}
@@ -568,75 +577,56 @@ However between these regions, we have a divide of the nodes into a set we renew
 
 However we are assuming we are in the case of $g \leq c \lambda$ for so the example \ref{Figure: example of region splitting} we cannot have a situation as $g_{\text{max}}=1$. Really in this case we would just follow the neglecting strategy, $\pi_{\text{neg}}$.
 
-This brings about a reasoning to introduce $\max\limits_{0 \leq g \leq c \lambda} v_{\text{crit}}=\ceil{\frac{c \lambda}{c}+\lambda(R-1)}=\ceil{R}$. Now as  $0 \leq R < 1$ we will get the furtherest $v_{crit}$ is $0$ or $1$ (if $R=0$ or $R \neq 0$ respectively).
+We really need to split the region for $g$ (which is bounded above by $c \lambda$) into different $v=v_{\text{crit}}$.
+
+Say now we have that $b > \lambda R $ then we have some $v_{max}=\max \{ v \in \{ 0,1,...,b+1 \} \, | \, v \leq \lambda R \}$ , some critical maximum (as at some point we will turn on the neglecting strategy)
 
 \begin{note}
-These are only the extreme cases where $g= c \lambda$, it is possible that we do not get a $v_{crit}$ at all, i.e we will always renew.
-\end{note} 
+$v_{\text{max}}=0$ means we always renew and $v_{\text{max}}=b+1$ means we never renew.
+\end{note}
 
-\textbf{Case 1: $R=0$}
+We do by having
+\begin{itemize}
+\item $v_{\text{crit}}=0$ if $g \leq c \lambda (1-R)$
+\item $v_{\text{crit}}=k$ if $c \lambda (1-R) +c(k-1) < g \leq c \lambda (1-R)+ kc$ for $k=1,....,v_{\text{max}}-1$
+\item $v_{\text{crit}}=v_{\text{max}}$ if $c \lambda (1-R) + c(v_{\text{max}}-1) < g \leq c \lambda$
+\end{itemize}
 
-When $R=0$ then at worst under this non-neglecting case we will never wait for any $v=0$ (as the max crit is $v_{\text{crit}}=0$). So this will generate an average cost of
+Let us say that our $v_{\text{crit}}=k$ then we have that
 
 \begin{align*}
-g(\omega)=\frac{\omega}{\floor{B}+1}
+g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal length}} \\
+&= \frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda (1-R )) P(TPo(\lambda,b)=0)+...+(\omega + c \lambda (1-R)) P(TPo(\lambda,b)=k-1)}{(\floor{B}+1)P(TPo(\lambda,b) \geq k) + (\floor{B}+2)P(TPo(\lambda,b) \leq k-1)} \\
+&=\frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda (1-R))P(TPo(\lambda) \leq k-1) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{(\floor{B}+1)P(TPo(\lambda,b) \geq k) + (\floor{B}+2)(1-P(TPo(\lambda,b) \geq k))} \\
+&= \frac{\omega - c \lambda (1-R) P(TPo(\lambda,b) \geq k) +  \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{\floor{B}+2-P(TPo(\lambda,b) \geq k)}
 \end{align*}
 
-So as we will need to be in the case with $g \leq c \lambda$ for this to take effect we will need $\omega \leq c \lambda (\floor{B}+1)$.
+Now we can translate our bounds on $g$ to become bounds on $\omega$
 
-\textbf{Case 2: $R \neq 0$}
+For $v_{\text{crit}}=0$ we have $0 \leq \omega \leq c \lambda (1-R)(\floor{B}+2) \equiv \Delta(0)$.
 
-Then we have the possibility to wait in state $v=0$ and renew one step later, however this will only occur in the region where $v_{crit}=1$ that is that  $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$ (if we have $g \leq c \lambda (1-R)$ then we will still get $v_{crit}=0$)
+For $v_{\text{crit}}=k$ we have $\delta(k) < \omega \leq  \Delta(k)$
 
-\textbf{Subcase 1: $g \leq c \lambda (1-R)$}
+For $v_{\text{crit}}=v_{\text{max}}$ we have $\delta(v_{\text{max}}) < \omega \leq \widetilde{\Delta}$
 
-If we fall into here, $v_{crit}=0$ so we still get that the average cost is
-$g(\omega)=\frac{\omega}{\floor{B}+1}$ and so we need $g \leq c \lambda (1-R)$ meaning $\omega \leq c \lambda (1-R)(\floor{B}+1)$
+Where
+\begin{itemize}
+\item $\delta(k)=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\Delta(k)=c (\lambda (1-R)(\floor{B}+2)+k(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\widetilde{\Delta}= c  ( \lambda (\floor{B}+2 - R P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
+\end{itemize}
 
-We notice that $g \leq c \lambda (1-R) < c \lambda$ so we have no worries with being in this case.
-
-\textbf{Subcase 2: $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$}
-
-If we fall into here, $v_{crit}=1$ so we will get a slightly different average cost
+Now we really want consistent bounds for $\omega$ (i.e to have no over or under lap), so we would like $\delta(k)=\Delta(k-1)$, luckily by considering the formula's this is true.
 
 \begin{align*}
-g(\omega)&=\frac{\omega+c\lambda(1-R)}{\floor{B}+2} P(TPo(\lambda)=0) + \frac{\omega}{\floor{B}+1} P(TPo(\lambda) \neq 0) \\
-&=\frac{\omega+c\lambda(1-R)}{\floor{B}+2} e^{-\lambda} + \frac{\omega}{\floor{B}+1} (1-e^{-\lambda}) \\
-&=\frac{(\floor{B}+1)(\omega+c(\lambda(1-R))e^{-\lambda} + (\floor{B}+2)(\omega) (1-e^{-\lambda})}{(\floor{B}+2)(\floor{B}+1)} \\
-&=\frac{(\floor{B}+1)(c(\lambda(1-R))e^{-\lambda} + (\floor{B}+2-e^{-\lambda})\omega}{(\floor{B}+2)(\floor{B}+1)}
+\delta(k)&=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&= c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
+=\Delta(k-1)
 \end{align*}
 
-and we need that $c \lambda (1-R) < g \leq c (1+ \lambda(1-R))$ so we need that $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R) $
-
-We will still require that $g \leq c \lambda$, so we will need to limit ourselves to $\lambda R \geq 1$ otherwise the upper limit on $g$ becomes $c \lambda$ (translating to $\frac{c \lambda (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda})}{\floor{B}+2-e^{-\lambda}} $ in the $\omega$ limit)
-
-\subsection{Conclusion on deterministic attack time}
-We conclude our results on determinsitic attack time by a case, by case basis:
-
-\begin{itemize}
-\item if $R=0$ then:
-\begin{itemize}
-\item if $\omega \leq c \lambda (\floor{B}+1)=c \lambda (B+1)= c \lambda
-(E[X]+1))$ then we renew immediately in all states
-\item if $\omega > c \lambda (E[X]+1)$ then we never renew
-\end{itemize}
-\item if $R \neq 0$ then:
-\begin{itemize}
-\item if $\omega \leq c \lambda (1-R)(\floor{B}+1)$ then we renew immediately in all states
-\item if $\lambda R \geq 1$ then:
-\begin{itemize}
-\item if $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R)$ then we renew immediately in all states with $v \geq 1$ but we wait one period before renewing in the state $(\floor{B}+1,0)$
-\item if $\omega > \frac{c(\floor{B}+1)(\floor{B}+2)}{\floor{B}+2-e^{-\lambda}}+c \lambda (\floor{B}+1)(1-R)$ then we never renew
-\end{itemize}
-\item if $\lambda R < 1$ then:
-\begin{itemize}
-\item if $c \lambda (\floor{B}+1)(1-R) \leq \omega \leq \frac{c \lambda (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda})}{\floor{B}+2-e^{-\lambda}} $ then we renew immediately in all states with $v \geq 1$ but we wait one period before renewing in the state $(\floor{B}+1,0)$
-\item if $\omega > (\floor{B}+1)(\floor{B}+2-(1-R)e^{-\lambda}){\floor{B}+2-e^{-\lambda}} $ then we never renew
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-For a given scenario (i.e a known $R$ and $\lambda$) we can determine our case and hence our index. We also note that these decision costs are $non-decreasing$.
+We can now create an index based on our bounds for $\omega$, let us create the index, $W(k)=\Delta(k+1)$ with $W(0)=0$ and $W(v_{\text{max}})=\widetilde{\Delta}$.
+Then if $\omega \in [W(k),W(k+1)]$ we should pick $V_{\text{crit}}=k$ and when $\omega \geq W(v_{\text{max}})=\widetilde{\Delta}$
 
 \section{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
@@ -892,6 +882,30 @@ V_{n}^{\pi_{k}}(\floor{x_{2}}+1,v)&= \begin{cases}
 \end{cases}
 \end{align*}
 
+We now seek to compare policies for states, we we shall start with the state, $(\floor{x_{2}}+1,v)$ then we will pick policy $\pi_{0}$ over $\pi_{1}$ if
+
+\begin{align*}
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{1}}(\floor{x_{2}}+1,v) - v_{n}^{\pi_{0}} (\floor{x_{2}}+1,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} \omega+ vc(1-p) + c \lambda p (x_{2}-\floor{x_{2}}) + c \lambda (\floor{x_{2}}-x_{2}+1) + E[V_{n-2}^{\sigma}(\theta)]-(\omega + E[V_{n-1}^{\sigma}(\theta)]) \\
+& \iff \lim\limits_{n \rightarrow \infty} E[V_{n-2}^{\sigma}(\theta)-V_{n-1}^{\sigma}(\theta)] + vc(1-p)+ c \lambda p(x_{2}-\floor{x_{2}}) + c \lambda (\floor{x_{2}}-x_{2}+1) \\
+& \iff g \leq vc(1-p)+ c \lambda p(x_{2}-\floor{x_{2}})) + c \lambda (\floor{x_{2}}-x_{2}+1)
+\end{align*}
+
+So we will renew immediately in $(\floor{x_{2}}+2,0)$ from here if $ g \leq vc(1-p)+ c \lambda p(x_{2}-\floor{x_{2}})) + c \lambda (\floor{x_{2}}-x_{2}+1) $. We will use $R_{2}=x_{2}-\floor{x_{2}}$ ($0 \leq R_{2} < 1$).
+
+So to have the possibility to wait and renew we will need that $vc(1-p) + c \lambda p R_{2} + c \lambda (1-R_{2}) \leq c \lambda \iff c(1-p)(v-R_{2} \lambda) \leq 0 \iff v- R_{2} \lambda \leq 0 \iff v \leq R_{2} \lambda$.
+
+\begin{note}
+We note that this sort of result is analogous to the deterministic case.
+\end{note}
+
+now we note that we can again create a $v_{\text{crit}}(\floor{x_{2}}+1)$, from which we will renew immediately for all  $v \geq v_{\text{crit}}(\floor{x_{2}}+1)$ and for $v < v_{\text{crit}}(\floor{x_{2}}+1)$ we wait.
+
+We rearrange $g \geq vc(1-p)+ c \lambda p(x_{2}-\floor{x_{2}})) + c \lambda (\floor{x_{2}}-x_{2}+1)$ to get $v_{\text{crit}}(\floor{x_{2}}+1)=\ceil{\frac{g}{c(1-p)}- \frac{\lambda}{(1-p)} -\lambda R_{2}}$.
+
+We again know that, $g_{\text{max}}= c \lambda$ so we get the maximum $v_{\text{crit}}=\ceil{\frac{c \lambda}{c (1-p)} - \frac{\lambda}{(1-p)}- \lambda R_{2}}=\ceil{\lambda R_{2}}$
+
+So when $R_{2}=0$ then we immediately renew and will never wait in the state $(\floor{x_{2}}+1,v)$ for any $v$.
 
 
 \section{Ideas for future}
