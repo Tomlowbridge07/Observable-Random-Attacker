@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  20 FEB 2018 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  22 FEB 2018 13:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1340,14 +1340,14 @@ Package: fr-subfig 2007/12/24 v0.1g (beta) floatrow: additions for subfig
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
-* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=540.60239pt
-* \textheight=591.5302pt
+* \textheight=759.6886pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-7.86334pt
+* \topmargin=-66.59087pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1383,7 +1383,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/maths/linuxlocal/AMD64/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.
 map}] [1
 
-] [2] [3]
+] [2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 345.
 
 
@@ -1393,26 +1393,27 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 345.
 
-[4] [5] [6] [7] [8] [9] [10]
+[3] [4] [5] [6] [7]
 Overfull \hbox (17.51045pt too wide) in paragraph at lines 626--626
 [] 
  []
 
+[8] [9]
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 11 undefined on input line 636.
+li attack times' on page 10 undefined on input line 705.
 
-[11] [12] [13] [14] [15]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 857--857
+[10] [11] [12] [13]
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 926--926
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 870--870
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 939--939
 [] 
  []
 
-[16]
+[14]
 No file "Report template".bbl.
 [1] [2] [3] (./Report template.aux)
 
@@ -1422,7 +1423,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  25920 strings out of 492995
  516945 string characters out of 6132690
- 593801 words of memory out of 5000000
+ 589835 words of memory out of 5000000
  29058 multiletter control sequences out of 15000+600000
  17978 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1431,28 +1432,31 @@ Here is how much of TeX's memory you used:
 cm/cmbx10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
 s/type1/public/amsfonts/cm/cmex10.pfb></maths/linuxlocal/AMD64/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></maths/linuxlocal/AMD64/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></maths/linuxloca
-l/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></math
-s/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></maths/linuxlocal/AMD64/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></maths/linux
+local/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi8.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmib10.pfb></maths/linuxlocal/AMD64/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></maths/linuxloca
+l/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></math
+s/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
 .pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmib10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cmextra/cmmib7.pfb></maths/linuxlocal/AMD64/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></maths/linuxlocal/AMD
-64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></maths/lin
-uxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-</maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmss12.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/AMD64/texlive/20
-17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></maths/linuxlocal/AMD64
-/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Report template.pdf" (20 pages, 295320 bytes).
+ts/cm/cmr17.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr5.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></maths/linuxlocal/AMD64/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/
+AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></maths/
+linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti10.pfb>
+Output written on "Report template.pdf" (18 pages, 320547 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 150 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

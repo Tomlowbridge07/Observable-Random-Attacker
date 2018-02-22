@@ -1,10 +1,12 @@
 \contentsline {section}{\numberline {1}Introduction to a random attacker patroller game with observation}{1}
-\contentsline {section}{\numberline {2}Single node problem}{4}
-\contentsline {section}{\numberline {3}Deterministic Attack time}{4}
-\contentsline {subsection}{\numberline {3.1}Correction to approach for Deterministic}{8}
-\contentsline {section}{\numberline {4}Bernoulli Attack time}{11}
-\contentsline {subsection}{\numberline {4.1}Correction to approach for bernoulli}{14}
+\contentsline {section}{\numberline {2}Single node problem}{3}
+\contentsline {section}{\numberline {3}Deterministic Attack time}{3}
+\contentsline {subsection}{\numberline {3.1}Correction to approach for Deterministic}{6}
+\contentsline {subsection}{\numberline {3.2}Index Heuristic}{9}
+\contentsline {subsection}{\numberline {3.3}Lower bound}{9}
+\contentsline {section}{\numberline {4}Bernoulli Attack time}{10}
+\contentsline {subsection}{\numberline {4.1}Correction to approach for bernoulli}{12}
 \contentsline {section}{\numberline {5}Ideas for future}{i}
 \contentsline {section}{Appendices}{i}
 \contentsline {section}{\numberline {A}Observations are always zero}{i}
-\contentsline {section}{\numberline {B}Bernoulli Attack time with equal floors}{iii}
+\contentsline {section}{\numberline {B}Bernoulli Attack time with equal floors}{ii}

@@ -22,7 +22,7 @@
 \usepackage{bm}
 \usepackage{geometry}
 
-\geometry{a4paper,left=10mm,right=10mm}
+\geometry{a4paper,left=10mm,right=10mm,top=15mm,bottom=15mm}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{fit}
@@ -625,8 +625,77 @@ Now we really want consistent bounds for $\omega$ (i.e to have no over or under 
 =\Delta(k-1)
 \end{align*}
 
-We can now create an index based on our bounds for $\omega$, let us create the index
+We can now create an index based on our bounds for $\omega$
+Then if $\omega \in [\Delta(k),\Delta(k+1)]$ ($\Delta(-1)=0$ by declaration) we should pick $V_{\text{crit}}=k$ and when $\omega \geq \widetilde{\Delta}$ we should pick to never visit the node.
 
+\subsection{Index Heuristic}
+To develop a heuristic based on indices we attach a suffix to the prior index which helps us to decide if it is worth visiting now or later when we are in state $(\floor{B}+1,v)$ dependent on the observed attackers $v$. We must now account for time, as the patroller doesn't really want to visit until it has been $s=\floor{B}+1$ we will divide the index by this value to account for visiting early.
+
+\begin{align}
+W_{i}(s_{i},v_{i})&=\begin{cases}
+\frac{\Delta_{i}(k)}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i} < v_{i,\text{max}} \\
+\frac{\widetilde{\Delta}_{i}}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i}= v_{i,\text{max}} \\
+\end{cases} \nonumber \\ 
+&=\begin{cases}
+\frac{c_{i} (\lambda_{i} (1-R_{i})(\floor{B_{i}}+2)+v_{i}(\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq v_{i}))-\sum\limits_{j=0}^{v_{i}-1} j P(TPo(\lambda_{i},b_{i})=j))}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i} < v_{i,\text{max}} \\
+\frac{c_{i} ( \lambda_{i} (\floor{B_{i}}+2 - R_{i} P(TPo(\lambda_{i},b_{i}) \geq v_{i,\text{max}})) - \sum\limits_{j=0}^{v_{i,\text{max}}-1} j P(TPo(\lambda_{i},b_{i})=j) )}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i}= v_{i,\text{max}} \\
+\end{cases}
+\end{align}
+
+Where $R_{i}=B_{i}-\floor{B_{i}}$, $v_{i,\text{max}}=\max \{ v \in \{0,1,...,b_{i}+1 \} \, | \, v \leq \lambda_{i}R_{i} \}$
+
+and
+
+\begin{align}
+W_{i}(s_{i}=\floor{B_{i}}+2,v_{i}) &= \widetilde{\Delta}_{i}  \nonumber \\
+&=c_{i} ( \lambda_{i} (\floor{B_{i}}+2 - R_{i} P(TPo(\lambda_{i},b_{i}) \geq v_{i,\text{max}})) - \sum\limits_{j=0}^{v_{i,\text{max}}-1} j P(TPo(\lambda_{i},b_{i})=j) )
+\end{align}
+
+\begin{note}
+Because the set of $\Delta$'s are monotone, this index is monotone in both $s_{i}$ and $v_{i}$. We also note that $W_{i}(\floor{B_{i}}+1,v_{i,\text{max}})=W_{i}(\floor{B_{i}}+2,v_{i})$ for any $v_{i}$.
+\end{note}
+
+To implement the heuristic we initially assume that the patroller has neglected the region for a long period of time, that will be to set $s_{i}=\floor{B_{i}}+2$ , calculate the index for all the nodes and pick the node with the largest index (that is we will start at the node with the largest $\widetilde{\Delta}_{i}$ ).
+We then precede from here by calculating the indices of all adjacent nodes and moving to the node with the highest index, we repeat this process.
+
+As the index is monotone and increasing in time, we will have that a nodes index grows (up to a cap of $\widetilde{\Delta}_{i}$) with time. However upon visiting it is not necessarily true that its it returns to the lowest value (as it may go to a state with a high $v_{i}$ causing it to be higher).
+
+As we only have control over when we visit, we note that the value $W_{i}(s_{i},v_{i})$ is the value at which the patroller is indifferent from visiting at $s_{i}$ or $s_{i}+1$ time units.
+
+\subsection{Lower bound}
+Recall $C^{\text{OPT}} \geq C^{\text{TR}} \geq C(\omega)$. We will aim to compute the tighest bound by getting $C_{max}(\omega)=\max\limits_{\omega \geq 0}C(\omega)$.
+
+For a given $\omega$ we will define
+
+\begin{align}
+K_{i}(\omega,v_{i})= \begin{cases}
+\infty \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
+\min \{k \, | \, W_{i}(k,v_{i}) > \omega \} \text{ Otherwise}
+\end{cases}
+\end{align}
+
+so that $K_{i}(\omega)$ represents the optimal interval between visits to node $i$ when the last visit observed $v_{i}$ attackers. That is how long to wait after we've just visited and observed $v_{i}$ attackers.
+
+So $C(\omega)=\sum\limits_{i=1}^{n} C_{i}(\omega) -\omega$ where $C_{i}(\omega)$ is the optimal long run cost rate for node $i$ when charged $\omega$ to visit.
+
+That is
+
+\begin{align}
+C_{i}(\omega)&=\begin{cases}
+c_{i} \lambda_{i} \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
+E[g_{Y_{i}}(\omega)] \text{ Otherwise}
+\end{cases} \\
+&=\begin{cases}
+c_{i} \lambda_{i} \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
+\sum\limits_{j=0}^{b_{i}}g_{j}(\omega)P(TPo(\lambda_{i},b_{i})=j) \text{ Otherwise}
+\end{cases}
+\end{align}
+
+Where $Y_{i} \sim TPo(\lambda_{i},b_{i})$.
+
+We could also suggest that $C_{i}(\omega)=\sum\limits_{j=0}^{b_{i}} C_{i}(\omega,v_{j}) P(TPo(\lambda_{i},b_{j}))$ where $C_{i}(\omega,v_{j})$ is the optimal long run cost rate for node $i$ when charged $\omega$ and when we just observed $v_{j}$ attackers.
+
+That is $C_{i}(\omega,v_{j})=$
 
 \section{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
