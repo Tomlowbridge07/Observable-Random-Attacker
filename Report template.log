@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  22 FEB 2018 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  23 FEB 2018 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,22 +1394,22 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 345.
 
 [3] [4] [5] [6] [7]
-Overfull \hbox (17.51045pt too wide) in paragraph at lines 626--626
+Overfull \hbox (17.51045pt too wide) in paragraph at lines 628--628
 [] 
  []
 
 [8] [9]
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 10 undefined on input line 705.
+li attack times' on page 10 undefined on input line 727.
 
 [10] [11] [12] [13]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 926--926
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 948--948
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 939--939
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 961--961
 [] 
  []
 
@@ -1453,7 +1453,7 @@ AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></maths/
 linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb>
-Output written on "Report template.pdf" (18 pages, 320547 bytes).
+Output written on "Report template.pdf" (18 pages, 323489 bytes).
 PDF statistics:
  150 PDF objects out of 1000 (max. 8388607)
  107 compressed objects within 2 object streams

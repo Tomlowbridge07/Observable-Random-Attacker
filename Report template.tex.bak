@@ -601,6 +601,10 @@ g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal le
 &= \frac{\omega - c \lambda (1-R) P(TPo(\lambda,b) \geq k) +  \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{\floor{B}+2-P(TPo(\lambda,b) \geq k)}
 \end{align*}
 
+\begin{myfigure}
+\input{Images/LocallyObservableLongRunAverageCost(B=2_4_L=10_c=1_b=5).tex}
+\end{myfigure}
+
 Now we can translate our bounds on $g$ to become bounds on $\omega$
 
 For $v_{\text{crit}}=0$ we have $0 \leq \omega \leq c \lambda (1-R)(\floor{B}+2) \equiv \Delta(0)$.
@@ -668,34 +672,54 @@ Recall $C^{\text{OPT}} \geq C^{\text{TR}} \geq C(\omega)$. We will aim to comput
 For a given $\omega$ we will define
 
 \begin{align}
-K_{i}(\omega,v_{i})= \begin{cases}
+M_{i}(\omega,v_{i})= \begin{cases}
 \infty \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
-\min \{k \, | \, W_{i}(k,v_{i}) > \omega \} \text{ Otherwise}
+\floor{B_{i}}+2 \text{ If } \omega \leq W_{i}(\floor{B_{i}}+2,0) , \omega < W_{i}(\floor{B_{i}}+1,v_{i}) \\
+\floor{B_{i}}+1 \text{ If } \omega \leq W_{i}(\floor{B_{i}}+2,0) , \omega \geq W_{i}(\floor{B_{i}}+1,v_{i})
 \end{cases}
 \end{align}
 
-so that $K_{i}(\omega)$ represents the optimal interval between visits to node $i$ when the last visit observed $v_{i}$ attackers. That is how long to wait after we've just visited and observed $v_{i}$ attackers.
+So that $M_{i}(\omega,v_{i})$ represents the optimal interval to return to the node $i$ when the last visit observed $v_{i}$ attackers.
 
-So $C(\omega)=\sum\limits_{i=1}^{n} C_{i}(\omega) -\omega$ where $C_{i}(\omega)$ is the optimal long run cost rate for node $i$ when charged $\omega$ to visit.
+\begin{align}
+K_{i}(\omega)= \begin{cases}
+v_{i,\text{max}} \text{ If } \omega \geq W_{i}(\floor{B_{i}}+2,0) \\
+\min \{ k \in \{ 0,1,...,v_{i,\text{max}} \} \, | \, W_{i}(\floor{B_{i}}+1,k) > \omega \}  
+\end{cases}
+\end{align}
 
-That is
+So that $K_{i}(\omega)$ represents the optimal place to place the boundary for $v_{\text{crit}}$.
+
+\begin{note}
+$v_{\text{max}}= \max \{ v \in \{0,1,...,b+1 \} \, | \, v \leq \lambda_{i} R_{i} \}$, defined as before with a suffix.
+\end{note}
+
+We can let $C(\omega)=\sum\limits_{i=1}^{n} C_{i}(\omega) -\omega$ where $C_{i}(\omega)$ is the optimal long run cost rate for node $i$ when charged $\omega$ to visit. That is $C_{i}(\omega)=\min \frac{\text{Expected cost per renewal}}{\text{Expected renewal length}}$ and as we know that $M_{i}(\omega,v_{i})$ is the optimal choice to renewal when we just observed $v_{i}$, as we know $v_{i} \sim TPo(\lambda_{i},b_{i})$ i.e we know the proportion of the time and how long we will wait.
+
+We will first note that if $\omega > W_{i}(\floor{B_{i}}+2,0)$ then we will get that $C_{i}(\omega)= c_{i} \lambda_{i}$. So when $\omega \leq W_{i}(\floor{B_{i}}+2,0)$ we will have our old formula (dependent on placing the $v_{\text{crit}}$ which will now be done optimally). So we will get that $C_{i}(\omega)=g_{K_{i}(\omega)}(\omega)$.
 
 \begin{align}
 C_{i}(\omega)&=\begin{cases}
 c_{i} \lambda_{i} \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
-E[g_{Y_{i}}(\omega)] \text{ Otherwise}
+g_{K_{i}(\omega)}(\omega) \text{ Otherwise} \\ 
 \end{cases} \\
-&=\begin{cases}
+&= \begin{cases}
 c_{i} \lambda_{i} \text{ If } \omega > W_{i}(\floor{B_{i}}+2,0) \\
-\sum\limits_{j=0}^{b_{i}}g_{j}(\omega)P(TPo(\lambda_{i},b_{i})=j) \text{ Otherwise}
+\frac{\omega - c_{i} \lambda_{i} (1-R_{i}) P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega)) +  \sum\limits_{j=0}^{K_{i}(\omega)-1} j P(TPo(\lambda_{i},b_{i})=j)}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega))} \text{ Otherwise}
 \end{cases}
 \end{align}
 
-Where $Y_{i} \sim TPo(\lambda_{i},b_{i})$.
+We now note some things
 
-We could also suggest that $C_{i}(\omega)=\sum\limits_{j=0}^{b_{i}} C_{i}(\omega,v_{j}) P(TPo(\lambda_{i},b_{j}))$ where $C_{i}(\omega,v_{j})$ is the optimal long run cost rate for node $i$ when charged $\omega$ and when we just observed $v_{j}$ attackers.
+\begin{itemize}
+\item $C_{i}(\omega)$ must be non-decreasing in $\omega$, as the node can always do better with a smaller service charge.
 
-That is $C_{i}(\omega,v_{j})=$
+\item $C_{i}(\omega)$ is piecewise linear with turning points occurring at $\omega=W_{i}(\floor{B_{i}}+1,k)$ (and $\omega=W_{i}(\floor{B_{i}}+2,0)$)
+
+\item $C_{i}(\omega)$ is concave because for $\omega \neq W_{i}(\floor{B_{i}}+1,k)$ (and $\omega \neq W_{i}(\floor{B_{i}}+2,0)$) the function $K_{i}(\omega)$ remains constant and $C'_{i}(\omega)=$
+\end{itemize}
+
+
 
 \section{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}
