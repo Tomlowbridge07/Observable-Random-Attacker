@@ -602,7 +602,11 @@ g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal le
 \end{align*}
 
 \begin{myfigure}
-\input{Images/LocallyObservableLongRunAverageCost(B=2_4_L=10_c=1_b=5).tex}
+\begin{center}
+\resizebox{.6\textwidth}{!}{
+\input{Images/LocallyObservableLongRunAverageCost.tex}}
+\end{center}
+\caption{This shows the best long-run average cost (as a choice of $k$ for each $\omega$)}
 \end{myfigure}
 
 Now we can translate our bounds on $g$ to become bounds on $\omega$
@@ -716,10 +720,36 @@ We now note some things
 
 \item $C_{i}(\omega)$ is piecewise linear with turning points occurring at $\omega=W_{i}(\floor{B_{i}}+1,k)$ (and $\omega=W_{i}(\floor{B_{i}}+2,0)$)
 
-\item $C_{i}(\omega)$ is concave because for $\omega \neq W_{i}(\floor{B_{i}}+1,k)$ (and $\omega \neq W_{i}(\floor{B_{i}}+2,0)$) the function $K_{i}(\omega)$ remains constant and $C'_{i}(\omega)=$
+\item $C_{i}(\omega)$ is concave because its functions are made from the lower envelope of straight line segments who's gradient is only increasing as turning points are passed ?????????????
 \end{itemize}
 
+Hence we have that $C(\omega)=\sum\limits_{i=1}^{n} C_{i}(\omega) -\omega$ is also piecewise linear and concave, so computing $C_{max}(\omega)$ is straightforward, as the solution is either a line segment (non-unique $\omega$ maximizes) or a turning point (unique $\omega$ maximizes)
 
+Suppose it is on a line segement, then $K_{i}(\omega)$ is constant and hence $C'_{i}(\omega)=\frac{1}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega))}$ so $C(\omega)=\sum\limits_{i=1}^{n} \frac{1}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega))} -1$ and hence we need to find the optimal $\omega^{*}$ by solving 
+$$\sum\limits_{i=1}^{n} \frac{1}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega^{*}))} =1 $$.
+
+When the solution is unique, then we need to find the $\omega^{*}=W_{i}(k)$ for some $i,k$ such that
+\begin{itemize}
+\item $\omega<\omega^{*} \iff \sum\limits_{i=1}^{n} \frac{1}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega^{*}))} > 1$
+\item $\omega>\omega^{*} \iff \sum\limits_{i=1}^{n} \frac{1}{\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq K_{i}(\omega^{*}))} < 1$
+\end{itemize}
+
+Then we have that $C^{\text{TR}}=C(\omega^{*})$.
+
+\subsection{A special case of graph with two nodes}
+Consider now a simple graph, with two nodes. Using $\omega=\omega^{*}$ (to maximize the lagrangian) For node one given we have just observed, $v_{1}$ we will want a policy which returns in $M_{1}(\omega^{*},v_{1})$, call this type of policy $\pi_{1}$ and for node two given that we have just observed, $v_{2}$ we will want a policy which returns in $M_{2}(\omega^{*},v_{2})$.
+
+Some randomization between these two patterns denoted $\alpha \otimes \pi_{1} + (1-\alpha) \otimes \pi_{2}$ will also achieve $C_{max}(\omega)$ and has the property that the visit rate is $1$ on average. If we can show that the index heuristic (IH) produces the same pattern as $\alpha \otimes \pi_{1} + (1-\alpha) \otimes \pi_{2}$ then the IH is optimal.
+
+\begin{lemma}
+For $n=2$ the index heuristic is optimal and $C^{\text{IH}}=C^{\text{OPT}}=C_{max}(\omega)$.
+\end{lemma}
+
+We first note that this should be obviously as we can simply move between two nodes at will and visit one when the index suggests to, i.e when we will `save' the most.
+
+\begin{proof}
+WLOG suppose $W_{1}(1,0) \geq W_{2}(1,0)$ (meaning that $W_{1}(1,v_{1}) \geq W_{2}(1,0) \, \forall v_{1} \in \{0,1,...,b \}$).
+\end{proof}
 
 \section{Bernoulli Attack time}
 Consider the case where $X=\begin{cases}

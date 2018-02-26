@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  23 FEB 2018 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  26 FEB 2018 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1393,27 +1393,36 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 345.
 
-[3] [4] [5] [6] [7]
-Overfull \hbox (17.51045pt too wide) in paragraph at lines 628--628
+[3] [4] [5] [6] [7] (./Images/LocallyObservableLongRunAverageCost.tex) [8]
+Overfull \hbox (17.51045pt too wide) in paragraph at lines 634--634
 [] 
  []
 
-[8] [9]
+[9]
+Overfull \hbox (80.16118pt too wide) in paragraph at lines 728--729
+[]\OT1/cmr/m/n/10 Suppose it is on a line sege-ment, then $\OML/cmm/m/it/10 K[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )$ is con-stant and hence $\
+OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []$ s
+o $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = [] 
+[] \OMS/cmsy/m/n/10 ^^@
+ []
+
+[10]
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 10 undefined on input line 727.
+li attack times' on page 11 undefined on input line 759.
 
-[10] [11] [12] [13]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 948--948
+[11] [12] [13] [14]
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 980--980
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 961--961
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 993--993
 [] 
  []
 
-[14]
+[15]
 No file "Report template".bbl.
 [1] [2] [3] (./Report template.aux)
 
@@ -1421,11 +1430,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 25920 strings out of 492995
- 516945 string characters out of 6132690
+ 25932 strings out of 492995
+ 517193 string characters out of 6132690
  589835 words of memory out of 5000000
- 29058 multiletter control sequences out of 15000+600000
- 17978 words of font info for 66 fonts, out of 8000000 for 9000
+ 29065 multiletter control sequences out of 15000+600000
+ 18676 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,103p,10487b,883s stack positions out of 5000i,500n,10000p,200000b,80000s
 </maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
@@ -1452,11 +1461,12 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></maths/linuxlocal/
 AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></maths/
 linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb>
-Output written on "Report template.pdf" (18 pages, 323489 bytes).
+/cm/cmti10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti7.pfb>
+Output written on "Report template.pdf" (19 pages, 344945 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 158 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
