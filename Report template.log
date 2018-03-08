@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  8 MAR 2018 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  8 MAR 2018 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1383,23 +1383,23 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/maths/linuxlocal/AMD64/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.
 map}] [1
 
-] [2] [3] [4] [5] [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 574.
+] [2] [3] [4] [5] [6] [7] [8]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 686.
 
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 574.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 686.
 
-[7] (./Images/LocallyObservableLongRunAverageCost.tex)
-Overfull \hbox (17.51045pt too wide) in paragraph at lines 618--618
+[9] (./Images/LocallyObservableLongRunAverageCost.tex)
+Overfull \hbox (17.51045pt too wide) in paragraph at lines 730--730
 [] 
  []
 
-[8] [9]
-Overfull \hbox (80.16118pt too wide) in paragraph at lines 712--713
+[10] [11]
+Overfull \hbox (80.16118pt too wide) in paragraph at lines 824--825
 []\OT1/cmr/m/n/10 Suppose it is on a line sege-ment, then $\OML/cmm/m/it/10 K[]
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )$ is con-stant and hence $\
 OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []$ s
@@ -1407,22 +1407,22 @@ o $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []
 [] \OMS/cmsy/m/n/10 ^^@
  []
 
-[10]
+[12]
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 11 undefined on input line 743.
+li attack times' on page 13 undefined on input line 855.
 
-[11] [12] [13]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 964--964
+[13] [14] [15]
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 1076--1076
 [] 
  []
 
-[14]
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 977--977
+[16]
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 1089--1089
 [] 
  []
 
-[15]
+[17]
 No file "Report template".bbl.
 [1] [2] (./Report template.aux)
 
@@ -1432,7 +1432,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  25927 strings out of 492995
  517103 string characters out of 6132690
- 592361 words of memory out of 5000000
+ 592613 words of memory out of 5000000
  29060 multiletter control sequences out of 15000+600000
  18676 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1464,10 +1464,10 @@ fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Report template.pdf" (18 pages, 345102 bytes).
+Output written on "Report template.pdf" (20 pages, 360227 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 165 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

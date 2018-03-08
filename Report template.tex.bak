@@ -168,8 +168,8 @@ This gives a value of
 c_{j} \lambda_{j} \int_{0}^{s_{j}-1} P(t < X_{j} \leq t+1) dt
 &=c_{j} \lambda_{j} \int_{1}^{s_{j}} P(u-1 < X_{j} \leq u) du \\
 &=c_{j} \lambda_{j} (\underbrace{\int_{0}^{s_{j}} P(u-1 < X_{j} \leq u) du}_{\text{Old amount}} - \underbrace{\int_{0}^{1} P(u-1 < X_{j} \leq u) du}_{\text{Losing the last period arriving and finishing}}) \\
-&=c_{j} \lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(< X_{j} \leq u) du - \int_{0}^{1} P(X_{j} \leq u) du) \\
-&=c_{j} \lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(< X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt)
+&=c_{j} \lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(X_{j} \leq u) du - \int_{0}^{1} P(X_{j} \leq u) du) \\
+&=c_{j} \lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt)
 \end{align*}
 
 Now the contribution for the know local-observed attackers is just the expected number of them that finish in this time period that is their contribution is given by
@@ -183,9 +183,11 @@ Giving an overall cost contribution from node $j$ when the action to move to nod
 \begin{align}
 C_{j}(\bm{s},\bm{v},i)&= \begin{cases}
 c_{j} (\lambda_{j} \int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt + v_{j} P(s_{j}-1 < X_{j} \leq s_{j})) \text{ for } i \neq j \\
-c_{j} (\lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(< X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt)+v_{j} P(s_{j}-1 < X_{j} \leq s_{j}))  \text{ for } i=j \\
+c_{j} (\lambda_{j} (\int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt)+v_{j} P(s_{j}-1 < X_{j} \leq s_{j}))  \text{ for } i=j \\
 \end{cases} 
 \end{align}
+
+That is the only difference between having chosen the nodes is the effect on the cost is to remove the one time period closest to when we visit.
    
 With $C(\bm{s},\bm{v},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{v},i)$ being the cost function for the MDP.
 
@@ -264,22 +266,12 @@ Say We have $X_{j} \sim U(0,3.7)$ then we have that $B_{j}=4$ and then as the co
 C_{j}(s_{j},v_{j},i)= c_{j} \lambda_{j}+0 \quad \forall j
 \end{align*}
 
-Also note at $s_{j}=5$ we have that $v_{j}=0$ as the attacks have had $4$ time periods respectively to complete and as at maximum it takes $3.7$ they must be complete. Though we still get different costs. $s_{j}=4$ we get 
-\begin{align*}
-C_{j}(4,0,i)&=\begin{cases}
-c_{j} \lambda_{j} \text{ if } i \neq j \\
-c_{j} \lambda_{j} \int_{2}^{3} P(X_{j} \leq t) dt \text{ if } i=j
-\end{cases} \\
-&=\begin{cases}
-c_{j} \lambda_{j} \text{ if } i \neq j \\
-c_{j} \lambda_{j} \times 0.7 \text{ if } i=j
-\end{cases}
-\end{align*}
+Also note at $s_{j}=5$ we have that $v_{j}=0$ as the attacks have had $4$ time periods respectively to complete and as at maximum it takes $3.7$ they must be complete.
 \end{example}
 
-So our new state space is further reduced to having only $(B_{j}+1,0)$  and $(B_{j}+2,0)$ for node $j$.
+So our new state space is further reduced to having only $(B_{j}+1,0)$ for node each node $j$.
 
-So $\Omega= \{ (\bm{s},\bm{v}) | s_{i}=1,2,..,B_{i}+2 , v_{i}=0,1,...,b_{i} , \text{ if } s_{i} \in \{B_{i}+1,B_{i}+2 \} \text{ then } v_{i}=0 \, \forall i \in N \}$
+So $\Omega= \{ (\bm{s},\bm{v}) | s_{i}=1,2,..,B_{i}+1 , v_{i}=0,1,...,b_{i} , \text{ if } s_{i} \in \{B_{i}+1 \} \text{ then } v_{i}=0 \, \forall i \in N \}$
 
 \begin{myfigure}
 \begin{center}
@@ -306,22 +298,136 @@ So $\Omega= \{ (\bm{s},\bm{v}) | s_{i}=1,2,..,B_{i}+2 , v_{i}=0,1,...,b_{i} , \t
 
 \node[main node] (Example) [shift={(-1,1)}] at (04) {$(s_{j},v_{j})$};
 
-\node (Box1) [draw,thick,fit=(10) (51),fill,blue,opacity=0.2] {};        
+\node (Box1) [draw,thick,fit=(10) (50),fill,blue,opacity=0.2] {};        
 
-\node[font=\sffamily\large,color=blue] (Box1Text) [shift={(0,-1.6)}] at (Box1) {Removed};
+\node[font=\sffamily\large,color=blue] (Box1Text) [shift={(0,-0.9)}] at (Box1) {Removed};
 
 \end{tikzpicture}
 \end{center}
-\caption{State space diagram, with $b_{j}=5$ and $B_{j}=3$ and further reduction of states with $s_{j}=4,5$ having to have $v_{j}=0$}
+\caption{State space diagram, with $b_{j}=5$ and $B_{j}=4$ and further reduction of states with $s_{j}=5$ having to have $v_{j}=0$}
 \end{myfigure}
 
-With further modified transitions that if $\widetilde{s_{j}} =B_{j}+1,B_{j}+2$ then $\widetilde{v_{j}}=0$ for $i \neq j$. 
+With further modified transitions that if $\widetilde{s_{j}} =B_{j}+1$ then $\widetilde{v_{j}}=0$ for $i \neq j$ (Or equivalently if $s_{j}=B_{j}$ then $\widetilde{v_{j}}=0$ for $i \neq j$).
 
-Now our state space and action space are finite we need only consider deterministic, stationary policies. Applying such a policy generates a sequence of states under a given policy $\pi$, namely $\{\psi_{\pi}^{k}(\bm{s}_{0},\bm{v}_{0}), k=0,1,2,... \}$. However we are not guaranteed to every have a regenerating process when the same node is visited due to the unpredictable nature of $v_{i} \sim TPo(\lambda,b_{i})$. Unless $b_{i}=0 \quad \forall i \in N$ then we have removed the probabilistic nature of $v_{i}$'s transition. We will not focus on the special case of $b_{i}=0 \quad \forall i \in N$ but it is shown how to develop a index for the single node problem in Appendix \ref{Observations are always zero}.
+We will define $\phi_{s}(\bm{s},i)=\widetilde{\bm{s}}$, i.e the evolved $s$ states and similarly $\phi_{v}(\bm{s},\bm{v},i)=\widetilde{\bm{v}}$ i.e the evolved $v$ states.
 
 \begin{note}
-There may be a problem with having a non-deterministic attack time, as this may cause the observable attacker behaviour to no longer take the form of $(\bm{s},\bm{v})$ but the patroller may have other information such as visiting early may mean if they caught less than expected then some in the observed section exist, so a full history could be recorded. However we will not deal with this and assume once a node is visited its last observation is lost and the system is rest???
+We note that the evolution of the $v$ states depends on the $s$ states, as if the $s_{j}=B_{j}$ then evolved state of $v_{j}$ becomes $0$. 
+\end{note} 
+
+\subsection{Problem formulation}
+The objective of this MDP is to minimize the total long-run cost rate among the $n$ nodes of the graph. Our state space is finite because the attack time and local-observations are bounded above. The action space is finite because the number of nodes is finite. Hence we only consider deterministic , stationary policies (i.e we will always take the same action in the same state and time is irrelevant).
+
+Unfortunately the state transitions are not fully deterministic, while the $s$ states evolve this way, the $v$ state which is visited will `reset' to a random number (drawn from our truncated poisson). We will define $\psi_{\pi}(\bm{s},\bm{v})=(\psi_{\pi,s}(\bm{s},\bm{v}),\psi_{\pi,v}(\bm{s},\bm{v}))=(\phi_{s}(\bm{s},\pi(\bm{s},\bm{v})),\bm{v}),\phi_{v}(\bm{s},\bm{v},\pi(\bm{s},\bm{v})))$.
+
+That is $\psi_{\pi,s}(\bm{s},\bm{v})$ is purely deterministic, but $\psi_{\pi,v}(\bm{s},\bm{v})$ is partially random.
+
+As the state space is finite and $\pi$ is a deterministic ,stationary policy, eventually we will visit the same state again. This should hold even though we are partially probabilistic. However the process will not regenerate itself, even though the same action will be taken we may end up in a different state state.
+
+However for an initial state $(\bm{s}_{0},\bm{v}_{0})$ the policy $\pi$ does induce an indefinite,sequence of states $\{\psi_{\pi}^{k} (\bm{s}_{0},\bm{v}_{0}) \, | k=0,1,2... \}$ where $\psi_{\pi}^{k} (\bm{s}_{0},\bm{v}_{0})$ is the evolved state starting from the initial state after we apply $\pi$ $k$ times to the resulting state.
+
+\begin{note}
+We will have `cycles' of states which do repeat in the process, but we may jump to different cycles, due to the probabilistic nature of the evolved observations. This means cycles can be of different lengths.
+
+That is to say we follow a selection of patrol patterns each for a different period of time. This selection depends on the probabilistic evolution. 
+
 \end{note}
+
+Therefore, if we apply the policy $\pi$ to an initial state $(\bm{s}_{0},\bm{v}_{0})$ we can write the long-run cost rate at node $i$ as
+
+\begin{align*}
+V_{i}(\pi,\bm{s}_{0},\bm{v}_{0})=\lim\limits_{N \rightarrow \infty} \frac{1}{N} \sum\limits_{k=0}^{N-1} C_{i}(\psi_{\pi}^{k}(\bm{s}_{0},\bm{v}_{0}),\pi(\psi_{\pi}^{k}(\bm{s}_{0},\bm{v}_{0})))
+\end{align*}
+
+We seek to determine the optimal long-run cost rate over all nodes, namely we seek the value
+
+\begin{align}
+C^{\text{OPT}}(\bm{s}_{0},\bm{v}_{0})= \min_{\pi \in \Pi} \sum\limits_{i=1}^{n} V_{i}(\pi,\bm{s}_{0},\bm{v}_{0})
+\end{align}
+
+Where $Pi$ is the class of deterministic, stationary patrol policies.
+
+\begin{note}
+A technical note is that we use the minimum rather than the infimum as $Pi$ is finite
+\end{note}
+
+If we take $C^{\text{OPT}}$ and divide it by the overall arrival rate, $\Lambda$ then we get the minimized long-run cost incurred for each attack. Furthermore if we set $c_{i}=1 \, \forall i \in N$ , then this ratio can be interpreted as the probability of not detecting an attack, i.e the evasion probability.
+
+We will also note that while $V_{i}(\pi,\bm{s}_{0},\bm{v}_{0})$ depends on initial state $(\bm{s}_{0},\bm{v}_{0})$, the optimal cost rate $C^{\text{OPT}}(\bm{s}_{0},\bm{v}_{0})$ does not if the graph is connected. This is because from any initial state, we can construct a policy $\pi$ which produces our optimal selection of patrol patterns.
+
+Hence we will drop the dependence on the initial state and the value of $C^{\text{OPT}}$ will be the same for every initial state. 
+
+\section{Problem Relaxation}
+We know look at relaxing our problem to easier to solve problems.
+
+\subsection{Multiple Node problem}
+We will now relax our class of problems to allow ourselves to visit multiple nodes in one time period, as long as the overall long-run visit rate is not greater than $1$. We will call this Problem the \textit{multiple node} (MN) problem. To extend ourselves to this problem we will create a new class of polices, $\Pi^{\text{MN}}$ which will allow the patroller to visit any set of nodes during the next timer period.
+
+\begin{align*}
+\pi : \Omega \rightarrow \{\bm{\alpha} \, | \, \alpha_{i} \in \{0,1 \} \text{ for } i=1,...,n \}
+\end{align*}
+
+Where $\alpha_{i}=1$ if the patroller will visit node $i$ in the next time period and $\alpha_{i}=0$ if the patroller will not visit node $i$ in the next time period. This patrol policy is more complex then those previously discussed and $\Pi \subset \Pi^{\text{MN}}$.
+
+We now define the long-run rate at which the patroller visits node $i$, following $\pi$
+
+\begin{align*}
+\mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0})=\lim\limits_{N \rightarrow \infty} \frac{1}{N} \sum\limits_{k=0}^{N-1} \alpha_{\psi_{\pi}^{k}(\bm{s}_{0},\bm{v}_{0}),i}
+\end{align*}
+
+We now impose the \textit{total-rate} constraint, that is the long-run overall visit rate to all nodes is no greater than 1. 
+
+\begin{align*}
+\sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega
+\end{align*}
+
+and we denote the set of policies, which satisfy this constraint by
+
+\begin{align*}
+\Pi^{\text{TR}}=\left\{ \pi \in \Pi^{\text{MN}} \, \bigg| \, \sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega \right\}
+\end{align*}
+
+Again $\Pi \subset \Pi^{\text{TR}}$
+
+As discussed previously the optimal long-run cost rate does not depend on the initial state so we will drop the notation.
+
+Therefore our relaxed problem can be formulated as
+
+\begin{align*}
+C^{\text{TR}}=\min_{\pi \in \Pi^{\text{TR}}} \sum\limits_{i=1}^{n} V_{i}(\pi)
+\end{align*}
+
+Hence due to this class of policies including the old class of policies, it is only possible to get a lower optimal value and hence $C^{\text{OPT}} \geq C^{\text{TR}}$.
+
+\subsection{Lagrangian relaxation}
+We now relax the problem again by incorporating the total rate constraint into the objective function, with a Lagrange multiplier, $\omega \geq 0$. This forms
+
+\begin{align*}
+C(\omega)&=\min_{\pi \in \Pi^{\text{MN}}} \left\{ \sum\limits_{i=1}^{n} V_{i}(\pi) + \omega \left( \sum\limits_{i=0}^{n} \mu_{i}(\pi) -1 \right) \right\} \\
+&=\min_{\pi \in \Pi^{\text{MN}}} \sum\limits_{i=1}^{n} (V_{i}(\pi)+\omega \mu_{i}(\pi)) - \omega
+\end{align*}
+
+By incorporating the total-rate constraint as a Lagrange multiplier we can drop the constraint, so that the patroller can choose to visit any number of nodes in each time period (admittedly costing $\omega$).
+
+We have that for any $\omega \geq 0$
+
+\begin{align*}
+C^{\text{TR}}=\min_{\pi \in \Pi^{\text{TR}}} \sum\limits_{i=1}^{n} V_{i}(\pi) &\geq \min_{\pi \in \Pi^{\text{TR}}} \left\{ \sum\limits_{i=1}^{n} V_{i}(\pi) + \omega \left( \sum\limits_{i=0}^{n} \mu_{i}(\pi) -1 \right) \right\} \\
+&\geq \min_{\pi \in \Pi^{\text{MN}}} \left\{ \sum\limits_{i=1}^{n} V_{i}(\pi) + \omega \left( \sum\limits_{i=0}^{n} \mu_{i}(\pi) -1 \right) \right\}=C(\omega)
+\end{align*}
+
+The first inequality follows as the total-rate constraint is obeyed in $\Pi^{\text{TR}}$ and hence the $\omega \left( \sum\limits_{i=0}^{n} \mu_{i}(\pi) -1 \right) \leq 0$ and the second holds, as the total rate constraint is dropped and we have got a bigger state space, so we can only do better and hence possibly get a lower value.
+
+Hence we have a string of inequalities $C^{\text{OPT}} \geq C^{\text{TR}} \geq C(\omega)$.
+
+To solve the problem of finding $C(\omega)$ we can note that the problem can be split up into each node, for each node $i$ we want to minimize $V_{i}(\pi)+\omega \mu_{i}(\pi)$, where $\omega$ can be interpreted as the service charge when the patroller visits the node.
+
+\subsection{Single node problem}
+We will now focus on the problem of having a single node where we pay a service cost of $\omega$ to visit it. Namely we solve the objective function for $C(\omega)$ with the subscript for the node $i$ removed
+
+\begin{align*}
+\min_{\pi \in \Pi^{\text{MN}}} V(\pi) + \omega \mu(\pi)
+\end{align*}
 
 \section{Deterministic Attack time}
 Consider the case where $X_{j}=x_{j}$, where $x_{j}$ is a constant (So $B_{j}=\ceil{x_{j}}$). So note that 
@@ -332,37 +438,29 @@ $$P(X_{j} \leq a)=\begin{cases}
 
 Then our cost function becomes
 
-For $s_{j} \leq B_{j}$
+For $s_{j} < B_{j}$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)=0
 \end{align*}
 
-For $B_{j} \leq s_{j} < B_{j}+1$
+For $s_{j}=B_{j}$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)&=\begin{cases}
-c_{j} \lambda_{j} \int_{\floor{B_{j}}}^{s_{j}} P(X_{j} \leq t) dt + c_{j} v_{j} \text{ for } i \neq j \\
-0+c_{j} v_{j} \text{ for } i=j \\
+c_{j} \lambda_{j} \int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i \neq j \\
+c_{j} (\lambda_{j} (\int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i=j \\
 \end{cases} \\
 &=\begin{cases}
-c_{j} \lambda_{j}(s_{j}-\floor{B_{j}}) + c_{j} v_{j} \text { for } i \neq j \\
-c_{j} v_{j} \text{ for } i=j \\
-\end{cases}
+c_{j} \lambda_{j} \int_{x_{j}}^{B_{j}} 1 dt + c_{j} v_{j} \times 1 \text{ for } i \neq j \\
+c_{j} (\lambda_{j} (\int_{x_{j}}^{B_{j}} 1 dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \times 1 \text{ for } i=j \\
+\end{cases} 
 \end{align*}
 
-\begin{note}
-The only such $s_{j}$ state is $s_{j}=\floor{B_{j}}$.
-\end{note}
-
-For $B_{j}+1 \leq s_{j} \leq B_{j}+2$
+For $s_{j}=B_{j}+1$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)&=\begin{cases}
-c_{j} \lambda_{j} \int_{\floor{B_{j}}}^{s_{j}} P(X_{j} \leq t) dt + c_{j} v_{j} \text{ for } i \neq j \\
-c_{j} \lambda_{j} \int_{\floor{B_{j}}}^{s_{j}-1} P(X_{j} \leq t ) dt +c_{j} v_{j} \text{ for } i=j \\
+c_{j} \lambda_{j} \int_{B_{j}}^{B_{j}+1} P(X_{j} \leq t) dt + c_{j} v_{j} P(B_{j} < X_{j} \leq B_{j}+1) \text{ for } i \neq j \\
+c_{j} (\lambda_{j} (\int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i=j \\
 \end{cases} \\
-&=\begin{cases}
-c_{j} \lambda_{j}(s_{j}-\floor{B_{j}}) + c_{j} v_{j} \text { for } i \neq j \\
-c_{j} \lambda_{j}(s_{j}-1-\floor{B_{j}})+c_{j} v_{j} \text{ for } i=j \\
-\end{cases}
 \end{align*}
 
 \begin{note}
