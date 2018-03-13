@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  13 MAR 2018 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  13 MAR 2018 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1458,7 +1458,7 @@ fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Report template.pdf" (22 pages, 361064 bytes).
+Output written on "Report template.pdf" (22 pages, 361062 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams
