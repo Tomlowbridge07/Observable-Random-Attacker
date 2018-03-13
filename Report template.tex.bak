@@ -447,36 +447,47 @@ For $s_{j}=B_{j}$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)&=\begin{cases}
 c_{j} \lambda_{j} \int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i \neq j \\
-c_{j} (\lambda_{j} (\int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i=j \\
+c_{j} \lambda_{j} (\int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i=j \\
 \end{cases} \\
 &=\begin{cases}
 c_{j} \lambda_{j} \int_{x_{j}}^{B_{j}} 1 dt + c_{j} v_{j} \times 1 \text{ for } i \neq j \\
-c_{j} (\lambda_{j} (\int_{x_{j}}^{B_{j}} 1 dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \times 1 \text{ for } i=j \\
-\end{cases} 
+c_{j} \lambda_{j} (\int_{x_{j}}^{B_{j}} 1 dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \times 1 \text{ for } i=j \\
+\end{cases} \\
+&=\begin{cases}
+c_{j} \lambda_{j} (B_{j}-x_{j}) + c_{j} v_{j}  \text{ for } i \neq j \\
+c_{j} \lambda_{j} ((B_{j}-x_{j}) - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \text{ for } i=j \\
+\end{cases} \\
+&=\begin{cases}
+c_{j} \lambda_{j} R_{j} + c_{j} v_{j}  \text{ for } i \neq j \\
+c_{j} \lambda_{j} (R_{j} - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \text{ for } i=j \\
+\end{cases}  
 \end{align*}
+
+Where we define $R_{j}=B_{j}-x_{j}$.
 
 For $s_{j}=B_{j}+1$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)&=\begin{cases}
 c_{j} \lambda_{j} \int_{B_{j}}^{B_{j}+1} P(X_{j} \leq t) dt + c_{j} v_{j} P(B_{j} < X_{j} \leq B_{j}+1) \text{ for } i \neq j \\
-c_{j} (\lambda_{j} (\int_{B_{j}-1}^{B_{j}} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}-1 < X_{j} \leq B_{j}) \text{ for } i=j \\
+c_{j} \lambda_{j} (\int_{B_{j}}^{B_{j}+1} P(X_{j} \leq t) dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} P(B_{j}< X_{j} \leq B_{j}+1) \text{ for } i=j \\
+\end{cases} \\
+&=\begin{cases}
+c_{j} \lambda_{j} \int_{B_{j}}^{B_{j}+1} 1 dt + c_{j} v_{j} \times 0 \text{ for } i \neq j \\
+c_{j} \lambda_{j} (\int_{B_{j}}^{B_{j}+1} 1 dt - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \times 0 \text{ for } i=j \\
+\end{cases} \\
+&=\begin{cases}
+c_{j} \lambda_{j} \times 1 \text{ for } i \neq j \\
+c_{j} \lambda_{j} (1 - \int_{0}^{1} P(X_{j} \leq t) dt) \text{ for } i=j \\
+\end{cases} \\
+&=\begin{cases}
+c_{j} \lambda_{j} \text{ for } i \neq j \\
+c_{j} \lambda_{j} (1 - \int_{0}^{1} P(X_{j} \leq t) dt) \text{ for } i=j \\
 \end{cases} \\
 \end{align*}
 
-\begin{note}
-The only such $s_{j}$ states are $s_{j}=\floor{B_{j}}+1,\floor{B_{j}}+2$
-and in these cases we have that $v_{j}=0$ we infact have
-\begin{align*}
-C_{j}(\bm{s},\bm{v},i)=\begin{cases}
-c_{j} \lambda_{j}(s_{j}-\floor{B_{j}}) \text { for } i \neq j \\
-c_{j} \lambda_{j}(s_{j}-1-\floor{B_{j}}) \text{ for } i=j \\
-\end{cases}
-\end{align*}
-\end{note}
+In our deterministic case we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=B_{j},B_{j}+1$ , as visiting at then gets any attacks caught when visiting at any $s_{j} < B_{j}$.
 
-Then we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=\floor{B}+1$, as visiting at then gets any attacks caught when visiting at any $s_{j} < \floor{B}+1$.
-
-So in the deterministic case $\Omega= \{(\floor{B}+1,v) \, | \, v=0,1,...,b \} \cup \{(\floor{B}+2,0) \}$.
+So in the deterministic case $\Omega= \{(B_{j},v) \, | \, v=0,1,...,b_{j} \} \cup \{(B_{j}+1,0) \}$.
 
 \begin{myfigure}
 \begin{center}
@@ -545,7 +556,10 @@ So in the deterministic case $\Omega= \{(\floor{B}+1,v) \, | \, v=0,1,...,b \} \
 \caption{Final deterministic, with $b_{j}=5$ and $B_{j}=4$}
 \end{myfigure}
 
-We will first have a concrete argument as to why the decision is always to wait when in a state $(s,v)$ with $s < \floor{B}+1$. From this position consider the policy $\pi_{k}$ which waits $k$ time periods and then renews and follows the optimal policy, $\sigma$, with $k=0,...,\floor{B}+1-s$.
+\subsection{Single node}
+We will now try to `solve' the single node problem, when we have a deterministic attack time. We will drop all subscripts for the node.
+
+We will now present a concrete argument as to why the decision is always to wait when in a state $(s,v)$ with $s < B$. From this position consider the policy $\pi_{k}$ which waits $k$ time periods and then renews and follows the optimal policy, $\sigma$, with $k=0,...,B-s$.
 
 Using such a policy will get us that
 \begin{equation}
@@ -564,11 +578,11 @@ Now we will pick policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) if
 
 Where $g$ is the average long-run costs of the system, coming from $V_{n}(x,v)=ng + \phi(x,v)$ for large $n$, and $\phi(x,v)$ is some initial bias for not starting in equilibrium from the initial state $(x,v)$.
 
-Now as the Dynamic Programming only has positive costs, it is impossible for $g < 0$. So we have that $g \geq 0$, so it is better to pick policy $\pi_{k+1}$ over $\pi_{k}$, as this argument holds for all $k=0,...,\floor{B}+1-s$ (and all $v$) it is best to wait till $(\floor{B}+1,v)$ before making a decision.
+Now as the Dynamic Programming only has positive costs, it is impossible for $g < 0$. So we have that $g \geq 0$, so it is better to pick policy $\pi_{k+1}$ over $\pi_{k}$, as this argument holds for all $k=0,...,B+1-s$ (and all $v$) it is best to wait till $(B,v)$ before making a decision.
 
-This formally shows the removal of the prior states.
+This formally shows the removal of the prior states in our single node problem.
 
-Now we will skip to the state $(\floor{B}+2,0)$ and suggest again a policy $\pi_{k}$ which waits $k$ time periods before renewing and then follows some optimal policy, $\sigma$.
+Now we will skip to the state $(B+1,0)$ and suggest again a policy $\pi_{k}$ which waits $k$ time periods before renewing and then follows some optimal policy, $\sigma$.
 
 Using such a policy will get us
 \begin{equation}
@@ -585,37 +599,43 @@ And again we will pick a policy $\pi_{k+1}$ over $\pi_{k}$ (or be indifferent) i
 
 So hence if $g \geq c \lambda$ we will wait forever, as this has no dependence on $k$.
 
-We will now argue that $g_{max}=c \lambda$, that is at worst the  long-run average cost is $c \lambda$. This can be seen by the strategy $\pi_{neg}$, a strategy which never renews no matter what state we are in. I.e the patroller neglects the node. We will have that, for large n
+We will now argue that $g_{max}=c \lambda$, that is at worst the  long-run average cost is $c \lambda$. This can be seen by the strategy $\pi_{\text{neg}}$, a strategy which never renews no matter what state we are in. I.e the patroller neglects the node. We will have that, for large $n$.
 
 \begin{align*}
-V_{n}^{\pi_{neg}}(x,v)=n c \lambda + \phi(x,v)
+V_{n}^{\pi_{\text{neg}}}(s,v)=n c \lambda + \phi(s,v)
 \end{align*}
 
 We can observe this by looking at the actual decay of the process, under a policy that never renews
 
 \begin{align*}
-V_{n}^{\pi_{neg}}(x,v)=& V_{n-(\floor{B}+2-x)}^{\pi_{neg}} + \phi(x,v)
-&=(n-(\floor{B}+2-x)) c \lambda + phi(x,v)
+V_{n}^{\pi_{\text{neg}}}(s,v)=& V_{n-(B+1-s)}^{\pi_{\text{neg}}} + \phi(s,v) \\
+&=(n-(B+1-x)) c \lambda + \phi(s,v)
 \end{align*}
 
-Where $\phi(x,v)= \underbrace{v c \lambda}_{\text{Observed finishing}} + \underbrace{(1-R) c \lambda}_{\text{arrivals that finish}}$ ($R=B-\floor{B}$) is the `transfer'/bias of moving from the initial state to $(\floor{B}=2,1)$.
+Where $\phi(x,v)= \underbrace{c v}_{\text{Observed finishing}} + \underbrace{c \lambda R}_{\text{arrivals that finish}}$ ($R=B-\ceil{x}$) is the `transfer'/bias of moving from the initial state to $(B+1,0)$.
 
-Hence for any service cost, $\omega$ we can achieve a $g= c \lambda$. So we will always be in the case of $g \leq c \lambda$ and hence we will renew if we hit the state $(\floor{B}+2,0)$ and hence for a state $(\floor{B}+1,v)$ we have two types of policy, $\pi_{0}$ a policy which renews now and then follows some optimal policy $\sigma$ or policy, $\pi_{1}$ which waits one period until $(\floor{B}+2,0)$ and then renews and follows some optimal policy $\sigma$.
+Hence for any service cost, $\omega$ we can achieve a $g= c \lambda$. So we will always be in the case of $g \leq c \lambda$ and hence we will renew if we hit the state $(B+1,0)$ and hence for a state $(B,v)$ we have two types of policy, $\pi_{0}$ a policy which renews now and then follows some optimal policy $\sigma$ or policy, $\pi_{1}$ which waits one period until $(B+1,0)$ and then renews and follows some optimal policy $\sigma$.
 
 So we will choice to renew now over waiting if
 
 \begin{align*}
-&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{1}} (\floor{B}+1,v) - V_{n}^{\pi_{0}}(\floor{B}+1,v) \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c + E[V_{n-1}^{\sigma}(\floor{B+2},0)] - (\omega + E[V_{n-1}^{\sigma}(\theta)]) \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\floor{B}-B+1) c \lambda + v c  + E[ \omega + V_{n-2}^{\sigma}(\theta)] - \omega - E[V_{n-1}^{\sigma}(\theta)] \geq 0 \\
-& \iff \lim\limits_{n \rightarrow \infty} (\lambda(\floor{B}-B+1)+v) c + E[V_{n-2}^{\sigma}(\theta) - V_{n-1}^{\sigma}(\theta)] \geq 0 \\
-& \iff (1-R+v)c \lambda - g \geq 0 \\
-& \iff g \leq c (\lambda(1-R)+v) 
+&\lim\limits_{n \rightarrow \infty} V_{n}^{\pi_{1}} (B,v) - V_{n}^{\pi_{0}}(B,v) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} c \lambda R + vc + E[V_{n-1}^{\sigma}(B+1,0)] - (\omega + E[V_{n-1}^{\sigma}(\theta)]) \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} c \lambda R + v c  + E[ \omega + V_{n-2}^{\sigma}(\theta)] - \omega - E[V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff \lim\limits_{n \rightarrow \infty} c(\lambda R + v) + E[V_{n-2}^{\sigma}(\theta) - V_{n-1}^{\sigma}(\theta)] \geq 0 \\
+& \iff (\lambda R+v)c - g \geq 0 \\
+& \iff g \leq c (\lambda R +v) 
 \end{align*}
 
-So we renew now if $g \leq (\lambda(1-R)+v)c$, as we are guaranteed that $g \leq c \lambda$ we are clearly in this region unless $\lambda R-v \geq 0 \iff v \leq \lambda R $, so if we will renew in $v$ we definitely renew in $v+1,v+2,...,b$. Their is some critical value, $v_{\text{crit}}=\ceil{\frac{g}{c}+ \lambda (R-1)}$ such that for $v \geq v_{\text{crit}}$ we renew immediately and for $v < v_{\text{crit}}$ we wait one time period and renew.
+So we renew now if $g \leq c (\lambda R +v)$, as we are guaranteed that $g \leq c \lambda$ we are clearly in this region if $ c (\lambda R +v) \leq c \lambda \iff v \leq \lambda (1-R)$. We also note that the bound is increasing in $v$ so if we will renew in $v$ we definitely renew in $v+1,v+2,...,b$.
 
-We have two special cases for $g$, that is when we always renew immediately or always wait then renew, these are $g \leq  c \lambda(1-R)$ (i.e we renew for all $v$ if we renew for $v=0$) and $g \geq c (\lambda(1-R)+b)$ (i.e we always wait then renew for all $v$ if we wait for $v=b$)
+We notice that there is some critical value such that we renew for a collection of $v$'s equal or higher and do not renew for lower $v$'s. This critical value is $v_{\text{crit}}=\ceil{\frac{g}{c} - \lambda R}$ such that for $v \geq v_{\text{crit}}$ we renew immediately and for $v < v_{\text{crit}}$ we wait one time period and renew.
+
+\begin{note}
+We renew in one period as we are assumed to have $g \leq c \lambda$ otherwise we will just choice to neglect.
+\end{note}
+
+We have two special cases for $g$, that is when we always renew immediately or always wait then renew, these are $g \leq  c \lambda R$ (i.e we renew for all $v$ if we renew for $v=0$) and $g \geq c (\lambda R +b)$ (i.e we always wait then renew for all $v$ if we wait for $v=b$)
 
 However between these regions, we have a divide of the nodes into a set we renew immediately and a set we wait then renew.
 
@@ -651,7 +671,7 @@ However between these regions, we have a divide of the nodes into a set we renew
 
 \draw (Topbarrier)--(Bottombarrier);
 
-\node (Barrierlabel) [shift={(0,0.2)}] at (Topbarrier) {$g=2.8$};
+\node (Barrierlabel) [shift={(0,0.2)}] at (Topbarrier) {$g=1.8$};
 
 \node (Box1) [draw,thick,fit=(00) (10),fill,blue,opacity=0.2] {};
 
@@ -663,7 +683,7 @@ However between these regions, we have a divide of the nodes into a set we renew
 
 \end{tikzpicture}
 \end{center}
-\caption{With $c=\lambda=1$, $B=4.4 \implies R=0.4$ so $v_{\text{crit}}=2$ when $2.6 \leq g < 3.6$ (e.g $g=2.8$)}
+\caption{With $c=\lambda=1$, $x=4.4 \implies R=0.6$ so $v_{\text{crit}}=2$ when $1.6 < g < 2.6$ (e.g $g=1.8$)}
 \label{Figure: example of region splitting}
 \end{myfigure}
 
@@ -671,7 +691,7 @@ However we are assuming we are in the case of $g \leq c \lambda$ for so the exam
 
 We really need to split the region for $g$ (which is bounded above by $c \lambda$) into different $v=v_{\text{crit}}$.
 
-Say now we have that $b > \lambda R $ then we have some $v_{max}=\max \{ v \in \{ 0,1,...,b+1 \} \, | \, v \leq \lambda R \}$ , some critical maximum (as at some point we will turn on the neglecting strategy)
+Say now we have that $b > \lambda (1-R) $ then we have some $v_{max}=\max \{ v \in \{ 0,1,...,b+1 \} \, | \, v \leq \lambda (1-R) \}$ , some critical maximum (as at some point we will turn on the neglecting strategy)
 
 \begin{note}
 $v_{\text{max}}=0$ means we always renew and $v_{\text{max}}=b+1$ means we never renew.
@@ -679,18 +699,18 @@ $v_{\text{max}}=0$ means we always renew and $v_{\text{max}}=b+1$ means we never
 
 We do by having
 \begin{itemize}
-\item $v_{\text{crit}}=0$ if $g \leq c \lambda (1-R)$
-\item $v_{\text{crit}}=k$ if $c \lambda (1-R) +c(k-1) < g \leq c \lambda (1-R)+ kc$ for $k=1,....,v_{\text{max}}-1$
-\item $v_{\text{crit}}=v_{\text{max}}$ if $c \lambda (1-R) + c(v_{\text{max}}-1) < g \leq c \lambda$
+\item $v_{\text{crit}}=0$ if $g \leq c \lambda R$
+\item $v_{\text{crit}}=k$ if $c \lambda R +c(k-1) < g \leq c \lambda R + kc$ for $k=1,....,v_{\text{max}}-1$
+\item $v_{\text{crit}}=v_{\text{max}}$ if $c \lambda R + c(v_{\text{max}}-1) < g \leq c \lambda$
 \end{itemize}
 
 Let us say that our $v_{\text{crit}}=k$ then we have that
 
 \begin{align*}
 g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal length}} \\
-&= \frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda (1-R )) P(TPo(\lambda,b)=0)+...+(\omega + c \lambda (1-R)) P(TPo(\lambda,b)=k-1)}{(\floor{B}+1)P(TPo(\lambda,b) \geq k) + (\floor{B}+2)P(TPo(\lambda,b) \leq k-1)} \\
-&=\frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda (1-R))P(TPo(\lambda) \leq k-1) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{(\floor{B}+1)P(TPo(\lambda,b) \geq k) + (\floor{B}+2)(1-P(TPo(\lambda,b) \geq k))} \\
-&= \frac{\omega - c \lambda (1-R) P(TPo(\lambda,b) \geq k) +  \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{\floor{B}+2-P(TPo(\lambda,b) \geq k)}
+&= \frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R) P(TPo(\lambda,b)=0)+...+(\omega + c \lambda R) P(TPo(\lambda,b)=k-1)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)P(TPo(\lambda,b) \leq k-1)} \\
+&=\frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R )P(TPo(\lambda) \leq k-1) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)(1-P(TPo(\lambda,b) \geq k))} \\
+&= \frac{\omega - c \lambda R P(TPo(\lambda,b) \geq k) +  \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B+1-P(TPo(\lambda,b) \geq k)}
 \end{align*}
 
 \begin{myfigure}
@@ -698,12 +718,12 @@ g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal le
 \resizebox{.6\textwidth}{!}{
 \input{Images/LocallyObservableLongRunAverageCost.tex}}
 \end{center}
-\caption{This shows the best long-run average cost (as a choice of $k$ for each $\omega$)}
+\caption{This shows the best long-run average cost (as a choice of $k$ for each $\omega$) Note. Figure needs checking against new formula (using B instead of floor(B)}
 \end{myfigure}
 
 Now we can translate our bounds on $g$ to become bounds on $\omega$
 
-For $v_{\text{crit}}=0$ we have $0 \leq \omega \leq c \lambda (1-R)(\floor{B}+2) \equiv \Delta(0)$.
+For $v_{\text{crit}}=0$ we have $\delta(0) \equiv 0 \leq \omega \leq c \lambda R (B+1) \equiv \Delta(0)$.
 
 For $v_{\text{crit}}=k$ we have $\delta(k) < \omega \leq  \Delta(k)$
 
@@ -711,51 +731,81 @@ For $v_{\text{crit}}=v_{\text{max}}$ we have $\delta(v_{\text{max}}) < \omega \l
 
 Where
 \begin{itemize}
-\item $\delta(k)=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
-\item $\Delta(k)=c (\lambda (1-R)(\floor{B}+2)+k(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
-\item $\widetilde{\Delta}= c  ( \lambda (\floor{B}+2 - R P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
+\item $\delta(k)=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\Delta(k)=c (\lambda R(B+1)+k(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\widetilde{\Delta}= c  ( \lambda (B+1 - R P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
 \end{itemize}
 
 Now we really want consistent bounds for $\omega$ (i.e to have no over or under lap), so we would like $\delta(k)=\Delta(k-1)$, luckily by considering the formula's this is true.
 
 \begin{align*}
-\delta(k)&=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&=c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&= c (\lambda (1-R)(\floor{B}+2)+(k-1)(\floor{B}+2-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
+\delta(k)&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&= c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
 =\Delta(k-1)
 \end{align*}
 
 We can now create an index based on our bounds for $\omega$
-Then if $\omega \in [\Delta(k),\Delta(k+1)]$ ($\Delta(-1)=0$ by declaration) we should pick $V_{\text{crit}}=k$ and when $\omega \geq \widetilde{\Delta}$ we should pick to never visit the node.
+Then if $\omega \in [\Delta(k-1),\Delta(k)]$ ($\Delta(-1)=\delta(0)=0$ by declaration) we should pick $V_{\text{crit}}=k$ and when $\omega \geq \widetilde{\Delta}$ we should pick to never visit the node.
+
+This gives us a `fair price' to select where to put the boundary of $v_{\text{crit}}$. To the left of this boundary we will wait and renew, to the left of the boundary we will renew immediately.
+
+
+So now the question is given that we are in the state $(B,v)$ will we renew now or not, well if we select a $v_{\text{crit}}$ such that $v \geq v_{\text{crit}}$ then we will renew, otherwise we will elapse and renew (assuming $g \leq c \lambda$). Now we for $v \geq v_{\text{crit}}$ it means that the `fair price' to renew is $\omega \leq \Delta(v+1)$ (that is we will select at least $v_{\text{crit}}$ to be lower than or equal to $v$).
+
+To conclude:
+\begin{itemize}
+\item If we are in the state $(s,v)$ for $s < B , \forall v$ we will renew now if $\omega=0$.
+\item If we are in the state $(B,v)$ for $v < v_{\text{max}}$ we will renew now if $\omega \leq \Delta(v)$.
+\item If we are in the state $(B,v_{\text{max}})$ then we will renew now if $\omega \leq \widetilde{\Delta}$.
+\item If we are in the state $(B,v)$ for $v > v_{\text{max}}$ then we will renew now if $\omega \leq \widetilde{\Delta}$.
+\item If we are in the state $(B+1,0)$ then we will renew now if $\omega \leq \widetilde{\Delta}$.
+\end{itemize}
+
+NOT SURE ABOUT THE LAST STATEMENT!!!!: seems to make sense coming through the prior state, but worried it does not work with the idea in this state we are paying $c \lambda$ every time unit.
+
 
 \subsection{Index Heuristic}
-To develop a heuristic based on indices we attach a suffix to the prior index which helps us to decide if it is worth visiting now or later when we are in state $(\floor{B}+1,v)$ dependent on the observed attackers $v$. We must now account for time, as the patroller doesn't really want to visit until it has been $s=\floor{B}+1$ we will divide the index by this value to account for visiting early.
+To develop a heuristic based on indices we attach a suffix to the prior index which helps us to decide if it is worth visiting now or later.
+
+Using the idea of the `fair price' given by the bounds on $\omega$ for the single node we will define the index heuristic.
 
 \begin{align}
 W_{i}(s_{i},v_{i})&=\begin{cases}
-\frac{\Delta_{i}(k)}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i} < v_{i,\text{max}} \\
-\frac{\widetilde{\Delta}_{i}}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i}= v_{i,\text{max}} \\
-\end{cases} \nonumber \\ 
-&=\begin{cases}
-\frac{c_{i} (\lambda_{i} (1-R_{i})(\floor{B_{i}}+2)+v_{i}(\floor{B_{i}}+2-P(TPo(\lambda_{i},b_{i}) \geq v_{i}))-\sum\limits_{j=0}^{v_{i}-1} j P(TPo(\lambda_{i},b_{i})=j))}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i} < v_{i,\text{max}} \\
-\frac{c_{i} ( \lambda_{i} (\floor{B_{i}}+2 - R_{i} P(TPo(\lambda_{i},b_{i}) \geq v_{i,\text{max}})) - \sum\limits_{j=0}^{v_{i,\text{max}}-1} j P(TPo(\lambda_{i},b_{i})=j) )}{\floor{B_{i}}+2-s_{i}} \text{ If } s_{i} \leq \floor{B_{i}}+1 , v_{i}= v_{i,\text{max}} \\
+0 \text{ If } s_{i}<B_{i} \\
+\Delta_{i}(v_{i}) \text{ If } s_{i}=B_{i} , v_{i}<v_{i,\text{max}} \\
+\widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i} , v_{i} \geq v_{i,\text{max}} \\
+\widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
 \end{cases}
 \end{align}
 
-Where $R_{i}=B_{i}-\floor{B_{i}}$, $v_{i,\text{max}}=\max \{ v \in \{0,1,...,b_{i}+1 \} \, | \, v \leq \lambda_{i}R_{i} \}$
-
-and
+As the index is only non-zero in state $(B_{i},v)$ or $(B_{i}+1,0)$ and in the state $(B_{j},v)$ is dependent on the observed attackers $v$. We now decide that we will try to account for time, as the patroller doesn't really want to visit node $j$ until it has been $s_{j}=B_{j}$ we will simply split the index up into even contributions for time step.
 
 \begin{align}
-W_{i}(s_{i}=\floor{B_{i}}+2,v_{i}) &= \widetilde{\Delta}_{i}  \nonumber \\
-&=c_{i} ( \lambda_{i} (\floor{B_{i}}+2 - R_{i} P(TPo(\lambda_{i},b_{i}) \geq v_{i,\text{max}})) - \sum\limits_{j=0}^{v_{i,\text{max}}-1} j P(TPo(\lambda_{i},b_{i})=j) )
+W_{i}(s_{i},v_{i})&=\begin{cases}
+\frac{s_{i} \Delta_{i}(v_{i})}{B_{i}} \text{ If } s \leq B_{i},v_{i}<v_{i,\text{max}} \\
+\frac{s_{i} \widetilde{\Delta_{i}}}{B_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
+\end{cases}
 \end{align}
 
+We could suggest an alternative index that doesn't evenly split the index among the steps, and instead has a focus still on increasing towards the state of $s_{i}=B_{i}$, so the increments that they increase are increasing themselves.
+
+\begin{align}
+W_{i}(s_{i},v_{i})&=\begin{cases}
+\frac{\Delta_{i}(v_{i})}{B+1-s_{i}} \text{ If } s \leq B,v_{i}<v_{i,\text{max}} \\
+\frac{\widetilde{\Delta_{i}}}{B+1-s_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
+\end{cases}
+\end{align}
+
+
+
 \begin{note}
-Because the set of $\Delta$'s are monotone, this index is monotone in both $s_{i}$ and $v_{i}$. We also note that $W_{i}(\floor{B_{i}}+1,v_{i,\text{max}})=W_{i}(\floor{B_{i}}+2,v_{i})$ for any $v_{i}$.
+Because the set of $\Delta$'s are monotone, this index is monotone in both $s_{i}$ and $v_{i}$. We also note that $W_{i}(B_{i},v)=W_{i}(B_{i}+1,0)$ for any $v_{i} \geq v_{\text{max}}$, this value is our maximum pricing.
 \end{note}
 
-To implement the heuristic we initially assume that the patroller has neglected the region for a long period of time, that will be to set $s_{i}=\floor{B_{i}}+2$ , calculate the index for all the nodes and pick the node with the largest index (that is we will start at the node with the largest $\widetilde{\Delta}_{i}$ ).
+To implement the heuristic we initially assume that the patroller has neglected the region for a long period of time, that will be to set $s_{i}=B+1$ (and hence assume all our state is $(\bm{s},\bm{v})=(B_{1}+1,...,B_{n}+1,0,...,0)$ , calculate the index for all the nodes and pick the node with the largest index (that is we will start at the node $i$ which has the largest $\widetilde{\Delta}_{i}$ ).
 We then precede from here by calculating the indices of all adjacent nodes and moving to the node with the highest index, we repeat this process.
 
 As the index is monotone and increasing in time, we will have that a nodes index grows (up to a cap of $\widetilde{\Delta}_{i}$) with time. However upon visiting it is not necessarily true that its it returns to the lowest value (as it may go to a state with a high $v_{i}$ causing it to be higher).
