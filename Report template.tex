@@ -465,6 +465,13 @@ c_{j} \lambda_{j} (R_{j} - \int_{0}^{1} P(X_{j} \leq t) dt) + c_{j} v_{j} \text{
 
 Where we define $R_{j}=B_{j}-x_{j}$.
 
+\begin{note}
+In the case of $i=j$: 
+If $x_{j} > 1$ then our function becomes $c_{j} \lambda_{j} (R_{j}-1) + c_{j} v_{j}$.
+If $x_{j} \leq 1$ then our function becomes $c_{j} \lambda_{j} (R_{j}-x_{j}) + c_{j} v_{j}$
+\end{note}
+
+
 For $s_{j}=B_{j}+1$
 \begin{align*}
 C_{j}(\bm{s},\bm{v},i)&=\begin{cases}
@@ -484,6 +491,12 @@ c_{j} \lambda_{j} \text{ for } i \neq j \\
 c_{j} \lambda_{j} (1 - \int_{0}^{1} P(X_{j} \leq t) dt) \text{ for } i=j \\
 \end{cases} \\
 \end{align*}
+
+\begin{note}
+In the case of $i=j$: 
+If $x_{j} > 1$ then our function becomes $0$.
+If $x_{j} \leq 1$ then our function becomes $c_{j} \lambda_{j} (1-x_{j})$
+\end{note}
 
 In our deterministic case we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=B_{j},B_{j}+1$ , as visiting at then gets any attacks caught when visiting at any $s_{j} < B_{j}$.
 
