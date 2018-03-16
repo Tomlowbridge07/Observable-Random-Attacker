@@ -784,6 +784,8 @@ To conclude:
 
 NOT SURE ABOUT THE LAST STATEMENT!!!!: seems to make sense coming through the prior state, but worried it does not work with the idea in this state we are paying $c \lambda$ every time unit.
 
+%We will now look at the special case that $v_{max}=0$, that is $\lambda (1-R)$ (Which is guaranteed by $\lambda \leq 1$) so then we will we will always renew now, or we will inccur a higher $g$ than the neglecting strategy. So to get $ 0\leq g \leq c \lambda$ we will always renew when we hit the state $(B,v) \, \forall v$. We know that this will give an average cost of $g=\frac{\text{Expected cost per renewal}}{B}=$
+
 
 \subsection{Index Heuristic}
 To develop a heuristic based on indices we attach a suffix to the prior index which helps us to decide if it is worth visiting now or later.
@@ -804,7 +806,7 @@ As the index is only non-zero in state $(B_{i},v)$ or $(B_{i}+1,0)$ and in the s
 \begin{align}
 W_{i}(s_{i},v_{i})&=\begin{cases}
 \frac{s_{i} \Delta_{i}(v_{i})}{B_{i}} \text{ If } s \leq B_{i},v_{i}<v_{i,\text{max}} \\
-\frac{s_{i} \widetilde{\Delta_{i}}}{B_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\frac{s_{i} \widetilde{\Delta_{i}}}{B_{i}} \text{ If } s \leq B_{i},v_{i} \geq v_{i,\text{max}} \\
 \widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
 \end{cases}
 \end{align}
@@ -814,7 +816,7 @@ We could suggest an alternative index that doesn't evenly split the index among 
 \begin{align}
 W_{i}(s_{i},v_{i})&=\begin{cases}
 \frac{\Delta_{i}(v_{i})}{B+1-s_{i}} \text{ If } s \leq B,v_{i}<v_{i,\text{max}} \\
-\frac{\widetilde{\Delta_{i}}}{B+1-s_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\frac{\widetilde{\Delta_{i}}}{B+1-s_{i}} \text{ If } s \leq B_{i},v_{i} \geq v_{i,\text{max}} \\
 \widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
 \end{cases}
 \end{align}

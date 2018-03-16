@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  16 MAR 2018 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  16 MAR 2018 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,7 +1394,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 722.
 
 [10] (./Images/LocallyObservableLongRunAverageCost.tex) [11] [12] [13]
-Overfull \hbox (80.16118pt too wide) in paragraph at lines 890--891
+Overfull \hbox (80.16118pt too wide) in paragraph at lines 892--893
 []\OT1/cmr/m/n/10 Suppose it is on a line sege-ment, then $\OML/cmm/m/it/10 K[]
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )$ is con-stant and hence $\
 OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []$ s
@@ -1404,15 +1404,15 @@ o $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []
 
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 14 undefined on input line 921.
+li attack times' on page 14 undefined on input line 923.
 
 [14] [15] [16] [17]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 1142--1142
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 1144--1144
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 1155--1155
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 1157--1157
 [] 
  []
 
