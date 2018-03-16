@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.1}Multiple Node problem}{5}
 \contentsline {subsection}{\numberline {2.2}Lagrangian relaxation}{6}
 \contentsline {subsection}{\numberline {2.3}Single node problem}{6}
-\contentsline {section}{\numberline {3}Deterministic Attack time}{6}
+\contentsline {section}{\numberline {3}Deterministic Attack time}{7}
 \contentsline {subsection}{\numberline {3.1}Single node}{7}
 \contentsline {subsection}{\numberline {3.2}Index Heuristic}{12}
 \contentsline {subsection}{\numberline {3.3}Lower bound}{13}

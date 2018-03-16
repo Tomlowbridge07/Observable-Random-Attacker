@@ -429,6 +429,9 @@ We will now focus on the problem of having a single node where we pay a service 
 \min_{\pi \in \Pi^{\text{MN}}} V(\pi) + \omega \mu(\pi)
 \end{align*}
 
+
+That is we seek to minimize the single nodes long-run average cost, when we have to pay a service charge of $\omega$ to visit the node.
+
 \section{Deterministic Attack time}
 Consider the case where $X_{j}=x_{j}$, where $x_{j}$ is a constant (So $B_{j}=\ceil{x_{j}}$). So note that 
 $$P(X_{j} \leq a)=\begin{cases}
@@ -496,6 +499,10 @@ c_{j} \lambda_{j} (1 - \int_{0}^{1} P(X_{j} \leq t) dt) \text{ for } i=j \\
 In the case of $i=j$: 
 If $x_{j} > 1$ then our function becomes $c_{j} \lambda_{j}$.
 If $x_{j} \leq 1$ then our function becomes $c_{j} \lambda_{j} x_{j}$
+\end{note}
+
+\begin{note}
+We note that if $x_{j}$ the dependence on the chosen action disappears.
 \end{note}
 
 In our deterministic case we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=B_{j},B_{j}+1$ , as visiting at then gets any attacks caught when visiting at any $s_{j} < B_{j}$.
@@ -797,7 +804,7 @@ As the index is only non-zero in state $(B_{i},v)$ or $(B_{i}+1,0)$ and in the s
 \begin{align}
 W_{i}(s_{i},v_{i})&=\begin{cases}
 \frac{s_{i} \Delta_{i}(v_{i})}{B_{i}} \text{ If } s \leq B_{i},v_{i}<v_{i,\text{max}} \\
-\frac{s_{i} \widetilde{\Delta_{i}}}{B_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\frac{s_{i} \widetilde{\Delta_{i}}}{B_{i}} \text{ If } s \leq B_{i},v_{i} \geq v_{i,\text{max}} \\
 \widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
 \end{cases}
 \end{align}
@@ -807,7 +814,7 @@ We could suggest an alternative index that doesn't evenly split the index among 
 \begin{align}
 W_{i}(s_{i},v_{i})&=\begin{cases}
 \frac{\Delta_{i}(v_{i})}{B+1-s_{i}} \text{ If } s \leq B,v_{i}<v_{i,\text{max}} \\
-\frac{\widetilde{\Delta_{i}}}{B+1-s_{i}} \text{ If } s \leq B,v_{i} \geq v_{i,\text{max}} \\
+\frac{\widetilde{\Delta_{i}}}{B+1-s_{i}} \text{ If } s \leq B_{i},v_{i} \geq v_{i,\text{max}} \\
 \widetilde{\Delta_{i}} \text{ If } s_{i}=B_{i}+1
 \end{cases}
 \end{align}
