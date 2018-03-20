@@ -1,13 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction to a random attacker patroller game with observation}{1}
 \contentsline {subsection}{\numberline {1.1}Derivation of the Cost function}{2}
-\contentsline {subsection}{\numberline {1.2}Bounding Problem}{2}
-\contentsline {subsection}{\numberline {1.3}Problem formulation}{4}
+\contentsline {subsection}{\numberline {1.2}Alternative Cost function for instantly moving patroller}{2}
+\contentsline {subsection}{\numberline {1.3}Bounding Problem}{3}
+\contentsline {subsection}{\numberline {1.4}Problem formulation}{4}
 \contentsline {section}{\numberline {2}Problem Relaxation}{5}
 \contentsline {subsection}{\numberline {2.1}Multiple Node problem}{5}
 \contentsline {subsection}{\numberline {2.2}Lagrangian relaxation}{6}
-\contentsline {subsection}{\numberline {2.3}Single node problem}{6}
+\contentsline {subsection}{\numberline {2.3}Single node problem}{7}
 \contentsline {section}{\numberline {3}Deterministic Attack time}{7}
-\contentsline {subsection}{\numberline {3.1}Single node}{7}
+\contentsline {subsection}{\numberline {3.1}Single node}{9}
 \contentsline {subsection}{\numberline {3.2}Index Heuristic}{12}
 \contentsline {subsection}{\numberline {3.3}Lower bound}{13}
 \contentsline {subsection}{\numberline {3.4}A special case of graph with two nodes}{14}

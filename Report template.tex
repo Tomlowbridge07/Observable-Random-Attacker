@@ -191,6 +191,23 @@ That is the only difference between having chosen the nodes is the effect on the
    
 With $C(\bm{s},\bm{v},i)=\sum\limits_{j=1}^{n} C_{j}(\bm{s},\bm{v},i)$ being the cost function for the MDP.
 
+\subsection{Alternative Cost function for instantly moving patroller}
+We will now derive and alternative cost function under the assumption that the patroller moves instantly and collects attacks throughout the window.
+
+The cost function when we do not choose to visit the node remains the same, however we need to slightly alter the cost function for the node we are choosing to visit. The incurred cost in the next time period is $0$ as we move instantly and catch all attack that would end up here.
+
+Hence we would have a cost function of
+\begin{align}
+C_{j}(\bm{s},\bm{v},i)&= \begin{cases}
+c_{j} (\lambda_{j} \int_{s_{j}-1}^{s_{j}} P(X_{j} \leq t) dt + v_{j} P(s_{j}-1 < X_{j} \leq s_{j})) \text{ for } i \neq j \\
+0 \text{ for } i=j \\
+\end{cases} 
+\end{align}
+
+\begin{note}
+The bounding reduction that occurs in the next section still holds with this cost function. I.e. the state space is reduced the same whichever cost function we pick.
+\end{note}
+
 \subsection{Bounding Problem}
 We will now make the assumptions that $X_{j}$ is bounded and we will let
 \begin{align*}
@@ -505,6 +522,25 @@ If $x_{j} \leq 1$ then our function becomes $c_{j} \lambda_{j} x_{j}$
 We note that if $x_{j}$ the dependence on the chosen action disappears.
 \end{note}
 
+\textbf{Amendment if using Instantly moving patroller}
+If we are using the instantly moving patroller then we in fact get
+
+For $s_{j}=B_{j}$
+\begin{align*}
+C_{j}(\bm{s},\bm{v},i)= \begin{cases}
+c_{j} \lambda_{j} R_{j} + c_{j} v_{j}  \text{ for } i \neq j \\
+0 \text{ for } i=j \\
+\end{cases}  
+\end{align*}
+
+For $s_{j}=B_{j}+1$
+\begin{align*}
+C_{j}(\bm{s},\bm{v},i)= \begin{cases}
+c_{j} \lambda_{j} \text{ for } i \neq j \\
+0 \text{ for } i=j \\
+\end{cases}
+\end{align*}
+
 In our deterministic case we can further reduce the state space, as we choosing to visit later rather than earlier (as long as its not too late) allows us to possibly catch more (as we know when the attacks can start to finish). So we limit the state space with non-zero observed attackers to only have $s_{j}=B_{j},B_{j}+1$ , as visiting at then gets any attacks caught when visiting at any $s_{j} < B_{j}$.
 
 So in the deterministic case $\Omega= \{(B_{j},v) \, | \, v=0,1,...,b_{j} \} \cup \{(B_{j}+1,0) \}$.
@@ -728,9 +764,9 @@ Let us say that our $v_{\text{crit}}=k$ then we have that
 
 \begin{align*}
 g_{k}(\omega)&=\frac{\text{Expected cost per renewal}}{\text{Expected renewal length}} \\
-&= \frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R) P(TPo(\lambda,b)=0)+...+(\omega + c \lambda R) P(TPo(\lambda,b)=k-1)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)P(TPo(\lambda,b) \leq k-1)} \\
-&=\frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R )P(TPo(\lambda) \leq k-1) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)(1-P(TPo(\lambda,b) \geq k))} \\
-&= \frac{\omega - c \lambda R P(TPo(\lambda,b) \geq k) +  \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B+1-P(TPo(\lambda,b) \geq k)}
+&= \frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R) P(TPo(\lambda,b)=0)+...+(\omega + c \lambda R + c(k-1)) P(TPo(\lambda,b)=k-1)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)P(TPo(\lambda,b) \leq k-1)} \\
+&=\frac{\omega P(TPo(\lambda,b) \geq k) + (\omega + c \lambda R )P(TPo(\lambda,b) \leq k-1) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B \times P(TPo(\lambda,b) \geq k) + (B+1)(1-P(TPo(\lambda,b) \geq k))} \\
+&= \frac{\omega + c \lambda R (1-P(TPo(\lambda,b) \geq k)) + c \sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)}{B+1-P(TPo(\lambda,b) \geq k)}
 \end{align*}
 
 \begin{myfigure}
@@ -751,17 +787,17 @@ For $v_{\text{crit}}=v_{\text{max}}$ we have $\delta(v_{\text{max}}) < \omega \l
 
 Where
 \begin{itemize}
-\item $\delta(k)=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
-\item $\Delta(k)=c (\lambda R(B+1)+k(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
-\item $\widetilde{\Delta}= c  ( \lambda (B+1 - R P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
+\item $\delta(k)=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\Delta(k)=c (\lambda R B +k(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
+\item $\widetilde{\Delta}= c  ( \lambda (B+1-R + (R-1) P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
 \end{itemize}
 
 Now we really want consistent bounds for $\omega$ (i.e to have no over or under lap), so we would like $\delta(k)=\Delta(k-1)$, luckily by considering the formula's this is true.
 
 \begin{align*}
-\delta(k)&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&= c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
+\delta(k)&=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&= c (\lambda R B +(k-1)(B+1-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
 =\Delta(k-1)
 \end{align*}
 
