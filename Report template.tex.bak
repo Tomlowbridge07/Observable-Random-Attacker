@@ -747,17 +747,13 @@ However we are assuming we are in the case of $g \leq c \lambda$ for so the exam
 
 We really need to split the region for $g$ (which is bounded above by $c \lambda$) into different $v=v_{\text{crit}}$.
 
-Say now we have that $b > \lambda (1-R) $ then we have some $v_{max}=\max \{ v \in \{ 0,1,...,b+1 \} \, | \, v \leq \lambda (1-R) \}$ , some critical maximum (as at some point we will turn on the neglecting strategy)
-
-\begin{note}
-$v_{\text{max}}=0$ means we always renew and $v_{\text{max}}=b+1$ means we never renew.
-\end{note}
+Say now we have that $b > \lambda (1-R) $ then we have some $v_{max}=\max \{ v \in \{ 0,1,...,b \} \, | \, v \leq \lambda (1-R) \}$ , some critical maximum (as at some point we will turn on the neglecting strategy just past it)
 
 We do by having
 \begin{itemize}
 \item $v_{\text{crit}}=0$ if $g \leq c \lambda R$
-\item $v_{\text{crit}}=k$ if $c \lambda R +c(k-1) < g \leq c \lambda R + kc$ for $k=1,....,v_{\text{max}}-1$
-\item $v_{\text{crit}}=v_{\text{max}}$ if $c \lambda R + c(v_{\text{max}}-1) < g \leq c \lambda$
+\item $v_{\text{crit}}=k$ if $c \lambda R +c(k-1) < g \leq c \lambda R + kc$ for $k=1,....,v_{\text{max}}$
+\item $v_{\text{crit}}=v_{\text{max}}+1$ if $c \lambda R + c v_{\text{max}} < g \leq c \lambda$
 \end{itemize}
 
 Let us say that our $v_{\text{crit}}=k$ then we have that
@@ -783,21 +779,21 @@ For $v_{\text{crit}}=0$ we have $\delta(0) \equiv 0 \leq \omega \leq c \lambda R
 
 For $v_{\text{crit}}=k$ we have $\delta(k) < \omega \leq  \Delta(k)$
 
-For $v_{\text{crit}}=v_{\text{max}}$ we have $\delta(v_{\text{max}}) < \omega \leq \widetilde{\Delta}$
+For $v_{\text{crit}}=v_{\text{max}}+1$ we have $\delta(v_{\text{max}}+1) < \omega \leq \widetilde{\Delta}$
 
 Where
 \begin{itemize}
 \item $\delta(k)=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
 \item $\Delta(k)=c (\lambda R B +k(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i))$
-\item $\widetilde{\Delta}= c  ( \lambda (B+1-R + (R-1) P(TPo(\lambda,b) \geq v_{\text{max}})) - \sum\limits_{i=0}^{v_{\text{max}}-1} i P(TPo(\lambda,b)=i) )$
+\item $\widetilde{\Delta}= c  ( \lambda (B+1-R + (R-1) P(TPo(\lambda,b) \geq v_{\text{max}}+1)) - \sum\limits_{i=0}^{v_{\text{max}}} i P(TPo(\lambda,b)=i) )$
 \end{itemize}
 
 Now we really want consistent bounds for $\omega$ (i.e to have no over or under lap), so we would like $\delta(k)=\Delta(k-1)$, luckily by considering the formula's this is true.
 
 \begin{align*}
-\delta(k)&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&=c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
-&= c (\lambda R(B+1)+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
+\delta(k)&=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k))-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&=c (\lambda R B+(k-1)(B+1-P(TPo(\lambda,b) \geq k-1)) + (k-1)P(TPo(\lambda,b)=k-1)-\sum\limits_{i=0}^{k-1} i P(TPo(\lambda,b)=i)) \\
+&= c (\lambda R B +(k-1)(B+1-P(TPo(\lambda,b) \geq k-1))-\sum\limits_{i=0}^{k-2} i P(TPo(\lambda,b)=i))
 =\Delta(k-1)
 \end{align*}
 
@@ -807,7 +803,7 @@ Then if $\omega \in [\Delta(k-1),\Delta(k)]$ ($\Delta(-1)=\delta(0)=0$ by declar
 This gives us a `fair price' to select where to put the boundary of $v_{\text{crit}}$. To the left of this boundary we will wait and renew, to the left of the boundary we will renew immediately.
 
 
-So now the question is given that we are in the state $(B,v)$ will we renew now or not, well if we select a $v_{\text{crit}}$ such that $v \geq v_{\text{crit}}$ then we will renew, otherwise we will elapse and renew (assuming $g \leq c \lambda$). Now we for $v \geq v_{\text{crit}}$ it means that the `fair price' to renew is $\omega \leq \Delta(v+1)$ (that is we will select at least $v_{\text{crit}}$ to be lower than or equal to $v$).
+So now the question is given that we are in the state $(B,v)$ will we renew now or not, well if we select a $v_{\text{crit}}$ such that $v \geq v_{\text{crit}}$ then we will renew, otherwise we will elapse and renew (assuming $g \leq c \lambda$). Now we for $v \geq v_{\text{crit}}$ it means that the `fair price' to renew is $\omega \leq \Delta(v)$ (that is we will select at least $v_{\text{crit}}$ to be lower than or equal to $v$).
 
 To conclude:
 \begin{itemize}
@@ -821,7 +817,6 @@ To conclude:
 NOT SURE ABOUT THE LAST STATEMENT!!!!: seems to make sense coming through the prior state, but worried it does not work with the idea in this state we are paying $c \lambda$ every time unit.
 
 %We will now look at the special case that $v_{max}=0$, that is $\lambda (1-R)$ (Which is guaranteed by $\lambda \leq 1$) so then we will we will always renew now, or we will inccur a higher $g$ than the neglecting strategy. So to get $ 0\leq g \leq c \lambda$ we will always renew when we hit the state $(B,v) \, \forall v$. We know that this will give an average cost of $g=\frac{\text{Expected cost per renewal}}{B}=$
-
 
 \subsection{Index Heuristic}
 To develop a heuristic based on indices we attach a suffix to the prior index which helps us to decide if it is worth visiting now or later.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  20 MAR 2018 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  21 MAR 2018 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1384,17 +1384,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 map}] [1
 
 ] [2] [3] [4] [5] [6] [7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 758.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 754.
 
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 758.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 754.
 
 [10] (./Images/LocallyObservableLongRunAverageCost.tex) [11] [12] [13]
-Overfull \hbox (80.16118pt too wide) in paragraph at lines 928--929
+Overfull \hbox (80.16118pt too wide) in paragraph at lines 923--924
 []\OT1/cmr/m/n/10 Suppose it is on a line sege-ment, then $\OML/cmm/m/it/10 K[]
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )$ is con-stant and hence $\
 OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []$ s
@@ -1404,15 +1404,15 @@ o $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []
 
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 14 undefined on input line 959.
+li attack times' on page 14 undefined on input line 954.
 
 [14] [15] [16] [17]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 1180--1180
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 1175--1175
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 1193--1193
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 1188--1188
 [] 
  []
 
@@ -1458,7 +1458,7 @@ fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Report template.pdf" (22 pages, 362527 bytes).
+Output written on "Report template.pdf" (22 pages, 362420 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams
