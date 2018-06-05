@@ -395,13 +395,13 @@ We now define the long-run rate at which the patroller visits node $i$, followin
 We now impose the \textit{total-rate} constraint, that is the long-run overall visit rate to all nodes is no greater than 1. 
 
 \begin{align*}
-\sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega
+\sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \leq 1 \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega
 \end{align*}
 
 and we denote the set of policies, which satisfy this constraint by
 
 \begin{align*}
-\Pi^{\text{TR}}=\left\{ \pi \in \Pi^{\text{MN}} \, \bigg| \, \sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega \right\}
+\Pi^{\text{TR}}=\left\{ \pi \in \Pi^{\text{MN}} \, \bigg| \, \sum\limits_{i=1}^{n} \mu_{i}(\pi,\bm{s}_{0},\bm{v}_{0}) \leq 1 \quad \forall (\bm{s}_{0},\bm{v}_{0}) \in \Omega \right\}
 \end{align*}
 
 Again $\Pi \subset \Pi^{\text{TR}}$
