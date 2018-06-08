@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  5 JUN 2018 16:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.5)  8 JUN 2018 10:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1223,31 +1223,31 @@ File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.3)
 \c@theorem=\count196
 Package newfloat Info: New float `examplefigure' with options `fileext=los, lis
 tname={List of Example Figures}, name=Example Figure, placement=tbhp, within=se
-ction,' on input line 61.
+ction,' on input line 70.
 \c@examplefigure=\count197
-Package newfloat Info: float type `examplefigure'=4 on input line 61.
+Package newfloat Info: float type `examplefigure'=4 on input line 70.
 \c@losdepth=\count198
 Package newfloat Info: New float `myfigure' with options `fileext=los, listname
 ={List of myFigures}, name=Figure, placement=tbhp, within=section,' on input li
-ne 67.
+ne 76.
 \c@myfigure=\count266
-Package newfloat Info: float type `myfigure'=8 on input line 67.
-Package newfloat Info: \newfloat@ext@los is already defined on input line 67.
+Package newfloat Info: float type `myfigure'=8 on input line 76.
+Package newfloat Info: \newfloat@ext@los is already defined on input line 76.
  (./Report template.aux)
 \openout1 = `"Report template.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf
 .mkii
@@ -1365,11 +1365,11 @@ Package: fr-subfig 2007/12/24 v0.1g (beta) floatrow: additions for subfig
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 80.
+LaTeX Font Info:    Try loading font information for U+msa on input line 89.
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 80.
+LaTeX Font Info:    Try loading font information for U+msb on input line 89.
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1384,17 +1384,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 map}] [1
 
 ] [2] [3] [4] [5] [6] [7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 754.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 763.
 
 
 (/maths/linuxlocal/AMD64/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 754.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 763.
 
 [10] (./Images/LocallyObservableLongRunAverageCost.tex) [11] [12] [13]
-Overfull \hbox (80.16118pt too wide) in paragraph at lines 923--924
+Overfull \hbox (80.16118pt too wide) in paragraph at lines 932--933
 []\OT1/cmr/m/n/10 Suppose it is on a line sege-ment, then $\OML/cmm/m/it/10 K[]
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )$ is con-stant and hence $\
 OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []$ s
@@ -1404,15 +1404,15 @@ o $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = []
 
 
 LaTeX Warning: Reference `Appendix: Formal proof of removing states for bernoul
-li attack times' on page 14 undefined on input line 954.
+li attack times' on page 14 undefined on input line 963.
 
 [14] [15] [16] [17]
-Overfull \hbox (38.46515pt too wide) in paragraph at lines 1175--1175
+Overfull \hbox (38.46515pt too wide) in paragraph at lines 1184--1184
 [] 
  []
 
 
-Overfull \hbox (64.9685pt too wide) in paragraph at lines 1188--1188
+Overfull \hbox (64.9685pt too wide) in paragraph at lines 1197--1197
 [] 
  []
 
@@ -1424,10 +1424,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 25927 strings out of 492995
- 517103 string characters out of 6132690
- 574199 words of memory out of 5000000
- 29060 multiletter control sequences out of 15000+600000
+ 25934 strings out of 492995
+ 517198 string characters out of 6132690
+ 574273 words of memory out of 5000000
+ 29067 multiletter control sequences out of 15000+600000
  18676 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,103p,10487b,883s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1458,7 +1458,7 @@ fb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti7.pfb></maths/linuxlocal/AMD64/texlive/2017/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Report template.pdf" (22 pages, 362958 bytes).
+Output written on "Report template.pdf" (22 pages, 362745 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams

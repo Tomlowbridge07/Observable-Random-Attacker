@@ -34,9 +34,18 @@
 %\DeclarePairedDelimiter{\floor}{\lfloor}{\rightfloor}
 %\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
+\newcommand{\denominator}{\ensuremath{n+\sum\limits_{j=1}^{h} k_{j}}}
 \newcommand{\halflength}{\ensuremath{\floor{\frac{m}{2}}}}
 \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+\newcommand{\pospart}[1]{\left( #1 \right)_{+}}
+\newcommand{\negpart}[1]{\left( #1 \right)_{-}}
+\newcommand{\set}[2]{\left\{ #1 \, | \, #2 \right\}}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
